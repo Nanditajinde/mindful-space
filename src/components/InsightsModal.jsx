@@ -156,7 +156,7 @@ export default function InsightsModal({ userId, text, loading, onClose }) {
                             disabled={saving || saved}
                             className={`w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all
                          ${saved
-                                    ? "bg-green-800/40 border border-green-700 text-green-400"
+                                    ? "bg-[var(--bg-dark)]/40 border border-green-700 text-green-400"
                                     : "bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-600 hover:to-teal-500 text-white shadow-lg"
                                 }`}
                         >

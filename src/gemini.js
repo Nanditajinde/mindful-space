@@ -4,17 +4,17 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
 
 // ── Your Own Trained Model ────────────────────────────────────────
-const OWN_MODEL_URL = "https://prats010-mindbridge-chat.hf.space/api/chat";
+const OWN_MODEL_URL = "https://gayathrij08-Mindfulspace.hf.space/api/chat";
 
 /**
- * Send a message to YOUR trained MindBridge model on Hugging Face
+ * Send a message to YOUR trained MindfulSpace model on Hugging Face
  * @param {string} message - user message
  * @returns {Promise<string>} AI response text
  */
 export async function sendToOwnModel(message) {
   try {
     const { Client } = await import("@gradio/client");
-    const client = await Client.connect("prats010/mindbridge-chat");
+    const client = await Client.connect("gayathrij08/Mindfulspace");
     const result = await client.predict("/chat", {
       user_input: message,
     });
@@ -34,7 +34,7 @@ export async function sendToOwnModel(message) {
 }
 
 // ── Base System Prompt ────────────────────────────────────────────
-const SYSTEM_PROMPT = `You are MindBridge, a compassionate AI mental health support companion.
+const SYSTEM_PROMPT = `You are MindfulSpace, a compassionate AI mental health support companion.
 Your role is to provide emotional support, psychoeducation, and coping strategies.
 
 PERSONALITY:

@@ -26,7 +26,7 @@ export function MarketingNavbar() {
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled ? 'bg-[#080C14]/80 backdrop-blur-md border-[#1A1F2E]' : 'bg-transparent border-transparent'} px-6 h-16 flex items-center justify-between`}>
             <div className="flex items-center gap-2">
                 <span className="text-xl">🧠</span>
-                <span className="font-semibold text-[#F0F6FC] tracking-tight">MindBridge</span>
+                <span className="font-semibold text-[#F0F6FC] tracking-tight">MindfulSpace</span>
             </div>
 
             <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#8B949E]">

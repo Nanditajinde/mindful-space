@@ -1,13 +1,13 @@
 # 📁 Project Structure
 
-A complete breakdown of every file and folder in MindBridge V2.
+A complete breakdown of every file and folder in MindfulSpace V2.
 
 ---
 
 ## Root Directory
 
 ```
-mindbridge-v2/
+MindfulSpace-v2/
 ├── .github/
 │   └── workflows/
 │       └── firebase-hosting-merge.yml  ← CI/CD auto-deploy

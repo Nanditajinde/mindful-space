@@ -82,7 +82,7 @@ export default function TrustedContactModal({ userId, onSaved, editMode = false,
                 <p className="text-slate-400 text-sm text-center mb-7 leading-relaxed">
                     {editMode
                         ? "Update the person we can reach out to if you ever need support."
-                        : "For your safety, please add someone we can reach out to if you ever need support. This is required to use MindBridge."}
+                        : "For your safety, please add someone we can reach out to if you ever need support. This is required to use MindfulSpace."}
                 </p>
 
                 {/* Fields */}
@@ -167,7 +167,7 @@ export default function TrustedContactModal({ userId, onSaved, editMode = false,
                 >
                     {saving
                         ? <><Loader2 className="w-4 h-4 animate-spin" /> Saving…</>
-                        : <>{editMode ? "Save Changes" : "Continue to MindBridge →"}</>
+                        : <>{editMode ? "Save Changes" : "Continue to MindfulSpace →"}</>
                     }
                 </button>
 

@@ -1,6 +1,7 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { useLanguage } from '../../context/LanguageContext';
 
+
 export function Quote() {
     const { ref, isVisible } = useScrollReveal();
     const { t } = useLanguage();
@@ -9,11 +10,15 @@ export function Quote() {
         <section className="py-32 bg-[#0D1117] border-y border-[#1A1F2E]">
             <div
                 ref={ref}
-                className={`max-w-[800px] mx-auto px-6 text-center transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`max-w-[800px] mx-auto px-6 text-center transition-all duration-1000 transform ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
             >
-                <blockquote className="text-2xl md:text-4xl font-light italic text-[#F0F6FC] leading-snug mb-10">
+
+                {/* ✅ ADD THIS */}
+                <p className="text-xl md:text-2xl text-[#F0F6FC] font-medium leading-relaxed mb-10">
                     {t("quote.text")}
-                </blockquote>
+                </p>
 
                 <div className="text-[#8B949E] font-medium tracking-wide mb-12">
                     {t("quote.attr")}
@@ -30,6 +35,7 @@ export function Quote() {
                         <span>🇮🇳</span> {t("quote.badge3")}
                     </span>
                 </div>
+
             </div>
         </section>
     );

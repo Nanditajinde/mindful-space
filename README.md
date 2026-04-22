@@ -2,33 +2,32 @@
 
 <img src="https://em-content.zobj.net/source/microsoft-teams/363/brain_1f9e0.png" width="80px" />
 
-# MindBridge AI
+# MindfulSpace AI
 
 ### _Your 24/7 AI-powered mental health companion_
 
 **Built for India · Powered by Custom ML · 100% Free**
 
-[![Live Demo](https://img.shields.io/badge/🧠_Live_Demo-Visit_App-0D9488?style=for-the-badge)](https://mindbridge-v2-18fa8.web.app/)
-[![Custom ML Model](https://img.shields.io/badge/Custom_ML-In--House_Model-7C3AED?style=for-the-badge)](https://github.com/prats010/mindbridge-v2)
+[![Live Demo](https://img.shields.io/badge/🧠_Live_Demo-Visit_App-0D9488?style=for-the-badge)](https://MindfulSpace-v2-18fa8.web.app/)
+[![Custom ML Model](https://img.shields.io/badge/Custom_ML-In--House_Model-7C3AED?style=for-the-badge)](https://github.com/prats010/MindfulSpace-v2)
 [![Gemini Insights](https://img.shields.io/badge/Google_Gemini-Insights_&_Tests-4285F4?style=for-the-badge&logo=google)](https://aistudio.google.com)
 [![Firebase](https://img.shields.io/badge/Firebase-Powered-FF6F00?style=for-the-badge&logo=firebase)](https://firebase.google.com)
 [![License](https://img.shields.io/badge/License-MIT-7C3AED?style=for-the-badge)](LICENSE)
 
 ---
 
-_"I didn't think an AI could make me feel heard. MindBridge was there at 2am when I had no one else to talk to."_
 
 </div>
 
 ---
 
-## 🌟 What is MindBridge?
+## 🌟 What is MindfulSpace?
 
-MindBridge is a free, AI-powered mental health support platform built specifically for India. With **150 million Indians** needing mental health care but only **0.3 psychiatrists per 100,000 people**, access to support is a crisis in itself.
+MindfulSpace is a free, AI-powered mental health support platform built specifically for India. With **150 million Indians** needing mental health care but only **0.3 psychiatrists per 100,000 people**, access to support is a crisis in itself.
 
-MindBridge bridges that gap — providing compassionate, intelligent, 24/7 mental health support through our **custom-trained ML chatbot model**, advanced behavioural mood detection, clinically validated screening tools, and mood tracking — all completely free, completely private.
+MindfulSpace bridges that gap — providing compassionate, intelligent, 24/7 mental health support through our **custom-trained ML chatbot model**, advanced behavioural mood detection, clinically validated screening tools, and mood tracking — all completely free, completely private.
 
-> ⚠️ **Disclaimer:** MindBridge is a support companion, not a replacement for professional mental health care. If you are in crisis, please call **iCall: 9152987821**.
+> ⚠️ **Disclaimer:** MindfulSpace is a support companion, not a replacement for professional mental health care. If you are in crisis, please call **iCall: 9152987821**.
 
 ---
 
@@ -53,7 +52,7 @@ All of this analysis runs **100% locally in the browser** — no data ever leave
 
 ### 🎤 Voice Mode
 
-Full voice input and output using the **Web Speech API** — completely free, no external service needed. Speak naturally and hear MindBridge respond in a calm, measured voice.
+Full voice input and output using the **Web Speech API** — completely free, no external service needed. Speak naturally and hear MindfulSpace respond in a calm, measured voice.
 
 ### 📋 PHQ-9 & GAD-7 Assessments _(powered by Google Gemini)_
 
@@ -110,8 +109,8 @@ On first login, users register a trusted contact (friend, parent, counsellor). T
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/prats010/mindbridge-v2.git
-cd mindbridge-v2
+git clone https://github.com/prats010/MindfulSpace-v2.git
+cd MindfulSpace-v2
 ```
 
 **2. Install dependencies**
@@ -183,7 +182,7 @@ firebase deploy --only hosting
 ## 📁 Project Structure
 
 ```
-mindbridge-v2/
+MindfulSpace-v2/
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.jsx                  # Navigation bar
@@ -210,7 +209,7 @@ mindbridge-v2/
 
 ## 🧠 How the Chatbot Works
 
-MindBridge's core chat experience is driven by our **custom-trained ML model**, fine-tuned specifically for mental health support conversations. The model is designed to:
+MindfulSpace's core chat experience is driven by our **custom-trained ML model**, fine-tuned specifically for mental health support conversations. The model is designed to:
 
 1. Always acknowledge feelings **before** offering advice
 2. Use the user's name for personalisation
@@ -249,7 +248,7 @@ These signals are combined into a **composite mood score** that informs the dash
 | **PHQ-9** | Depression screening | 0–27 |
 | **GAD-7** | Anxiety screening | 0–21 |
 
-Both are **WHO-validated** tools used globally by clinical professionals. MindBridge uses them for screening only — results are interpreted by Gemini AI with compassion and context, not cold clinical language.
+Both are **WHO-validated** tools used globally by clinical professionals. MindfulSpace uses them for screening only — results are interpreted by Gemini AI with compassion and context, not cold clinical language.
 
 ---
 
@@ -290,7 +289,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 **Prem** — Contributed to UI Designing
 
-> _Mental health support should be accessible to everyone, everywhere, at any hour. MindBridge is our step toward making that real._
+> _Mental health support should be accessible to everyone, everywhere, at any hour. MindfulSpace is our step toward making that real._
 
 ---
 

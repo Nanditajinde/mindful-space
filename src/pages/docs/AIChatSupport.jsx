@@ -4,9 +4,9 @@ import { useLanguage } from "../../context/LanguageContext";
 
 const content = {
   en: {
-    lastUpdated: "Last updated: Oct 24, 2024",
+    lastUpdated: "Last updated: Apr 12, 2026",  
     h1: "AI Chat Support",
-    intro: "The core of MindBridge is our conversational AI assistant, powered by Google Gemini 2.5 Flash. It is fundamentally different from standard chatbots because of its highly specific system prompt and local sentiment tracking.",
+    intro: "The core of MindfulSpace is our conversational AI assistant, powered by Google Gemini 2.5 Flash. It is fundamentally different from standard chatbots because of its highly specific system prompt and local sentiment tracking.",
     howH2: "How the Chat Works",
     howP: "When you send a message, it is packaged alongside your last 30 messages (to maintain context) and sent directly to Gemini. However, before the AI generates a single word, it references an invisible \"System Prompt\":",
     sentimentH2: "Sentiment Analysis",
@@ -25,9 +25,9 @@ const content = {
     voiceP: <>Sometimes typing is too much. You can tap the Microphone icon to speak into your device. We use the browser's native Web Speech API to transcribe your voice instantly, and the Speech Synthesis API to speak the AI's responses back in a calming voice. Read more on the <a href="/docs/voice-mode" className="text-teal-400">Voice Mode page</a>.</>,
   },
   hi: {
-    lastUpdated: "अंतिम अपडेट: अक्टू. 24, 2024",
+    lastUpdated: "अंतिम अपडेट: अप्रैल 12, 2026",
     h1: "AI चैट सपोर्ट",
-    intro: "MindBridge का मूल हमारा संवादी AI सहायक है, जो Google Gemini 2.5 Flash द्वारा संचालित है। यह अपने अत्यधिक विशिष्ट सिस्टम प्रॉम्प्ट और स्थानीय सेंटिमेंट ट्रैकिंग के कारण मानक चैटबॉट्स से मौलिक रूप से अलग है।",
+    intro: "MindfulSpace का मूल हमारा संवादी AI सहायक है, जो Google Gemini 2.5 Flash द्वारा संचालित है। यह अपने अत्यधिक विशिष्ट सिस्टम प्रॉम्प्ट और स्थानीय सेंटिमेंट ट्रैकिंग के कारण मानक चैटबॉट्स से मौलिक रूप से अलग है।",
     howH2: "चैट कैसे काम करती है",
     howP: "जब आप कोई संदेश भेजते हैं, तो उसे आपके पिछले 30 संदेशों (संदर्भ बनाए रखने के लिए) के साथ पैकेज करके सीधे Gemini को भेजा जाता है। हालांकि, AI एक भी शब्द उत्पन्न करने से पहले, एक अदृश्य \"System Prompt\" का संदर्भ लेता है:",
     sentimentH2: "सेंटिमेंट विश्लेषण",
@@ -45,27 +45,34 @@ const content = {
     voiceH2: "वॉइस मोड",
     voiceP: <>कभी-कभी टाइपिंग बहुत ज़्यादा लगती है। आप माइक्रोफ़ोन आइकन टैप करके अपने डिवाइस में बोल सकते हैं। हम ब्राउज़र के मूल Web Speech API का उपयोग करके आपकी आवाज़ को तुरंत ट्रांसक्राइब करते हैं, और एक शांत आवाज़ में AI की प्रतिक्रियाएं वापस बोलने के लिए Speech Synthesis API का उपयोग करते हैं। <a href="/info/voice-mode" className="text-teal-400">वॉइस मोड पेज</a> पर अधिक पढ़ें।</>,
   },
-  mr: {
-    lastUpdated: "शेवटचे अपडेट: ऑक्टो. 24, 2024",
-    h1: "AI चॅट सपोर्ट",
-    intro: "MindBridge चा मूळ भाग आमचा संभाषणात्मक AI सहाय्यक आहे, जो Google Gemini 2.5 Flash द्वारे चालवला जातो. हे त्याच्या अत्यंत विशिष्ट सिस्टम प्रॉम्प्ट आणि स्थानिक सेंटिमेंट ट्रॅकिंगमुळे मानक चॅटबॉट्सपेक्षा मूलतः वेगळे आहे.",
-    howH2: "चॅट कसे काम करते",
-    howP: "जेव्हा तुम्ही संदेश पाठवता, तेव्हा तो संदर्भ राखण्यासाठी तुमच्या शेवटच्या 30 संदेशांसह पॅकेज केला जातो आणि थेट Gemini ला पाठवला जातो. तथापि, AI एकही शब्द निर्माण करण्यापूर्वी, ते एका अदृश्य \"System Prompt\" चा संदर्भ घेते:",
-    sentimentH2: "सेंटिमेंट विश्लेषण",
-    sentimentP: "संदेश आमच्या सर्व्हरवर पोहोचण्यापूर्वीच आम्ही तुमच्या ब्राउझरमध्ये स्थानिकरित्या एक शुद्ध-JavaScript सेंटिमेंट स्कोरिंग अल्गोरिदम चालवतो. \"exhausted,\" \"hopeless,\" आणि \"angry\" सारखे शब्द स्कोर कमी करतात, तर \"excited,\" \"calm,\" आणि \"better\" सारखे शब्द तो वाढवतात. हा स्कोर Firebase मधील एन्क्रिप्टेड संदेशासोबत जतन केला जातो, तुमच्या डॅशबोर्ड इनसाइट्समध्ये योगदान देतो.",
-    crisisH2: "संकट शोध",
-    crisisP: "सुरक्षा बाबत तडजोड नाही. आम्ही दुहेरी-स्तरीय संकट शोध यंत्रणा वापरतो:",
-    crisisItems: [
-      <><strong>स्थानिक कीवर्ड जुळणी:</strong> तुम्ही उच्च-जोखीम कीवर्ड टाइप केल्यास ("kill myself", "want to die", "end it"), UI तत्काळ संदेश इंटरसेप्ट करतो आणि <em>CrisisModal</em> ब्लॉकिंग ओव्हरले दाखवतो.</>,
-      <><strong>AI संदर्भात्मक जुळणी:</strong> AI संदर्भानुसार आत्मघाती विचार अनुमान करत असल्यास (विशिष्ट ट्रिगर शब्दांशिवायही), ते त्याच्या प्रतिसादात लपलेला <code>[CRISIS]</code> टॅग जोडते, जे सुरक्षा ओव्हरले देखील ट्रिगर करते.</>,
-    ],
-    crisisCalloutTitle: "संकट ओव्हरले",
-    crisisCalloutText: "संकट ओव्हरले स्क्रीन लॉक करतो, तुमच्या विश्वासू संपर्काचा फोन नंबर दाखवतो, आणि राष्ट्रीय भारतीय आत्महत्या हेल्पलाइन (जसे iCall आणि Vandrevala Foundation) साठी क्विक-टॅप लिंक प्रदान करतो.",
-    historyH2: "संभाषण इतिहास",
-    historyP: "प्रत्येक वेळी तुम्ही चॅट करता, तुमचे संदेश सुरक्षितपणे तुमच्या खाजगी Firebase Cloud Firestore दस्तऐवजात जोडले जातात. ते थेट तुमच्या Google Identity UID शी जोडलेले असतात. ॲप लोड केल्यावर शेवटच्या 30 दिवसांचा संदर्भ येतो, त्यामुळे AI ला आठवते की तुम्ही काल कशाशी झुंजत होता.",
-    voiceH2: "व्हॉइस मोड",
-    voiceP: <>काहीवेळा टाइपिंग खूप जड वाटते. तुम्ही मायक्रोफोन आयकन टॅप करून तुमच्या डिव्हाइसमध्ये बोलू शकता. आम्ही ब्राउझरच्या मूळ Web Speech API चा वापर करून तुमचा आवाज त्वरित ट्रान्सक्राइब करतो, आणि शांत आवाजात AI च्या प्रतिसाद परत बोलण्यासाठी Speech Synthesis API वापरतो. <a href="/info/voice-mode" className="text-teal-400">व्हॉइस मोड पेज</a> वर अधिक वाचा.</>,
-  },
+  kn: {
+  lastUpdated: "ಕೊನೆಯ ಅಪ್‌ಡೇಟ್: ಏಪ್ರಿಲ್ 12, 2026",
+  h1: "AI ಚಾಟ್ ಬೆಂಬಲ",
+  intro: "MindfulSpace ನ ಮುಖ್ಯ ಭಾಗವು ನಮ್ಮ ಸಂಭಾಷಣಾತ್ಮಕ AI ಸಹಾಯಕವಾಗಿದೆ, ಇದು Google Gemini 2.5 Flash ಮೂಲಕ ಚಾಲಿತವಾಗಿದೆ. ಇದು ಅದರ ವಿಶೇಷವಾದ ಸಿಸ್ಟಮ್ ಪ್ರಾಂಪ್ಟ್ ಮತ್ತು ಸ್ಥಳೀಯ ಸೆಂಟಿಮೆಂಟ್ ಟ್ರ್ಯಾಕಿಂಗ್‌ನಿಂದ ಸಾಮಾನ್ಯ ಚಾಟ್‌ಬಾಟ್‌ಗಳಿಂದ ವಿಭಿನ್ನವಾಗಿದೆ.",
+  
+  howH2: "ಚಾಟ್ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ",
+  howP: "ನೀವು ಸಂದೇಶ ಕಳುಹಿಸಿದಾಗ, ಅದು ನಿಮ್ಮ ಕೊನೆಯ 30 ಸಂದೇಶಗಳೊಂದಿಗೆ (ಸಂದರ್ಭವನ್ನು ಉಳಿಸಿಕೊಳ್ಳಲು) ಸೇರಿಸಿ ನೇರವಾಗಿ Gemini ಗೆ ಕಳುಹಿಸಲಾಗುತ್ತದೆ. ಆದರೆ, AI ಒಂದು ಪದವನ್ನು ರಚಿಸುವ ಮೊದಲು, ಅದು ಒಂದು ಅಡಗಿದ \"System Prompt\" ಅನ್ನು ಉಲ್ಲೇಖಿಸುತ್ತದೆ:",
+
+  sentimentH2: "ಸೆಂಟಿಮೆಂಟ್ ವಿಶ್ಲೇಷಣೆ",
+  sentimentP: "ನಿಮ್ಮ ಸಂದೇಶವು ನಮ್ಮ ಸರ್ವರ್‌ಗಳಿಗೆ ತಲುಪುವ ಮೊದಲು, ನಾವು ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಸ್ಥಳೀಯವಾಗಿ ಶುದ್ಧ JavaScript ಸೆಂಟಿಮೆಂಟ್ ಸ್ಕೋರಿಂಗ್ ಅಲ್ಗಾರಿದಮ್ ಅನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸುತ್ತೇವೆ. \"exhausted,\" \"hopeless,\" ಮತ್ತು \"angry\" ಎಂಬ ಪದಗಳು ಸ್ಕೋರ್ ಅನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತವೆ, ಆದರೆ \"excited,\" \"calm,\" ಮತ್ತು \"better\" ಪದಗಳು ಅದನ್ನು ಹೆಚ್ಚಿಸುತ್ತವೆ. ಈ ಸ್ಕೋರ್ Firebase ನಲ್ಲಿ ಎನ್ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಸಂದೇಶದೊಂದಿಗೆ ಸಂಗ್ರಹವಾಗುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಇನ್‌ಸೈಟ್ಸ್‌ಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.",
+
+  crisisH2: "ಸಂಕಷ್ಟ ಪತ್ತೆ",
+  crisisP: "ಭದ್ರತೆ ಅತ್ಯಂತ ಮುಖ್ಯ. ನಾವು ಎರಡು ಹಂತದ ಸಂಕಷ್ಟ ಪತ್ತೆ ವ್ಯವಸ್ಥೆಯನ್ನು ಬಳಸುತ್ತೇವೆ:",
+
+  crisisItems: [
+    <><strong>ಸ್ಥಳೀಯ ಕೀವರ್ಡ್ ಮ್ಯಾಚಿಂಗ್:</strong> ನೀವು ಹೆಚ್ಚಿನ ಅಪಾಯದ ಕೀವರ್ಡ್‌ಗಳನ್ನು (\"kill myself\", \"want to die\", \"end it\") ಟೈಪ್ ಮಾಡಿದರೆ, UI ತಕ್ಷಣವೇ ಸಂದೇಶವನ್ನು ತಡೆದು <em>CrisisModal</em> ಬ್ಲಾಕಿಂಗ್ ಓವರ್‌ಲೇ ಅನ್ನು ತೋರಿಸುತ್ತದೆ.</>,
+    <><strong>AI ಸಂಧರ್ಭ ಮ್ಯಾಚಿಂಗ್:</strong> AI ಸಂಧರ್ಭದ ಆಧಾರದ ಮೇಲೆ ಆತ್ಮಹತ್ಯೆಯ ಚಿಂತನೆಗಳನ್ನು ಗುರುತಿಸಿದರೆ (ನಿರ್ದಿಷ್ಟ ಪದಗಳಿಲ್ಲದಿದ್ದರೂ), ಅದು ತನ್ನ ಪ್ರತಿಕ್ರಿಯೆಯಲ್ಲಿ ಅಡಗಿದ <code>[CRISIS]</code> ಟ್ಯಾಗ್ ಅನ್ನು ಸೇರಿಸುತ್ತದೆ, ಇದು ಭದ್ರತಾ ಓವರ್‌ಲೇ ಅನ್ನು ಪ್ರಾರಂಭಿಸುತ್ತದೆ.</>,
+  ],
+
+  crisisCalloutTitle: "ಸಂಕಷ್ಟ ಓವರ್‌ಲೇ",
+  crisisCalloutText: "ಸಂಕಷ್ಟ ಓವರ್‌ಲೇ ಪರದೆನ್ನು ಲಾಕ್ ಮಾಡುತ್ತದೆ, ನಿಮ್ಮ ವಿಶ್ವಾಸಾರ್ಹ ಸಂಪರ್ಕದ ಫೋನ್ ಸಂಖ್ಯೆಯನ್ನು ತೋರಿಸುತ್ತದೆ ಮತ್ತು ರಾಷ್ಟ್ರೀಯ ಭಾರತೀಯ ಆತ್ಮಹತ್ಯೆ ಸಹಾಯವಾಣಿ (iCall ಮತ್ತು Vandrevala Foundation) ಗೆ ತ್ವರಿತ ಲಿಂಕ್‌ಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ.",
+
+  historyH2: "ಸಂಭಾಷಣೆ ಇತಿಹಾಸ",
+  historyP: "ಪ್ರತಿ ಬಾರಿ ನೀವು ಚಾಟ್ ಮಾಡಿದಾಗ, ನಿಮ್ಮ ಸಂದೇಶಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ನಿಮ್ಮ ಖಾಸಗಿ Firebase Cloud Firestore ಡಾಕ್ಯುಮೆಂಟ್‌ಗೆ ಸೇರಿಸಲಾಗುತ್ತದೆ. ಅವು ನಿಮ್ಮ Google Identity UID ಗೆ ನೇರವಾಗಿ ಸಂಪರ್ಕ ಹೊಂದಿರುತ್ತವೆ. ಆಪ್ ಲೋಡ್ ಆಗುವಾಗ ಕೊನೆಯ 30 ದಿನಗಳ ಸಂಧರ್ಭವನ್ನು ಪಡೆಯುತ್ತದೆ, ಆದ್ದರಿಂದ AI ಗೆ ನೀವು ನಿನ್ನೆ ಎದುರಿಸಿದ ಸಮಸ್ಯೆಗಳು ನೆನಪಿರುತ್ತವೆ.",
+
+  voiceH2: "ವಾಯ್ಸ್ ಮೋಡ್",
+  voiceP: <>ಕೆಲವೊಮ್ಮೆ ಟೈಪ್ ಮಾಡುವುದು ಕಷ್ಟವಾಗಬಹುದು. ನೀವು ಮೈಕ್ರೋಫೋನ್ ಐಕಾನ್ ಒತ್ತಿ ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಮಾತನಾಡಬಹುದು. ನಾವು ಬ್ರೌಸರ್‌ನ ಮೂಲ Web Speech API ಅನ್ನು ಬಳಸಿ ನಿಮ್ಮ ಧ್ವನಿಯನ್ನು ತಕ್ಷಣ ಪಠ್ಯಕ್ಕೆ ಪರಿವರ್ತಿಸುತ್ತೇವೆ ಮತ್ತು Speech Synthesis API ಮೂಲಕ AI ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಶಾಂತ ಧ್ವನಿಯಲ್ಲಿ ಮತ್ತೆ ಕೇಳಿಸುತ್ತೇವೆ. <a href="/info/voice-mode" className="text-teal-400">ವಾಯ್ಸ್ ಮೋಡ್ ಪುಟ</a> ನಲ್ಲಿ ಇನ್ನಷ್ಟು ಓದಿ.</>,
+},
 };
 
 export default function AIChatSupport() {
@@ -86,7 +93,7 @@ export default function AIChatSupport() {
         language="javascript"
         code={`// The strict psychological guardrails placed on Gemini
 const SYSTEM_PROMPT = \`
-You are MindBridge, an empathetic, non-judgmental mental health companion.
+You are MindfulSpace, an empathetic, non-judgmental mental health companion.
 1. NEVER offer clinical advice, diagnoses, or medication recommendations.
 2. If the user mentions self-harm, immediately prepend your response with [CRISIS].
 3. Validate emotions before offering coping mechanisms.

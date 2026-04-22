@@ -13,66 +13,91 @@ export default function LoginPage() {
     setSigningIn(true);
     try {
       await signInWithGoogle();
-    } catch {
-      alert("Login failed. Please try again.");
+    } catch (error) {
+      console.error("Login Error:", error);
+      alert(error.message);
       setSigningIn(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-[#0A0C10]">
-      {/* Card */}
-      <div className="w-full max-w-sm text-left animate-fade-in">
-        {/* Brain logo + language selector row */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-3">
-            <span className="text-3xl">🧠</span>
-            <span className="text-2xl font-bold text-slate-100 tracking-tight">MindBridge</span>
+    <div className="min-h-screen relative overflow-hidden bg-[#020617]">
+
+      {/* 🌌 Gradient Glow (same as homepage) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(13,148,136,0.25),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(124,58,237,0.25),transparent_40%)]"></div>
+
+      {/* ✨ Dotted Grid */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
+
+      {/* 🌟 Content */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
+        
+        <div className="w-full max-w-sm text-left animate-fade-in">
+          
+          {/* Logo + Language */}
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">🧠</span>
+              <span className="text-2xl font-bold text-slate-100 tracking-tight">
+                MindfulSpace
+              </span>
+            </div>
+            <LanguageSelector variant="navbar" />
           </div>
-          <LanguageSelector variant="navbar" />
-        </div>
 
-        <h1 className="text-2xl font-semibold mb-2 text-slate-100 tracking-tight">
-          {t("login.welcome")}
-        </h1>
+          <h1 className="text-2xl font-semibold mb-2 text-slate-100 tracking-tight">
+            {t("login.welcome")}
+          </h1>
 
-        <p className="text-slate-400 text-sm mb-8 leading-relaxed">
-          {t("login.subtitle")}
-        </p>
+          <p className="text-slate-400 text-sm mb-8 leading-relaxed">
+            {t("login.subtitle")}
+          </p>
 
-        {/* Card container */}
-        <div className="bg-[#0F111A] border border-slate-800/60 rounded-xl p-6 shadow-sm">
-          <button
-            onClick={handleLogin}
-            disabled={signingIn}
-            className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-50 disabled:opacity-70 text-gray-900 font-medium py-2.5 px-4 rounded-lg transition-colors border border-gray-200"
-          >
-            {signingIn ? (
-              <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
-            ) : (
-              <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 48 48">
-                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
-                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
-                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
-                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
-              </svg>
-            )}
-            {signingIn ? t("login.signingIn") : t("login.continueGoogle")}
-          </button>
+          {/* Card */}
+          <div className="bg-[rgba(15,23,42,0.6)] backdrop-blur-xl border border-slate-800/60 rounded-xl p-6 shadow-xl transition-all duration-300">
+            
+            <button
+              onClick={handleLogin}
+              disabled={signingIn}
+              className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-50 disabled:opacity-70 text-gray-900 font-medium py-2.5 px-4 rounded-lg transition-colors border border-gray-200"
+            >
+              {signingIn ? (
+                <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+              ) : (
+                <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 48 48">
+                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                  <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                  <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                  <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                </svg>
+              )}
+              {signingIn ? t("login.signingIn") : t("login.continueGoogle")}
+            </button>
 
-          <div className="mt-6 pt-5 border-t border-slate-800/60">
-            <p className="text-xs text-slate-500 leading-relaxed text-center">
-              {t("login.disclaimer")}<br />
-              {t("login.crisis")} <a href="tel:9152987821" className="text-slate-300 hover:text-white underline transition-colors">iCall: 9152987821</a>
-            </p>
+            {/* Disclaimer */}
+            <div className="mt-6 pt-5 border-t border-slate-800/60">
+              <p className="text-xs text-slate-500 leading-relaxed text-center">
+                {t("login.disclaimer")}<br />
+                {t("login.crisis")}{" "}
+                <a
+                  href="tel:9152987821"
+                  className="text-slate-300 hover:text-white underline transition-colors"
+                >
+                  iCall: 9152987821
+                </a>
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Trust badges */}
-        <div className="mt-8 flex justify-center gap-6">
-          {[t("login.badge.secure"), t("login.badge.ai"), t("login.badge.free")].map((b) => (
-            <span key={b} className="text-xs text-slate-500 font-medium">{b}</span>
-          ))}
+          {/* Trust badges */}
+          <div className="mt-8 flex justify-center gap-6">
+            {[t("login.badge.secure"), t("login.badge.ai"), t("login.badge.free")].map((b) => (
+              <span key={b} className="text-xs text-slate-500 font-medium">
+                {b}
+              </span>
+            ))}
+          </div>
+
         </div>
       </div>
     </div>

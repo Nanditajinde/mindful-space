@@ -5,7 +5,7 @@ const content = {
   en: {
     lastUpdated: "Last updated: Oct 24, 2024",
     h1: "Built with Gemini",
-    intro: "MindBridge is built on top of Google's Gemini 2.5 Flash, a highly capable multimodal generative AI model. We specifically chose Gemini for MindBridge for the following reasons:",
+    intro: "MindfulSpace is built on top of Google's Gemini 2.5 Flash, a highly capable multimodal generative AI model. We specifically chose Gemini for MindfulSpace for the following reasons:",
     whyH2: "Why Gemini?",
     reasons: [
       <><strong>Safety-first design:</strong> Gemini's safety filters and layered safety features make it the most responsible choice for a healthcare-adjacent application.</>,
@@ -13,7 +13,7 @@ const content = {
       <><strong>Deep reasoning:</strong> Mental health assessment interpretation requires sophisticated understanding of context and nuance.</>,
       <><strong>Google ecosystem integration:</strong> The project uses Firebase (a Google product) for backend, making a unified API architecture natural.</>,
     ],
-    usageH2: "How Gemini is used in MindBridge",
+    usageH2: "How Gemini is used in MindfulSpace",
     usages: [
       { feature: "AI Chat Support", badge: "Core", desc: "Every conversational exchange is backed by Gemini. The system prompt is carefully engineered to restrict responses to empathetic, non-clinical support." },
       { feature: "Assessment Interpretation", badge: "Insights", desc: "After you submit a PHQ-9 or GAD-7 score, the numerical results are passed to Gemini to generate a natural-language explanation and coping strategies." },
@@ -27,7 +27,7 @@ const content = {
   hi: {
     lastUpdated: "अंतिम अपडेट: अक्टू. 24, 2024",
     h1: "Gemini के साथ बनाया",
-    intro: "MindBridge Google के Gemini 2.5 Flash पर बनाया गया है, जो एक अत्यधिक सक्षम मल्टीमोडल जेनेरेटिव AI मॉडल है। हमने MindBridge के लिए विशेष रूप से Gemini को निम्नलिखित कारणों से चुना:",
+    intro: "MindfulSpace Google के Gemini 2.5 Flash पर बनाया गया है, जो एक अत्यधिक सक्षम मल्टीमोडल जेनेरेटिव AI मॉडल है। हमने MindfulSpace के लिए विशेष रूप से Gemini को निम्नलिखित कारणों से चुना:",
     whyH2: "Gemini क्यों?",
     reasons: [
       <><strong>सुरक्षा-प्रथम डिज़ाइन:</strong> Gemini के सुरक्षा फ़िल्टर और स्तरित सुरक्षा सुविधाएं इसे स्वास्थ्य-संबंधी अनुप्रयोग के लिए सबसे जिम्मेदार विकल्प बनाती हैं।</>,
@@ -35,7 +35,7 @@ const content = {
       <><strong>गहरा तर्क:</strong> मानसिक स्वास्थ्य मूल्यांकन की व्याख्या के लिए संदर्भ और सूक्ष्मता की परिष्कृत समझ की आवश्यकता होती है।</>,
       <><strong>Google इकोसिस्टम एकीकरण:</strong> परियोजना बैकएंड के लिए Firebase (एक Google उत्पाद) का उपयोग करती है, जिससे एकीकृत API आर्किटेक्चर स्वाभाविक है।</>,
     ],
-    usageH2: "MindBridge में Gemini का उपयोग",
+    usageH2: "MindfulSpace में Gemini का उपयोग",
     usages: [
       { feature: "AI चैट सपोर्ट", badge: "Core", desc: "प्रत्येक संवादी आदान-प्रदान Gemini द्वारा समर्थित है। सिस्टम प्रॉम्प्ट सावधानीपूर्वक सहानुभूतिपूर्ण, गैर-नैदानिक समर्थन तक प्रतिक्रियाओं को प्रतिबंधित करने के लिए इंजीनियर किया गया है।" },
       { feature: "मूल्यांकन व्याख्या", badge: "Insights", desc: "PHQ-9 या GAD-7 स्कोर जमा करने के बाद, संख्यात्मक परिणाम प्राकृतिक-भाषा स्पष्टीकरण और कॉपिंग रणनीतियां उत्पन्न करने के लिए Gemini को पास किए जाते हैं।" },
@@ -46,28 +46,32 @@ const content = {
     privacyH2: "गोपनीयता विचार",
     privacyP: "आपके व्यक्तिगत चैट संदेश और व्यक्तिगत विवरण सीधे Gemini को पास नहीं किए जाते। AI इनसाइट्स रिपोर्ट के लिए, Gemini प्रॉम्प्ट पेलोड में केवल आपकी गतिविधि का एकत्रित सांख्यिकीय सारांश (संदेश स्वयं नहीं) शामिल है।",
   },
-  mr: {
-    lastUpdated: "शेवटचे अपडेट: ऑक्टो. 24, 2024",
-    h1: "Gemini सह बांधले",
-    intro: "MindBridge Google च्या Gemini 2.5 Flash वर बांधले आहे, एक अत्यंत सक्षम मल्टीमोडल जेनेरेटिव्ह AI मॉडेल. आम्ही MindBridge साठी विशेषतः Gemini खालील कारणांसाठी निवडला:",
-    whyH2: "Gemini का?",
-    reasons: [
-      <><strong>सुरक्षा-प्रथम डिझाइन:</strong> Gemini च्या सुरक्षा फिल्टर आणि स्तरित सुरक्षा वैशिष्ट्ये आरोग्य-संबंधित ॲप्लिकेशनसाठी सर्वात जबाबदार निवड बनवतात.</>,
-      <><strong>गती:</strong> Flash गतीसाठी अनुकूलित आहे, जे समकालिक संभाषण केंद्रित ॲपमध्ये महत्त्वाचे आहे.</>,
-      <><strong>सखोल तर्क:</strong> मानसिक आरोग्य मूल्यमापन स्पष्टीकरणासाठी संदर्भ आणि सूक्ष्मतेची परिष्कृत समज आवश्यक आहे.</>,
-      <><strong>Google इकोसिस्टम एकीकरण:</strong> प्रकल्प बॅकएंडसाठी Firebase (एक Google उत्पादन) वापरतो, एकीकृत API आर्किटेक्चर नैसर्गिक बनवतो.</>,
-    ],
-    usageH2: "MindBridge मध्ये Gemini कसा वापरला जातो",
-    usages: [
-      { feature: "AI चॅट सपोर्ट", badge: "Core", desc: "प्रत्येक संभाषणात्मक देवाणघेवाण Gemini द्वारे समर्थित आहे. सिस्टम प्रॉम्प्ट सहानुभूतीपूर्ण, गैर-क्लिनिकल सहाय्यापुरते प्रतिसाद प्रतिबंधित करण्यासाठी काळजीपूर्वक तयार केले आहे." },
-      { feature: "मूल्यमापन स्पष्टीकरण", badge: "Insights", desc: "PHQ-9 किंवा GAD-7 स्कोर सबमिट केल्यानंतर, नैसर्गिक-भाषा स्पष्टीकरण आणि कोपिंग धोरणे तयार करण्यासाठी संख्यात्मक परिणाम Gemini ला दिले जातात." },
-      { feature: "AI इनसाइट्स डॅशबोर्ड", badge: "Analytics", desc: "तुमचा 14-दिवसांचा मूड आणि सेंटिमेंट इतिहास, अलीकडील मूल्यमापनांसोबत, Gemini तुमचा साप्ताहिक मनोवैज्ञानिक अहवाल लिहिण्यासाठी विश्लेषण करण्याचा संदर्भ बनवतात." },
-    ],
-    safetyH2: "AI सुरक्षा आणि जबाबदारी",
-    safetyP: "आम्ही Gemini चे अंगभूत सुरक्षा फिल्टर अक्षम केले नाहीत. त्याच्या डिफ़ॉल्टच्या व्यतिरिक्त, आम्ही आमच्या System Prompt द्वारे मॉडेलला आणखी मर्यादित करतो जेणेकरून ते कधीही वैद्यकीय निदान, औषध शिफारसी देणार नाही, किंवा धोकादायक विचार ट्रिगर करणार नाही.",
-    privacyH2: "गोपनीयतेचे विचार",
-    privacyP: "तुमचे वैयक्तिक चॅट संदेश आणि वैयक्तिक तपशील थेट Gemini ला दिले जात नाहीत. AI इनसाइट्स अहवालासाठी, Gemini प्रॉम्प्ट पेलोडमध्ये फक्त तुमच्या क्रियाकलापाचा एकत्रित सांख्यिकीय सारांश (संदेश स्वतः नाही) समाविष्ट आहे.",
-  },
+  kn: {
+  lastUpdated: "ಕೊನೆಯ ನವೀಕರಣ: ಏಪ್ರಿಲ್ 12, 2026",
+  h1: "Gemini ಮೂಲಕ ನಿರ್ಮಿಸಲಾಗಿದೆ",
+  intro: "MindfulSpace ಅನ್ನು Google ನ Gemini 2.5 Flash ಮೇಲೆ ನಿರ್ಮಿಸಲಾಗಿದೆ, ಇದು ಅತ್ಯಂತ ಸಾಮರ್ಥ್ಯವಿರುವ ಮಲ್ಟಿಮೋಡಲ್ ಜನರೇಟಿವ್ AI ಮಾದರಿ. ನಾವು MindfulSpace ಗಾಗಿ Gemini ಅನ್ನು ವಿಶೇಷವಾಗಿ ಕೆಳಗಿನ ಕಾರಣಗಳಿಂದ ಆಯ್ಕೆ ಮಾಡಿದ್ದೇವೆ:",
+
+  whyH2: "ಏಕೆ Gemini?",
+  reasons: [
+    <><strong>ಭದ್ರತೆ-ಮೊದಲ ವಿನ್ಯಾಸ:</strong> Gemini ನ ಭದ್ರತಾ ಫಿಲ್ಟರ್‌ಗಳು ಮತ್ತು ಬಹು-ಪದರ ಭದ್ರತಾ ವೈಶಿಷ್ಟ್ಯಗಳು ಇದನ್ನು ಆರೋಗ್ಯ ಸಂಬಂಧಿತ ಅಪ್ಲಿಕೇಶನ್‌ಗಳಿಗೆ ಅತ್ಯಂತ ಜವಾಬ್ದಾರಿಯುತ ಆಯ್ಕೆಯನ್ನಾಗಿಸುತ್ತವೆ.</>,
+    <><strong>ವೇಗ:</strong> Flash ವೇಗಕ್ಕಾಗಿ ಆಪ್ಟಿಮೈಸ್ ಮಾಡಲಾಗಿದೆ, ಇದು ರಿಯಲ್-ಟೈಮ್ ಸಂಭಾಷಣೆಗೆ ಮುಖ್ಯವಾಗಿದೆ.</>,
+    <><strong>ಆಳವಾದ ವಿಶ್ಲೇಷಣೆ:</strong> ಮಾನಸಿಕ ಆರೋಗ್ಯ ಮೌಲ್ಯಮಾಪನವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸನ್ನಿವೇಶ ಮತ್ತು ಸೂಕ್ಷ್ಮತೆಯ ಆಳವಾದ ಗ್ರಹಿಕೆ ಅಗತ್ಯವಿದೆ.</>,
+    <><strong>Google ಪರಿಸರ ವ್ಯವಸ್ಥೆಯ ಏಕೀಕರಣ:</strong> ಈ ಪ್ರಾಜೆಕ್ಟ್ Firebase (Google ಉತ್ಪನ್ನ) ಅನ್ನು ಬ್ಯಾಕೆಂಡ್‌ಗೆ ಬಳಸುತ್ತದೆ, ಆದ್ದರಿಂದ ಏಕೀಕೃತ API ವಿನ್ಯಾಸ ಸಹಜವಾಗಿರುತ್ತದೆ.</>,
+  ],
+
+  usageH2: "MindfulSpace ನಲ್ಲಿ Gemini ಅನ್ನು ಹೇಗೆ ಬಳಸಲಾಗುತ್ತದೆ",
+  usages: [
+    { feature: "AI ಚಾಟ್ ಬೆಂಬಲ", badge: "Core", desc: "ಪ್ರತಿ ಸಂಭಾಷಣೆಯೂ Gemini ಮೂಲಕ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಸಿಸ್ಟಮ್ ಪ್ರಾಂಪ್ಟ್ ಅನ್ನು ಸಹಾನುಭೂತಿಯುತ ಮತ್ತು ವೈದ್ಯಕೀಯೇತರ ಬೆಂಬಲಕ್ಕೆ ಮಾತ್ರ ಸೀಮಿತಗೊಳಿಸಲಾಗಿದೆ." },
+    { feature: "ಮೌಲ್ಯಮಾಪನ ವಿವರಣೆ", badge: "Insights", desc: "ನೀವು PHQ-9 ಅಥವಾ GAD-7 ಅಂಕಗಳನ್ನು ಸಲ್ಲಿಸಿದ ನಂತರ, ಅವುಗಳನ್ನು ಸಹಜ ಭಾಷೆಯಲ್ಲಿ ವಿವರಣೆ ಮತ್ತು ಸಲಹೆಗಳನ್ನು ನೀಡಲು Gemini ಗೆ ಕಳುಹಿಸಲಾಗುತ್ತದೆ." },
+    { feature: "AI ಇನ್ಸೈಟ್ಸ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್", badge: "Analytics", desc: "ನಿಮ್ಮ 14 ದಿನಗಳ ಮೂಡ್ ಮತ್ತು ಸೆಂಟಿಮೆಂಟ್ ಡೇಟಾ, ಇತ್ತೀಚಿನ ಮೌಲ್ಯಮಾಪನಗಳೊಂದಿಗೆ, Gemini ನಿಮ್ಮ ವಾರದ ಮಾನಸಿಕ ವರದಿ ಬರೆಯಲು ಬಳಸುತ್ತದೆ." },
+  ],
+
+  safetyH2: "AI ಭದ್ರತೆ ಮತ್ತು ಜವಾಬ್ದಾರಿ",
+  safetyP: "ನಾವು Gemini ನ ಒಳನಿರ್ಮಿತ ಭದ್ರತಾ ಫಿಲ್ಟರ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿಲ್ಲ. ಅದರ ಡೀಫಾಲ್ಟ್ ವ್ಯವಸ್ಥೆಗಳ ಜೊತೆಗೆ, ನಮ್ಮ System Prompt ಮೂಲಕ ಮಾದರಿಯನ್ನು ಮತ್ತಷ್ಟು ನಿಯಂತ್ರಿಸಿ, ಇದು ವೈದ್ಯಕೀಯ ನಿರ್ಣಯಗಳು, ಔಷಧ ಸಲಹೆಗಳು ಅಥವಾ ಅಪಾಯಕಾರಿ ಆಲೋಚನೆಗಳನ್ನು ನೀಡದಂತೆ ನೋಡಿಕೊಳ್ಳುತ್ತೇವೆ.",
+
+  privacyH2: "ಗೌಪ್ಯತೆ ಕುರಿತು ವಿಚಾರಗಳು",
+  privacyP: "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಚಾಟ್ ಸಂದೇಶಗಳು ಮತ್ತು ವಿವರಗಳನ್ನು ನೇರವಾಗಿ Gemini ಗೆ ಕಳುಹಿಸಲಾಗುವುದಿಲ್ಲ. AI Insights ವರದಿಗಾಗಿ, ನಿಮ್ಮ ಚಟುವಟಿಕೆಯ ಒಟ್ಟುಗೂಡಿಸಿದ ಅಂಕಿಅಂಶಗಳ ಸಾರಾಂಶವನ್ನು ಮಾತ್ರ (ಸಂದೇಶಗಳಿಲ್ಲ) Gemini ಗೆ ಕಳುಹಿಸಲಾಗುತ್ತದೆ.",
+},
 };
 
 export default function BuiltWithGemini() {

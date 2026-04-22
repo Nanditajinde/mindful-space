@@ -3,14 +3,14 @@ import { useLanguage } from "../../context/LanguageContext";
 
 const content = {
   en: {
-    lastUpdated: "Last updated: Oct 24, 2024",
+    lastUpdated: "Last updated: Apr 12, 2026",
     h1: "Mood Tracker",
     intro: "Emotions are fluid. Keeping track of them is a highly effective cognitive-behavioral technique to identify triggers, validate feelings, and measure the effectiveness of new habits or medications.",
     loggingH2: "Logging your mood",
-    loggingP1: <>You can log your mood manually from the <strong>Dashboard</strong> page. MindBridge provides a simple 1-10 slider where 1 represents "Extremely Low" and 10 represents "Extremely High/Positive".</>,
+    loggingP1: <>You can log your mood manually from the <strong>Dashboard</strong> page. MindfulSpace provides a simple 1-10 slider where 1 represents "Extremely Low" and 10 represents "Extremely High/Positive".</>,
     loggingP2: <>We encourage you to use the optional text area underneath the slider to briefly describe <em>why</em> you feel the way you do. "Got 8 hours of sleep!" or "Struggling with a deadline at work" adds vital context to your score.</>,
     microCalloutTitle: "Micro-Logging",
-    microCalloutText: "You don't just have to log manually. MindBridge also runs JavaScript sentiment analysis on your Chat Support messages. If you tell the bot you're having an awful day, that sentiment is subtly factored into your overarching mood profile.",
+    microCalloutText: "You don't just have to log manually. MindfulSpace also runs JavaScript sentiment analysis on your Chat Support messages. If you tell the bot you're having an awful day, that sentiment is subtly factored into your overarching mood profile.",
     readingH2: "Reading your mood chart",
     readingP: "The Dashboard visualizes your exact mood trajectory over the last 14 days using a clean line graph.",
     chartItems: [
@@ -22,14 +22,14 @@ const content = {
     aiP: <>Your mood chart is not just a passive display. When you click the "Generate AI Insights" button, Gemini 2.5 Flash analyzes the slope, variance, and notes of your mood data alongside your clinical assessments to provide a comprehensive weekly report.</>,
   },
   hi: {
-    lastUpdated: "अंतिम अपडेट: अक्टू. 24, 2024",
+    lastUpdated: "अंतिम अपडेट: अप्रैल 12, 2026",
     h1: "मूड ट्रैकर",
     intro: "भावनाएं तरल होती हैं। उन्हें ट्रैक करना ट्रिगर की पहचान, भावनाओं को मान्य करने और नई आदतों या दवाओं की प्रभावशीलता मापने के लिए एक अत्यधिक प्रभावी संज्ञानात्मक-व्यवहारिक तकनीक है।",
     loggingH2: "अपना मूड लॉग करना",
-    loggingP1: <>आप <strong>डैशबोर्ड</strong> पेज से मैन्युअल रूप से अपना मूड लॉग कर सकते हैं। MindBridge एक सरल 1-10 स्लाइडर प्रदान करता है जहाँ 1 "बहुत कम" और 10 "बहुत अधिक/सकारात्मक" दर्शाता है।</>,
+    loggingP1: <>आप <strong>डैशबोर्ड</strong> पेज से मैन्युअल रूप से अपना मूड लॉग कर सकते हैं। MindfulSpace एक सरल 1-10 स्लाइडर प्रदान करता है जहाँ 1 "बहुत कम" और 10 "बहुत अधिक/सकारात्मक" दर्शाता है।</>,
     loggingP2: <>हम आपको स्लाइडर के नीचे वैकल्पिक टेक्स्ट क्षेत्र का उपयोग करके संक्षेप में यह बताने के लिए प्रोत्साहित करते हैं कि आप <em>क्यों</em> ऐसा महसूस करते हैं। "8 घंटे की नींद आई!" या "काम पर डेडलाइन से जूझ रहा हूँ" आपके स्कोर में महत्वपूर्ण संदर्भ जोड़ता है।</>,
     microCalloutTitle: "माइक्रो-लॉगिंग",
-    microCalloutText: "आपको केवल मैन्युअल रूप से लॉग नहीं करना होगा। MindBridge आपके चैट सपोर्ट संदेशों पर JavaScript सेंटिमेंट विश्लेषण भी चलाता है। यदि आप बॉट को बताते हैं कि आपका दिन बहुत बुरा गया, तो वह सेंटिमेंट सूक्ष्म रूप से आपके समग्र मूड प्रोफ़ाइल में जोड़ा जाता है।",
+    microCalloutText: "आपको केवल मैन्युअल रूप से लॉग नहीं करना होगा। MindfulSpace आपके चैट सपोर्ट संदेशों पर JavaScript सेंटिमेंट विश्लेषण भी चलाता है। यदि आप बॉट को बताते हैं कि आपका दिन बहुत बुरा गया, तो वह सेंटिमेंट सूक्ष्म रूप से आपके समग्र मूड प्रोफ़ाइल में जोड़ा जाता है।",
     readingH2: "अपना मूड चार्ट पढ़ना",
     readingP: "डैशबोर्ड एक साफ लाइन ग्राफ का उपयोग करके पिछले 14 दिनों में आपकी सटीक मूड ट्रैजेक्टरी विज़ुअलाइज़ करता है।",
     chartItems: [
@@ -40,25 +40,30 @@ const content = {
     aiH2: "AI आपके मूड डेटा का उपयोग कैसे करता है",
     aiP: <>आपका मूड चार्ट सिर्फ एक निष्क्रिय प्रदर्शन नहीं है। जब आप "AI इनसाइट्स जनरेट करें" बटन पर क्लिक करते हैं, तो Gemini 2.5 Flash आपके नैदानिक मूल्यांकनों के साथ आपके मूड डेटा की ढाल, भिन्नता और नोट्स का विश्लेषण करके एक व्यापक साप्ताहिक रिपोर्ट प्रदान करता है।</>,
   },
-  mr: {
-    lastUpdated: "शेवटचे अपडेट: ऑक्टो. 24, 2024",
-    h1: "मूड ट्रॅकर",
-    intro: "भावना तरल आहेत. त्यांचा मागोवा घेणे ट्रिगर ओळखण्यासाठी, भावना प्रमाणित करण्यासाठी आणि नवीन सवयी किंवा औषधांची प्रभावीता मोजण्यासाठी एक अत्यंत प्रभावी संज्ञानात्मक-वर्तनात्मक तंत्र आहे.",
-    loggingH2: "तुमचा मूड लॉग करणे",
-    loggingP1: <>तुम्ही <strong>डॅशबोर्ड</strong> पेजवरून मॅन्युअली तुमचा मूड लॉग करू शकता. MindBridge एक साधा 1-10 स्लाइडर प्रदान करतो जेथे 1 "अत्यंत कमी" आणि 10 "अत्यंत जास्त/सकारात्मक" दर्शवतो.</>,
-    loggingP2: <>आम्ही तुम्हाला स्लाइडरच्या खाली पर्यायी टेक्स्ट क्षेत्र वापरून तुम्हाला असे <em>का</em> वाटते हे थोडक्यात वर्णन करण्यास प्रोत्साहित करतो. "8 तासांची झोप मिळाली!" किंवा "कामावर डेडलाइनशी झुंजत आहे" तुमच्या स्कोरला महत्त्वाचा संदर्भ जोडतो.</>,
-    microCalloutTitle: "मायक्रो-लॉगिंग",
-    microCalloutText: "तुम्हाला फक्त मॅन्युअली लॉग करावे लागणार नाही. MindBridge तुमच्या चॅट सपोर्ट संदेशांवर JavaScript सेंटिमेंट विश्लेषण देखील चालवतो. तुम्ही बॉटला सांगितल्यास की तुमचा दिवस खूप वाईट गेला, ते सेंटिमेंट सूक्ष्मपणे तुमच्या एकंदर मूड प्रोफाइलमध्ये समाविष्ट केले जाते.",
-    readingH2: "तुमचा मूड चार्ट वाचणे",
-    readingP: "डॅशबोर्ड एक स्वच्छ लाइन ग्राफ वापरून मागील 14 दिवसांतील तुमची अचूक मूड ट्राजेक्टरी दृश्यमान करतो.",
-    chartItems: [
-      <><strong>X-अक्ष:</strong> लॉगची तारीख.</>,
-      <><strong>Y-अक्ष:</strong> तुमचा 1-10 स्कोर.</>,
-      <><strong>बेसलाइन (5.0):</strong> आम्ही ग्राफवर एक सूक्ष्म मध्य-रेषा काढतो. आठवडे या रेषेखाली राहिल्यास नैराश्याच्या लक्षणांशी संबंधित असू शकते आणि PHQ-9 स्क्रीनिंग घेण्यास प्रोत्साहित करावे.</>,
-    ],
-    aiH2: "AI तुमचा मूड डेटा कसा वापरतो",
-    aiP: <>तुमचा मूड चार्ट फक्त निष्क्रिय प्रदर्शन नाही. जेव्हा तुम्ही "AI इनसाइट्स तयार करा" बटणावर क्लिक करता, Gemini 2.5 Flash तुमच्या क्लिनिकल मूल्यमापनांसोबत तुमच्या मूड डेटाची उतार, भिन्नता आणि नोट्सचे विश्लेषण करून एक सर्वसमावेशक साप्ताहिक अहवाल प्रदान करतो.</>,
-  },
+  kn: {
+  lastUpdated: "ಕೊನೆಯ ನವೀಕರಣ: ಅಕ್ಟೋ. 24, 2024",
+  h1: "ಮೂಡ್ ಟ್ರ್ಯಾಕರ್",
+  intro: "ಭಾವನೆಗಳು ನಿರಂತರವಾಗಿ ಬದಲಾಗುತ್ತಿರುತ್ತವೆ. ಅವುಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುವುದು ಟ್ರಿಗರ್‌ಗಳನ್ನು ಗುರುತಿಸಲು, ಭಾವನೆಗಳನ್ನು ಮಾನ್ಯಗೊಳಿಸಲು ಮತ್ತು ಹೊಸ ಅಭ್ಯಾಸಗಳು ಅಥವಾ ಔಷಧಿಗಳ ಪರಿಣಾಮಕಾರಿತ್ವವನ್ನು ಅಳೆಯಲು ಅತ್ಯಂತ ಪರಿಣಾಮಕಾರಿ ಸಂಜ್ಞಾನಾತ್ಮಕ-ಪ್ರವರ್ತನಾ ತಂತ್ರವಾಗಿದೆ.",
+  
+  loggingH2: "ನಿಮ್ಮ ಮೂಡ್ ಅನ್ನು ದಾಖಲಿಸುವುದು",
+  loggingP1: <>ನೀವು <strong>ಡ್ಯಾಶ್‌ಬೋರ್ಡ್</strong> ಪುಟದಿಂದ ನಿಮ್ಮ ಮೂಡ್ ಅನ್ನು ಕೈಯಾರೆ ದಾಖಲಿಸಬಹುದು. MindfulSpace ಸರಳವಾದ 1-10 ಸ್ಲೈಡರ್ ಅನ್ನು ಒದಗಿಸುತ್ತದೆ, ಇಲ್ಲಿ 1 "ಅತೀ ಕಡಿಮೆ" ಮತ್ತು 10 "ಅತೀ ಹೆಚ್ಚು/ಧನಾತ್ಮಕ" ಅನ್ನು ಸೂಚಿಸುತ್ತದೆ.</>,
+  loggingP2: <>ನೀವು ಹೇಗೆ ಭಾವಿಸುತ್ತಿದ್ದೀರಿ ಎಂಬುದಕ್ಕೆ <em>ಯಾಕೆ</em> ಎಂಬುದನ್ನು ಸಂಕ್ಷಿಪ್ತವಾಗಿ ವಿವರಿಸಲು ಸ್ಲೈಡರ್ ಕೆಳಗಿನ ಆಯ್ಕೆಯ ಪಠ್ಯ ಪ್ರದೇಶವನ್ನು ಬಳಸಲು ನಾವು ನಿಮಗೆ ಪ್ರೋತ್ಸಾಹಿಸುತ್ತೇವೆ. "8 ಗಂಟೆಗಳ ನಿದ್ರೆ ಸಿಕ್ಕಿತು!" ಅಥವಾ "ಕೆಲಸದ ಡೆಡ್‌ಲೈನ್‌ ಬಗ್ಗೆ ಒತ್ತಡ" ಎಂಬವು ನಿಮ್ಮ ಸ್ಕೋರ್‌ಗೆ ಮಹತ್ವದ ಹಿನ್ನೆಲೆ ನೀಡುತ್ತವೆ.</>,
+  
+  microCalloutTitle: "ಮೈಕ್ರೋ-ಲಾಗಿಂಗ್",
+  microCalloutText: "ನೀವು ಕೇವಲ ಕೈಯಾರೆ ಲಾಗ್ ಮಾಡುವ ಅಗತ್ಯವಿಲ್ಲ. MindfulSpace ನಿಮ್ಮ ಚಾಟ್ ಸಂದೇಶಗಳ ಮೇಲೆ JavaScript ಆಧಾರಿತ ಸೆಂಟಿಮೆಂಟ್ ವಿಶ್ಲೇಷಣೆಯನ್ನು ನಡೆಸುತ್ತದೆ. ನೀವು ಬಾಟ್‌ಗೆ ನಿಮ್ಮ ದಿನ ಬಹಳ ಕೆಟ್ಟದಾಗಿತ್ತು ಎಂದು ಹೇಳಿದರೆ, ಆ ಭಾವನೆ ನಿಮ್ಮ ಒಟ್ಟು ಮೂಡ್ ಪ್ರೊಫೈಲ್‌ಗೆ ಸೂಕ್ಷ್ಮವಾಗಿ ಸೇರಿಸಲಾಗುತ್ತದೆ.",
+  
+  readingH2: "ನಿಮ್ಮ ಮೂಡ್ ಚಾರ್ಟ್ ಅನ್ನು ಓದುವುದು",
+  readingP: "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಕಳೆದ 14 ದಿನಗಳ ನಿಮ್ಮ ಮೂಡ್ ಬದಲಾವಣೆಯನ್ನು ಸರಳ ಲೈನ್ ಗ್ರಾಫ್ ಮೂಲಕ ಪ್ರದರ್ಶಿಸುತ್ತದೆ.",
+  
+  chartItems: [
+    <><strong>X-ಅಕ್ಷ:</strong> ದಾಖಲೆ ದಿನಾಂಕ.</>,
+    <><strong>Y-ಅಕ್ಷ:</strong> ನಿಮ್ಮ 1-10 ಸ್ಕೋರ್.</>,
+    <><strong>ಬೇಸ್‌ಲೈನ್ (5.0):</strong> ಗ್ರಾಫ್‌ನಲ್ಲಿ ಮಧ್ಯ ರೇಖೆಯನ್ನು ತೋರಿಸಲಾಗುತ್ತದೆ. ವಾರಗಳ ಕಾಲ ಈ ರೇಖೆಗಿಂತ ಕೆಳಗೆ ಇರುವುದರಿಂದ ಡಿಪ್ರೆಶನ್ ಲಕ್ಷಣಗಳೊಂದಿಗೆ ಸಂಬಂಧ ಇರಬಹುದು ಮತ್ತು PHQ-9 ಪರೀಕ್ಷೆ ಮಾಡಲು ಪ್ರೇರೇಪಿಸುತ್ತದೆ.</>,
+  ],
+  
+  aiH2: "AI ನಿಮ್ಮ ಮೂಡ್ ಡೇಟಾವನ್ನು ಹೇಗೆ ಬಳಸುತ್ತದೆ",
+  aiP: <>ನಿಮ್ಮ ಮೂಡ್ ಚಾರ್ಟ್ ಕೇವಲ ಪ್ರದರ್ಶನವಲ್ಲ. ನೀವು "AI ಇನ್ಸೈಟ್ಸ್ ರಚಿಸಿ" ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿದಾಗ, Gemini 2.5 Flash ನಿಮ್ಮ ಮೂಡ್ ಡೇಟಾದ ಬದಲಾವಣೆ, ವ್ಯತ್ಯಾಸ ಮತ್ತು ಟಿಪ್ಪಣಿಗಳನ್ನು ನಿಮ್ಮ ಕ್ಲಿನಿಕಲ್ ಅಸೆಸ್ಮೆಂಟ್‌ಗಳೊಂದಿಗೆ ವಿಶ್ಲೇಷಿಸಿ ಸಮಗ್ರ ವಾರದ ವರದಿಯನ್ನು ನೀಡುತ್ತದೆ.</>,
+},
 };
 
 export default function MoodTracker() {

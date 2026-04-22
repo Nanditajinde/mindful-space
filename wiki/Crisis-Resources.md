@@ -30,14 +30,14 @@ If you or someone you know is in crisis, please reach out immediately.
 
 ---
 
-## How MindBridge Handles Crisis
+## How MindfulSpace Handles Crisis
 
-When MindBridge detects certain keywords in the chat (e.g. "want to die", "hurt myself"), it automatically:
+When MindfulSpace detects certain keywords in the chat (e.g. "want to die", "hurt myself"), it automatically:
 
 1. Shows the **CrisisModal** with helpline numbers
 2. Prompts the user to reach out immediately
 
-MindBridge is **not** a crisis service. In an emergency, always call the helplines above or go to a hospital.
+MindfulSpace is **not** a crisis service. In an emergency, always call the helplines above or go to a hospital.
 
 ---
 

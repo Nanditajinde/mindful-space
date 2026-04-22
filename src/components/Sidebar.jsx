@@ -7,10 +7,11 @@ import TrustedContactModal from "./TrustedContactModal";
 import AccountPanel from "./AccountPanel";
 import LanguageSelector from "./LanguageSelector";
 import { useLanguage } from "../context/LanguageContext";
+import ThemeSelector from "./ThemeSelector";
 
 export default function Sidebar({ user, mobileOpen, setMobileOpen }) {
     const { pathname } = useLocation();
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage();
     const [showEdit, setShowEdit] = useState(false);
     const [contactData, setContactData] = useState(null);
     const [showAccountPanel, setShowAccountPanel] = useState(false);
@@ -46,7 +47,7 @@ export default function Sidebar({ user, mobileOpen, setMobileOpen }) {
                 <div className="h-16 flex items-center justify-between px-5 py-4 shrink-0">
                     <Link to="/chat" className="flex items-center gap-3 font-semibold text-base hover:opacity-80 transition-opacity">
                         <span className="text-xl leading-none">🧠</span>
-                        <span className="text-[var(--text-main)] font-medium tracking-tight">MindBridge</span>
+                        <span className="text-[var(--text-main)] font-medium tracking-tight">MindfulSpace</span>
                     </Link>
                     <button className="md:hidden text-[var(--text-muted)] hover:text-white p-1" onClick={() => setMobileOpen(false)}>
                         <X className="w-5 h-5" />
@@ -99,7 +100,7 @@ export default function Sidebar({ user, mobileOpen, setMobileOpen }) {
                             {t("nav.trustedContact")}
                         </button>
                         <Link
-                            to="/info/what-is-mindbridge"
+                            to="/info/what-is-MindfulSpace"
                             onClick={() => setMobileOpen(false)}
                             className="w-full flex items-center gap-3 px-2 py-2 rounded-lg text-[var(--text-muted)] hover:bg-[var(--bg-hover)] hover:text-white transition-colors text-sm font-medium"
                         >

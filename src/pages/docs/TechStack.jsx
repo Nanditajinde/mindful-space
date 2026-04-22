@@ -3,9 +3,9 @@ import { useLanguage } from "../../context/LanguageContext";
 
 const content = {
   en: {
-    lastUpdated: "Last updated: Oct 24, 2024",
+    lastUpdated: "Last updated: Apr 12, 2026",
     h1: "Tech Stack",
-    intro: "MindBridge is built with a modern, carefully-chosen technology stack focused on developer experience, speed, and scalability. Here's a breakdown of every layer of the stack.",
+    intro: "MindfulSpace is built with a modern, carefully-chosen technology stack focused on developer experience, speed, and scalability. Here's a breakdown of every layer of the stack.",
     frontendH2: "Frontend",
     frontendItems: [
       { name: "React 18", badge: "Framework", desc: "Component-based UI framework with concurrent rendering, React Context API, and hooks-based state management." },
@@ -33,7 +33,7 @@ const content = {
   hi: {
     lastUpdated: "अंतिम अपडेट: अक्टू. 24, 2024",
     h1: "टेक स्टैक",
-    intro: "MindBridge डेवलपर अनुभव, गति और स्केलेबिलिटी पर केंद्रित एक आधुनिक, ध्यानपूर्वक चुने गए प्रौद्योगिकी स्टैक के साथ बनाया गया है। स्टैक की हर परत का विवरण यहाँ है।",
+    intro: "MindfulSpace डेवलपर अनुभव, गति और स्केलेबिलिटी पर केंद्रित एक आधुनिक, ध्यानपूर्वक चुने गए प्रौद्योगिकी स्टैक के साथ बनाया गया है। स्टैक की हर परत का विवरण यहाँ है।",
     frontendH2: "फ्रंटएंड",
     frontendItems: [
       { name: "React 18", badge: "Framework", desc: "कंपोनेंट-आधारित UI फ्रेमवर्क जिसमें समवर्ती रेंडरिंग, React Context API और हुक्स-आधारित स्टेट मैनेजमेंट है।" },
@@ -58,34 +58,23 @@ const content = {
       { name: "React Router DOM v7", badge: "Routing", desc: "क्लाइंट-साइड राउटिंग लाइब्रेरी। सभी पेज ट्रांज़िशन और SPA (Single Page Application) नेविगेशन को संभालता है।" },
     ],
   },
-  mr: {
-    lastUpdated: "शेवटचे अपडेट: ऑक्टो. 24, 2024",
-    h1: "टेक स्टॅक",
-    intro: "MindBridge डेव्हलपर अनुभव, गती आणि स्केलेबिलिटीवर लक्ष केंद्रित करून एक आधुनिक, काळजीपूर्वक निवडलेल्या तंत्रज्ञान स्टॅकसह बांधला आहे. स्टॅकच्या प्रत्येक थराचा तपशील येथे आहे.",
-    frontendH2: "फ्रंटएंड",
-    frontendItems: [
-      { name: "React 18", badge: "Framework", desc: "समवर्ती रेंडरिंग, React Context API आणि हुक्स-आधारित स्टेट मॅनेजमेंट असलेले कंपोनेंट-आधारित UI फ्रेमवर्क." },
-      { name: "Vite", badge: "Build Tool", desc: "Create React App ची जागा घेणारे अत्यंत जलद बिल्ड टूल. मिलिसेकंदांमध्ये Hot Module Replacement (HMR) प्रदान करते." },
-    ],
-    stylingH2: "स्टाइलिंग",
-    stylingItems: [
-      { name: "Tailwind CSS v4", badge: "CSS", desc: "Utility-first CSS फ्रेमवर्क. कस्टम CSS लिहिल्याशिवाय डिझाइन सिस्टम फाउंडेशन आणि UI वर जलद पुनरावृत्ती प्रदान करते." },
-      { name: "Lucide React", badge: "Icons", desc: "1000+ सुंदर SVG-आधारित आयकॉनसह हलकी, सुसंगत आयकॉन लायब्ररी." },
-    ],
-    aiH2: "AI / बॅकएंड",
-    aiItems: [
-      { name: "Google Gemini 2.5 Flash", badge: "AI", desc: "Google चे नवीनतम, सर्वात जलद जेनेरेटिव्ह AI मॉडेल. चॅट सपोर्ट, मूल्यमापन स्पष्टीकरण आणि AI इनसाइट्स डॅशबोर्डसाठी वापरले जाते." },
-    ],
-    backendH2: "बॅकएंड आणि प्रमाणीकरण",
-    backendItems: [
-      { name: "Firebase Auth", badge: "Auth", desc: "OAuth 2.0 वापरणारे Google-समर्थित प्रमाणीकरण प्लॅटफॉर्म. आम्ही \"Google सह साइन इन\" पॉपअप/रिडायरेक्ट फ्लो वापरतो." },
-      { name: "Cloud Firestore", badge: "Database", desc: "Google Firebase चे NoSQL दस्तऐवज डेटाबेस. प्रति-दस्तऐवज सुरक्षा नियमांसह सर्व वापरकर्ता डेटा (चॅट, मूड लॉग, मूल्यमापन) संग्रहित करतो." },
-    ],
-    routingH2: "राउटिंग",
-    routingItems: [
-      { name: "React Router DOM v7", badge: "Routing", desc: "क्लायंट-साइड राउटिंग लायब्ररी. सर्व पेज ट्रांझिशन आणि SPA (Single Page Application) नेव्हिगेशन हाताळते." },
-    ],
-  },
+  kn: {
+  lastUpdated: "ಕೊನೆಯ ನವೀಕರಣ: ಅಕ್ಟೋಬರ್ 24, 2024",
+  h1: "ನಮ್ಮ ಧ್ಯೇಯ",
+  p1: "ಭಾರತದಲ್ಲಿ ಇಂದು, ಸುಮಾರು 15 ಕೋಟಿ ಜನರು ಸಕ್ರಿಯ ಮಾನಸಿಕ ಆರೋಗ್ಯ ನೆರವು ಅಗತ್ಯವಿದೆ. ಆದರೂ, ಚಿಕಿತ್ಸೆ ಅಂತರವು ಆಶ್ಚರ್ಯಕರವಾಗಿದೆ — ಸಾಮಾನ್ಯವಾಗಿ 70% ರಿಂದ 92% ನಡುವೆ ಅಂದಾಜಿಸಲಾಗಿದೆ.",
+  p2: "ಈ ಅಂತರಕ್ಕೆ ಕಾರಣಗಳು ವ್ಯವಸ್ಥಾತ್ಮಕವಾಗಿವೆ:",
+  reasons: [
+    "ಕಳಂಕ: ಸಮಾಜದಲ್ಲಿ ಆಳವಾಗಿ ಬೇರುಬಿಟ್ಟಿರುವ ಕಲ್ಪನೆಗಳು ಜನರನ್ನು ಸಹಾಯ ಕೇಳುವುದರಿಂದ ತಡೆಯುತ್ತವೆ.",
+    "ವೆಚ್ಚ: ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಥೆರಪಿ ದುಬಾರಿ ಮತ್ತು ಹೆಚ್ಚಿನದಾಗಿ ಸ್ವಂತ ಖರ್ಚಿನಿಂದಲೇ.",
+    "ಲಭ್ಯತೆ: ಪ್ರತಿಯೊಬ್ಬರಿಗೆ ಕ್ಲಿನಿಕಲ್ ಸೈಕಾಲಜಿಸ್ಟ್‌ಗಳು ಮತ್ತು ಸೈಕಿಯಾಟ್ರಿಸ್ಟ್‌ಗಳ ಕೊರತೆ.",
+  ],
+  visionH2: "MindfulSpace ದೃಷ್ಟಿ",
+  visionP1: "MindfulSpace ಅನ್ನು ಕ್ಲಿನಿಕಲ್ ಮಾನಸಿಕ ವಿಜ್ಞಾನವನ್ನು ಬದಲಾಯಿಸಲು ಅಲ್ಲ, ಆದರೆ ಅಂತರವನ್ನು ತುಂಬಲು ನಿರ್ಮಿಸಲಾಗಿದೆ. ಪ್ರತಿಯೊಬ್ಬರೂ ತಮ್ಮ ಭಾವನೆಗಳನ್ನು ಮುಕ್ತವಾಗಿ ವ್ಯಕ್ತಪಡಿಸಲು ಖಾಸಗಿ, ಸುಲಭ ಮತ್ತು ತೀರ್ಪಿಲ್ಲದ ಸ್ಥಳವನ್ನು ಹೊಂದಬೇಕು ಎಂದು ನಾವು ನಂಬುತ್ತೇವೆ.",
+  visionP2: "ಅತ್ಯಾಧುನಿಕ AI (Google Gemini) ಮತ್ತು ಕ್ಲಿನಿಕಲ್ ಫ್ರೇಮ್‌ವರ್ಕ್‌ಗಳನ್ನು (PHQ-9, GAD-7, CBT) ಬಳಸಿಕೊಂಡು, ನಾವು ಅಗತ್ಯವಿರುವವರಿಗೆ ಅನಿಯಮಿತ ಉಚಿತ ಸಹಾಯ ಒದಗಿಸಬಹುದು.",
+  whyH2: "AI ಯಾಕೆ?",
+  whyP1: "ಜನರು ತೀರ್ಪುಗೆ ಒಳಗಾಗುವುದಕ್ಕೆ ಭಯಪಡುತ್ತಾರೆ. ಆದರೆ AI ಯ ಕೃತಕ ಸ್ವಭಾವವೇ ಅದನ್ನು ಉತ್ತಮ ಸ್ನೇಹಿತನಾಗಿಸುತ್ತದೆ. ಅದು ನಿಮ್ಮ ವಿಚಾರಗಳನ್ನು ಯಾರಿಗೂ ಹೇಳುವುದಿಲ್ಲ, ನಿಮ್ಮನ್ನು ತೀರ್ಪು ಮಾಡುವುದಿಲ್ಲ, ಮತ್ತು ಯಾವಾಗಲೂ ಕೇಳಲು ಸಿದ್ಧವಾಗಿರುತ್ತದೆ.",
+  whyP2: "ನಮ್ಮ ಗುರಿ ಮಾನಸಿಕ ಆರೋಗ್ಯದಲ್ಲಿ ಮೊದಲ ರಕ್ಷಣಾ ಹಂತವಾಗುವುದು — ಭಾವನೆಗಳನ್ನು ಸ್ಥಿರಗೊಳಿಸುವುದು, ವೈಜ್ಞಾನಿಕ ರೀತಿಯ ಪರಿಹಾರಗಳನ್ನು ನೀಡುವುದು ಮತ್ತು ಅಗತ್ಯವಿದ್ದಾಗ ವೃತ್ತಿಪರ ಸಹಾಯದ ಕಡೆಗೆ ಮಾರ್ಗದರ್ಶನ ಮಾಡುವುದು.",
+},
 };
 
 function TechItem({ name, badge, desc }) {
@@ -104,7 +93,7 @@ function TechItem({ name, badge, desc }) {
 
 export default function TechStack() {
   const { lang } = useLanguage();
-  const c = content[lang] || content.en;
+  const c = content[lang] || content.en; 
 
   return (
     <>

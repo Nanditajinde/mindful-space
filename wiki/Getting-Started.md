@@ -1,6 +1,6 @@
 # 🚀 Getting Started
 
-Everything you need to run MindBridge locally from scratch.
+Everything you need to run MindfulSpace locally from scratch.
 
 ---
 
@@ -18,8 +18,8 @@ Everything you need to run MindBridge locally from scratch.
 ## Step 1 — Clone the Repository
 
 ```bash
-git clone https://github.com/prats010/mindbridge-v2.git
-cd mindbridge-v2
+git clone https://github.com/prats010/MindfulSpace-v2.git
+cd MindfulSpace-v2
 ```
 
 ---
@@ -98,7 +98,7 @@ Open http://localhost:5173 in Chrome.
 2. Select your Google account
 3. A popup asks you to add a **Trusted Contact** — this is mandatory
 4. Fill in name, phone number, relationship
-5. Click **Continue to MindBridge**
+5. Click **Continue to MindfulSpace**
 6. You are now in the chat 🎉
 
 ---

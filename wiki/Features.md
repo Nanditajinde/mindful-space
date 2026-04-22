@@ -1,12 +1,12 @@
 # ✨ Features
 
-A complete guide to every feature in MindBridge V2.
+A complete guide to every feature in MindfulSpace V2.
 
 ---
 
 ## 🤖 AI Chat Support
 
-The core of MindBridge. Powered by **Google Gemini 2.5 Flash**.
+The core of MindfulSpace. Powered by **Google Gemini 2.5 Flash**.
 
 **How it works:**
 - User types or speaks a message
@@ -49,7 +49,7 @@ All past conversations organized by date — exactly like Claude or ChatGPT.
 
 ## 🎤 Voice Mode
 
-Speak to MindBridge and hear it respond.
+Speak to MindfulSpace and hear it respond.
 
 **Voice Input:** Uses Chrome's built-in Web Speech API. Click the mic button, speak, it auto-sends.
 

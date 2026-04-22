@@ -1,10 +1,10 @@
 # 🔑 API Keys
 
-How to manage, rotate, and secure all API keys in MindBridge.
+How to manage, rotate, and secure all API keys in MindfulSpace.
 
 ---
 
-## Keys Used in MindBridge
+## Keys Used in MindfulSpace
 
 | Key | Service | Where Used | Free? |
 |-----|---------|-----------|-------|

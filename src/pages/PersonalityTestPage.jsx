@@ -77,7 +77,7 @@ export default function PersonalityTestPage({ userId, onDone }) {
                 <div className="text-center mb-8 relative">
                     {/* Language selector top-right */}
                     <div className="absolute right-0 top-0">
-                        <LanguageSelector variant="navbar" />
+                        
                     </div>
                     <div className="text-2xl font-bold text-white mb-2">{t("personality.title")}</div>
                     <p className="text-slate-400 text-sm">

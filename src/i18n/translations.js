@@ -1,10 +1,10 @@
 // src/i18n/translations.js
-// All translations for English (en), Hindi (hi), and Marathi (mr)
+// All translations for English (en), Hindi (hi), and Kannada (kn)
 
 const translations = {
   en: {
     // ─── Sidebar / Navigation ───────────────────────────────────────────────
-    "nav.chat": "MindBridge AI",
+    "nav.chat": "MindfulSpace AI",
     "nav.dashboard": "Dashboard",
     "nav.assessments": "Assessments",
     "nav.guides": "Mental Health Guides",
@@ -15,10 +15,10 @@ const translations = {
 
     // ─── Login Page ─────────────────────────────────────────────────────────
     "login.welcome": "Welcome back",
-    "login.subtitle": "Sign in to access your personal wellness companion, track your mood, and talk to MindBridge AI.",
+    "login.subtitle": "Sign in to access your personal wellness companion, track your mood, and talk to MindfulSpace AI.",
     "login.continueGoogle": "Continue with Google",
     "login.signingIn": "Signing in…",
-    "login.disclaimer": "MindBridge is not a substitute for professional care.",
+    "login.disclaimer": "MindfulSpace is not a substitute for professional care.",
     "login.crisis": "Crisis? Call",
     "login.badge.secure": "Secure",
     "login.badge.ai": "AI-Powered",
@@ -29,7 +29,7 @@ const translations = {
     "account.freeTrial": "Free Trial",
     "account.loading": "Loading...",
     "account.trialEnded": "Your free trial has ended",
-    "account.trialEndedSub": "Upgrade to Pro to continue enjoying MindBridge",
+    "account.trialEndedSub": "Upgrade to Pro to continue enjoying MindfulSpace",
     "account.daysLeft": "days left",
     "account.inTrial": "in your free trial",
     "account.after30": "After 30 days:",
@@ -68,7 +68,7 @@ const translations = {
     "features.chat.title": "AI Chat Support",
     "features.chat.desc": "Non-judgmental, conversational support powered by Gemini 2.5 Flash. Discuss your day, manage stress, or navigate anxiety at any hour.",
     "features.voice.title": "Voice Mode",
-    "features.voice.desc": "Hands-free venting. Speak your mind and let MindBridge listen when typing feels like too much work.",
+    "features.voice.desc": "Hands-free venting. Speak your mind and let MindfulSpace listen when typing feels like too much work.",
     "features.phq9.title": "PHQ-9 Screening",
     "features.phq9.desc": "Take the clinical standard depression screening entirely in-app to establish your baseline.",
     "features.mood.title": "Mood Tracker",
@@ -88,16 +88,11 @@ const translations = {
     "how.step3.title": "Start talking",
     "how.step3.desc": "Instantly drop into the chat and begin releasing stress.",
 
-    // ─── Quote ───────────────────────────────────────────────────────────────
-    "quote.text": "\"I didn't think an AI could make me feel heard. MindBridge was there at 2am when I had no one else to talk to.\"",
-    "quote.attr": "— A MindBridge User, Mumbai",
-    "quote.badge1": "Private",
-    "quote.badge2": "Free",
-    "quote.badge3": "India",
+    
 
     // ─── CTA ─────────────────────────────────────────────────────────────────
     "cta.heading": "Your mental health matters.",
-    "cta.button": "Open MindBridge →",
+    "cta.button": "Open MindfulSpace →",
     "cta.crisis": "In crisis? iCall India:",
 
     // ─── Footer ──────────────────────────────────────────────────────────────
@@ -108,12 +103,12 @@ const translations = {
     "footer.features": "Features",
     "footer.privacy": "Privacy Policy",
     "footer.crisis": "Crisis Helplines (India)",
-    "footer.copy": "MindBridge AI. All rights reserved.",
-    "footer.builtWith": "Built with 🤍 and",
+    "footer.copy": " All rights reserved.",
+    "footer.builtWith": "Built with ",
 
     // ─── Personality Test ────────────────────────────────────────────────────
     "personality.title": "Quick Personalisation",
-    "personality.sub": "Help MindBridge understand you better — 6 quick questions",
+    "personality.sub": "Help MindfulSpace understand you better — 6 quick questions",
     "personality.questionOf": "Question {n} of {total}",
     "personality.skip": "Skip for now",
     // Q1
@@ -146,14 +141,14 @@ const translations = {
     "personality.q5.o3": "Feeling stressed",
     "personality.q5.o4": "Just exploring the app",
     // Q6
-    "personality.q6": "What kind of support do you prefer from MindBridge?",
+    "personality.q6": "What kind of support do you prefer from MindfulSpace?",
     "personality.q6.o1": "Gentle and empathetic",
     "personality.q6.o2": "Motivational and energetic",
     "personality.q6.o3": "Calm and practical",
     "personality.q6.o4": "No preference",
 
     // ─── Chat Page ─────────────────────────────────────────────────────
-    "chat.title": "MindBridge Chat",
+    "chat.title": "MindfulSpace Chat",
     "chat.subtitle": "Your secure, AI-powered wellness space.",
     "chat.newChat": "New Chat +",
     "chat.today": "Today",
@@ -163,7 +158,7 @@ const translations = {
     "chat.older": "Older",
     "chat.placeholder": "Share how you're feeling…",
     "chat.listening": "Listening",
-    "chat.welcome": "Hi there 👋 I'm **MindBridge**, your personal wellness companion.\n\nI'm here to listen without judgment. How are you feeling today?",
+    "chat.welcome": "Hi there 👋 I'm **MindfulSpace**, your personal wellness companion.\n\nI'm here to listen without judgment. How are you feeling today?",
     "chat.errorMsg": "I'm sorry, I had trouble responding. Please try again in a moment.",
     "chat.voiceUnsupported": "Voice input not supported in this browser. Try Chrome.",
     "chat.speechUnsupported": "Speech synthesis not supported in this browser.",
@@ -208,7 +203,7 @@ const translations = {
     "assess.cancel": "Cancel",
     "assess.submit": "Submit Assessment",
     "assess.takeAnother": "Take another test",
-    "assess.analysis": "MindBridge Analysis",
+    "assess.analysis": "MindfulSpace Analysis",
     "assess.strategies": "Recommended Strategies",
     "assess.reachOut": "⚠️ Please reach out for support",
     "assess.selfHarm": "Your response suggests you may be having thoughts of self-harm. Help is available.",
@@ -258,11 +253,21 @@ const translations = {
     "crisis.sub3": "Please reach out to a crisis counsellor or your trusted contact right now.",
     "crisis.whatsapp": "Message Trusted Contact",
     "crisis.continue": "I understand — continue",
+
+    // ─── Crisis Helplines ─────────────────────────────────────────────
+    "crisis.helplines.title": "Crisis Helplines (India)",
+    "crisis.helplines.kiran": "📞 Kiran (24/7): 1800-599-0019",
+    "crisis.helplines.icall": "📞 iCALL (TISS - Working hours): 9152987821",
+    "crisis.helplines.vandrevala": "📞 Vandrevala (24/7): 1860-2662-345",
+    "crisis.helplines.aasra": "📞 AASRA (24/7): 9820466627",
+    "crisis.helplines.note": "*Availability may vary. In emergencies, contact local services.",
+
+    
   },
 
   hi: {
     // ─── Sidebar / Navigation ───────────────────────────────────────────────
-    "nav.chat": "MindBridge AI",
+    "nav.chat": "MindfulSpace AI",
     "nav.dashboard": "डैशबोर्ड",
     "nav.assessments": "मूल्यांकन",
     "nav.guides": "मानसिक स्वास्थ्य गाइड",
@@ -273,10 +278,10 @@ const translations = {
 
     // ─── Login Page ─────────────────────────────────────────────────────────
     "login.welcome": "वापस आपका स्वागत है",
-    "login.subtitle": "अपने व्यक्तिगत वेलनेस साथी तक पहुंचने, मूड ट्रैक करने और MindBridge AI से बात करने के लिए साइन इन करें।",
+    "login.subtitle": "अपने व्यक्तिगत वेलनेस साथी तक पहुंचने, मूड ट्रैक करने और MindfulSpace AI से बात करने के लिए साइन इन करें।",
     "login.continueGoogle": "Google से जारी रखें",
     "login.signingIn": "साइन इन हो रहा है…",
-    "login.disclaimer": "MindBridge पेशेवर देखभाल का विकल्प नहीं है।",
+    "login.disclaimer": "MindfulSpace पेशेवर देखभाल का विकल्प नहीं है।",
     "login.crisis": "संकट में? कॉल करें",
     "login.badge.secure": "सुरक्षित",
     "login.badge.ai": "AI-संचालित",
@@ -287,7 +292,7 @@ const translations = {
     "account.freeTrial": "मुफ़्त ट्रायल",
     "account.loading": "लोड हो रहा है...",
     "account.trialEnded": "आपका मुफ़्त ट्रायल समाप्त हो गया है",
-    "account.trialEndedSub": "MindBridge का आनंद लेना जारी रखने के लिए Pro में अपग्रेड करें",
+    "account.trialEndedSub": "MindfulSpace का आनंद लेना जारी रखने के लिए Pro में अपग्रेड करें",
     "account.daysLeft": "दिन बचे हैं",
     "account.inTrial": "आपके मुफ़्त ट्रायल में",
     "account.after30": "30 दिन बाद:",
@@ -326,7 +331,7 @@ const translations = {
     "features.chat.title": "AI चैट सपोर्ट",
     "features.chat.desc": "Gemini 2.5 Flash द्वारा संचालित निर्णय-मुक्त बातचीत सहायता। किसी भी घंटे अपना दिन, तनाव या चिंता पर चर्चा करें।",
     "features.voice.title": "वॉइस मोड",
-    "features.voice.desc": "हैंड्स-फ्री वेंटिंग। जब टाइपिंग बहुत ज़्यादा लगे तो MindBridge को सुनने दें।",
+    "features.voice.desc": "हैंड्स-फ्री वेंटिंग। जब टाइपिंग बहुत ज़्यादा लगे तो MindfulSpace को सुनने दें।",
     "features.phq9.title": "PHQ-9 स्क्रीनिंग",
     "features.phq9.desc": "अपनी बेसलाइन स्थापित करने के लिए पूरी तरह इन-ऐप क्लिनिकल डिप्रेशन स्क्रीनिंग लें।",
     "features.mood.title": "मूड ट्रैकर",
@@ -346,16 +351,11 @@ const translations = {
     "how.step3.title": "बात करना शुरू करें",
     "how.step3.desc": "तुरंत चैट में आएं और तनाव दूर करना शुरू करें।",
 
-    // ─── Quote ───────────────────────────────────────────────────────────────
-    "quote.text": "\"मुझे नहीं लगता था कि AI मुझे सुना हुआ महसूस करा सकता है। MindBridge रात 2 बजे था जब मेरे पास बात करने के लिए कोई नहीं था।\"",
-    "quote.attr": "— एक MindBridge उपयोगकर्ता, मुंबई",
-    "quote.badge1": "निजी",
-    "quote.badge2": "मुफ़्त",
-    "quote.badge3": "भारत",
+    
 
     // ─── CTA ─────────────────────────────────────────────────────────────────
     "cta.heading": "आपका मानसिक स्वास्थ्य महत्वपूर्ण है।",
-    "cta.button": "MindBridge खोलें →",
+    "cta.button": "MindfulSpace खोलें →",
     "cta.crisis": "संकट में? iCall India:",
 
     // ─── Footer ──────────────────────────────────────────────────────────────
@@ -366,12 +366,12 @@ const translations = {
     "footer.features": "विशेषताएं",
     "footer.privacy": "गोपनीयता नीति",
     "footer.crisis": "संकट हेल्पलाइन (भारत)",
-    "footer.copy": "MindBridge AI. सर्वाधिकार सुरक्षित।",
-    "footer.builtWith": "🤍 और के साथ बनाया गया",
+    "footer.copy": " सर्वाधिकार सुरक्षित।",
+    "footer.builtWith": " और के साथ बनाया गया",
 
     // ─── Personality Test ────────────────────────────────────────────────────
     "personality.title": "त्वरित व्यक्तित्व परीक्षण",
-    "personality.sub": "MindBridge को आपको बेहतर समझने में मदद करें — 6 त्वरित प्रश्न",
+    "personality.sub": "MindfulSpace को आपको बेहतर समझने में मदद करें — 6 त्वरित प्रश्न",
     "personality.questionOf": "प्रश्न {n} / {total}",
     "personality.skip": "अभी छोड़ें",
     // Q1
@@ -404,14 +404,14 @@ const translations = {
     "personality.q5.o3": "तनावग्रस्त महसूस कर रहा हूं",
     "personality.q5.o4": "बस ऐप एक्सप्लोर कर रहा हूं",
     // Q6
-    "personality.q6": "आप MindBridge से किस प्रकार की सहायता पसंद करते हैं?",
+    "personality.q6": "आप MindfulSpace से किस प्रकार की सहायता पसंद करते हैं?",
     "personality.q6.o1": "कोमल और सहानुभूतिपूर्ण",
     "personality.q6.o2": "प्रेरक और ऊर्जावान",
     "personality.q6.o3": "शांत और व्यावहारिक",
     "personality.q6.o4": "कोई प्राथमिकता नहीं",
 
     // ─── Chat Page ─────────────────────────────────────────────────────
-    "chat.title": "MindBridge चैट",
+    "chat.title": "MindfulSpace चैट",
     "chat.subtitle": "आपका सुरक्षित, AI-संचालित वेलनेस स्थान।",
     "chat.newChat": "नई चैट +",
     "chat.today": "आज",
@@ -421,7 +421,7 @@ const translations = {
     "chat.older": "पहले",
     "chat.placeholder": "आप कैसा महसूस कर रहे हैं…",
     "chat.listening": "सुन रहा है",
-    "chat.welcome": "नमस्ते 👋 मैं **MindBridge** हूं, आपका व्यक्तिगत वेलनेस साथी।\n\nमैं बिना किसी निर्णय के सुनने के लिए यहां हूं। आज आप कैसा महसूस कर रहे हैं?",
+    "chat.welcome": "नमस्ते 👋 मैं **MindfulSpace** हूं, आपका व्यक्तिगत वेलनेस साथी।\n\nमैं बिना किसी निर्णय के सुनने के लिए यहां हूं। आज आप कैसा महसूस कर रहे हैं?",
     "chat.errorMsg": "मुझे खेद है, मुझे जवाब देने में कठिनाई हुई। कृपया एक पल में पुनः प्रयास करें।",
     "chat.voiceUnsupported": "इस ब्राउज़र में वॉइस इनपुट समर्थित नहीं है। Chrome आज़माएं।",
     "chat.speechUnsupported": "इस ब्राउज़र में स्पीच सिंथेसिस समर्थित नहीं है।",
@@ -466,7 +466,7 @@ const translations = {
     "assess.cancel": "रद्द करें",
     "assess.submit": "मूल्यांकन जमा करें",
     "assess.takeAnother": "एक और परीक्षण लें",
-    "assess.analysis": "MindBridge विश्लेषण",
+    "assess.analysis": "MindfulSpace विश्लेषण",
     "assess.strategies": "अनुशंसित रणनीतियाँ",
     "assess.reachOut": "⚠️ कृपया सहायता के लिए संपर्क करें",
     "assess.selfHarm": "आपकी प्रतिक्रिया से पता चलता है कि आपके मन में आत्म-नुकसान के विचार हो सकते हैं। सहायता उपलब्ध है।",
@@ -476,7 +476,8 @@ const translations = {
     "assess.fallback.tip1": "जब आप अभिभूत महसूस करें तो 5 मिनट के लिए धीमी गहरी सांस लें",
     "assess.fallback.tip2": "पैटर्न जल्दी पकड़ने के लिए एक छोटी दैनिक मूड डायरी रखें",
     "assess.fallback.tip3": "इस हफ्ते अपने विश्वसनीय मित्र से अपनी भावनाओं के बारे में बात करें",
-    "assess.fallback.tip4": "एक परामर्शदाता या चिकित्सक से बात करने पर विचार करें",    "assess.fallback.interpretation": "इस मूल्यांकन को पूरा करने के लिए धन्यवाद। ये परिणाम एक मानसिक स्वास्थ्य पेशेवर के साथ बातचीत के लिए एक सहायक शुरुआत हो सकते हैं।",
+    "assess.fallback.tip4": "एक परामर्शदाता या चिकित्सक से बात करने पर विचार करें",    
+    "assess.fallback.interpretation": "इस मूल्यांकन को पूरा करने के लिए धन्यवाद। ये परिणाम एक मानसिक स्वास्थ्य पेशेवर के साथ बातचीत के लिए एक सहायक शुरुआत हो सकते हैं।",
     // PHQ-9 questions
     "assess.phq9.q1": "कामों में कम रुचि या आनंद?",
     "assess.phq9.q2": "उदास, निराश या निराशावादी महसूस करना?",
@@ -514,265 +515,285 @@ const translations = {
     "crisis.sub3": "कृपया अभी किसी संकट परामर्शदाता या अपने विश्वसनीय संपर्क से संपर्क करें।",
     "crisis.whatsapp": "विश्वसनीय संपर्क को संदेश भेजें",
     "crisis.continue": "मैं समझता हूं — जारी रखें",
+
+    // ─── Crisis Helplines ─────────────────────────────────────────────
+    "crisis.helplines.title": "संकट हेल्पलाइन (भारत)",
+    "crisis.helplines.kiran": "📞 किरण (24/7): 1800-599-0019",
+    "crisis.helplines.icall": "📞 iCALL (TISS - कार्य समय): 9152987821",
+    "crisis.helplines.vandrevala": "📞 वंद्रेवाला (24/7): 1860-2662-345",
+    "crisis.helplines.aasra": "📞 AASRA (24/7): 9820466627",
+    "crisis.helplines.note": "*उपलब्धता बदल सकती है। आपात स्थिति में स्थानीय सेवाओं से संपर्क करें।",
+
   },
 
-  mr: {
-    // ─── Sidebar / Navigation ───────────────────────────────────────────────
-    "nav.chat": "MindBridge AI",
-    "nav.dashboard": "डॅशबोर्ड",
-    "nav.assessments": "मूल्यमापन",
-    "nav.guides": "मानसिक आरोग्य मार्गदर्शक",
-    "nav.about": "आमच्याबद्दल",
-    "nav.trustedContact": "विश्वासू संपर्क",
-    "nav.helpSupport": "मदत",
-    "nav.language": "भाषा",
+ 
 
-    // ─── Login Page ─────────────────────────────────────────────────────────
-    "login.welcome": "पुन्हा स्वागत आहे",
-    "login.subtitle": "आपल्या वैयक्तिक वेलनेस साथीदारापर्यंत प्रवेश मिळवण्यासाठी, मूड ट्रॅक करण्यासाठी आणि MindBridge AI शी बोलण्यासाठी साइन इन करा।",
-    "login.continueGoogle": "Google सह सुरू ठेवा",
-    "login.signingIn": "साइन इन होत आहे…",
-    "login.disclaimer": "MindBridge हे व्यावसायिक काळजीचा पर्याय नाही.",
-    "login.crisis": "संकटात? कॉल करा",
-    "login.badge.secure": "सुरक्षित",
-    "login.badge.ai": "AI-चालित",
-    "login.badge.free": "मोफत",
+kn: {
+  // ─── Sidebar / Navigation ───────────────────────────────────────────────
+  "nav.chat": "MindfulSpace AI",
+  "nav.dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+  "nav.assessments": "ಮೌಲ್ಯಮಾಪನಗಳು",
+  "nav.guides": "ಮಾನಸಿಕ ಆರೋಗ್ಯ ಮಾರ್ಗದರ್ಶಿಗಳು",
+  "nav.about": "ನಮ್ಮ ಬಗ್ಗೆ",
+  "nav.trustedContact": "ವಿಶ್ವಾಸಾರ್ಹ ಸಂಪರ್ಕ",
+  "nav.helpSupport": "ಸಹಾಯ & ಬೆಂಬಲ",
+  "nav.language": "ಭಾಷೆ",
 
-    // ─── Account Panel ───────────────────────────────────────────────────────
-    "account.title": "खाते",
-    "account.freeTrial": "मोफत चाचणी",
-    "account.loading": "लोड होत आहे...",
-    "account.trialEnded": "आपली मोफत चाचणी संपली आहे",
-    "account.trialEndedSub": "MindBridge चा आनंद घेणे सुरू ठेवण्यासाठी Pro मध्ये अपग्रेड करा",
-    "account.daysLeft": "दिवस शिल्लक",
-    "account.inTrial": "आपल्या मोफत चाचणीत",
-    "account.after30": "30 दिवसांनंतर:",
-    "account.upgrade": "Pro मध्ये अपग्रेड करा",
-    "account.signOut": "साइन आउट",
+  // ─── Login Page ─────────────────────────────────────────────────────────
+  "login.welcome": "ಮತ್ತೆ ಸ್ವಾಗತ",
+  "login.subtitle": "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ವೆಲ್‌ನೆಸ್ ಸಂಗಾತಿಯನ್ನು ಪ್ರವೇಶಿಸಲು, ನಿಮ್ಮ ಮೂಡ್ ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಮತ್ತು MindfulSpace AI ಜೊತೆ ಮಾತನಾಡಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.",
+  "login.continueGoogle": "Google ಮೂಲಕ ಮುಂದುವರಿಸಿ",
+  "login.signingIn": "ಸೈನ್ ಇನ್ ಆಗುತ್ತಿದೆ…",
+  "login.disclaimer": "MindfulSpace ವೃತ್ತಿಪರ ಆರೈಕೆಗೆ ಪರ್ಯಾಯವಲ್ಲ.",
+  "login.crisis": "ತುರ್ತು ಪರಿಸ್ಥಿತಿ? ಕರೆ ಮಾಡಿ",
+  "login.badge.secure": "ಸುರಕ್ಷಿತ",
+  "login.badge.ai": "AI ಚಾಲಿತ",
+  "login.badge.free": "ಉಚಿತ",
 
-    // ─── Marketing Navbar ────────────────────────────────────────────────────
-    "mkt.nav.features": "वैशिष्ट्ये",
-    "mkt.nav.howItWorks": "हे कसे काम करते",
-    "mkt.nav.docs": "दस्तऐवजीकरण",
-    "mkt.nav.tryFree": "मोफत वापरून पाहा →",
+  // ─── Account Panel ───────────────────────────────────────────────────────
+  "account.title": "ಖಾತೆ",
+  "account.freeTrial": "ಉಚಿತ ಪ್ರಯೋಗ",
+  "account.loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+  "account.trialEnded": "ನಿಮ್ಮ ಉಚಿತ ಪ್ರಯೋಗ ಮುಗಿದಿದೆ",
+  "account.trialEndedSub": "MindfulSpace ಬಳಸಲು Pro ಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ",
+  "account.daysLeft": "ದಿನಗಳು ಬಾಕಿ",
+  "account.inTrial": "ನಿಮ್ಮ ಉಚಿತ ಪ್ರಯೋಗದಲ್ಲಿ",
+  "account.after30": "30 ದಿನಗಳ ನಂತರ:",
+  "account.upgrade": "Pro ಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ",
+  "account.signOut": "ಸೈನ್ ಔಟ್",
 
-    // ─── Hero ────────────────────────────────────────────────────────────────
-    "hero.badge": "Google Gemini द्वारे चालवले",
-    "hero.headline1": "मानसिक आरोग्य सहाय्य जे",
-    "hero.headline2": "खरोखर तुम्हाला समजते",
-    "hero.sub": "भारतासाठी बनवलेला एक सहानुभूतीपूर्ण, खाजगी आणि बुद्धिमान साथीदार. कोणत्याही खर्चाशिवाय क्लिनिकल स्क्रीनिंग, दैनंदिन मूड ट्रॅकिंग आणि त्वरित मदत मिळवा.",
-    "hero.cta1": "मोफत सुरू करा",
-    "hero.cta2": "हे कसे काम करते ते पाहा",
-    "hero.trust1": "सदस्यता नाही",
-    "hero.trust2": "100% मोफत",
-    "hero.trust3": "भारतासाठी बनवले",
-    "hero.chat.user": "मला आत्ता सगळ्या गोष्टींनी खूपच भारावून गेल्यासारखे वाटत आहे.",
-    "hero.chat.ai": "मी तुम्हाला ऐकतो. जेव्हा इतके सारे असते तेव्हा भारावणे सामान्य आहे. खोल श्वास घ्या. आत्ता मनातील गोष्टी मांडण्यात मदत होईल का?",
+  // ─── Marketing Navbar ────────────────────────────────────────────────────
+  "mkt.nav.features": "ವೈಶಿಷ್ಟ್ಯಗಳು",
+  "mkt.nav.howItWorks": "ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ",
+  "mkt.nav.docs": "ಡಾಕ್ಯುಮೆಂಟೇಶನ್",
+  "mkt.nav.tryFree": "ಉಚಿತವಾಗಿ ಪ್ರಯತ್ನಿಸಿ →",
 
-    // ─── Stats ───────────────────────────────────────────────────────────────
-    "stats.indiansCare": "भारतीयांना काळजीची गरज आहे",
-    "stats.aiSupport": "AI सहाय्य",
-    "stats.private": "खाजगी आणि सुरक्षित",
-    "stats.free": "मोफत",
-    "stats.forever": "कायमसाठी",
+  // ─── Hero ────────────────────────────────────────────────────────────────
+  "hero.badge": "Google Gemini ಮೂಲಕ ಚಾಲಿತ",
+  "hero.headline1": "ಮಾನಸಿಕ ಆರೋಗ್ಯ ಬೆಂಬಲ",
+  "hero.headline2": "ನಿಜವಾಗಿಯೂ ನಿಮಗೆ ಅರ್ಥವಾಗುತ್ತದೆ",
+  "hero.sub": "ಭಾರತಕ್ಕಾಗಿ ನಿರ್ಮಿಸಲಾದ ಸಹಾನುಭೂತಿಯುತ, ಖಾಸಗಿ ಮತ್ತು ಬುದ್ಧಿವಂತ ಸಂಗಾತಿ.",
+  "hero.cta1": "ಉಚಿತವಾಗಿ ಪ್ರಾರಂಭಿಸಿ",
+  "hero.cta2": "ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ ನೋಡಿ",
+  "hero.trust1": "ಯಾವುದೇ ಚಂದಾದಾರಿಕೆ ಇಲ್ಲ",
+  "hero.trust2": "100% ಉಚಿತ",
+  "hero.trust3": "ಭಾರತಕ್ಕಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ",
+  "hero.chat.user": "ನನಗೆ ಈಗ ಎಲ್ಲವೂ ತುಂಬಾ ಒತ್ತಡವಾಗುತ್ತಿದೆ.",
+  "hero.chat.ai": "ನಾನು ನಿಮಗೆ ಕೇಳುತ್ತಿದ್ದೇನೆ. ಇದು ಸಹಜವಾಗಿದೆ. ಸ್ವಲ್ಪ ಆಳವಾದ ಉಸಿರೆಳೆಯಿರಿ.",
 
-    // ─── Features ────────────────────────────────────────────────────────────
-    "features.heading": "तुमच्या मनासाठी बनवले.",
-    "features.sub": "जटिल सदस्यता किंवा लपलेल्या शुल्काशिवाय तुमचे मानसिक आरोग्य ट्रॅक, व्यवस्थापित आणि समजून घेण्यासाठी सर्व काही.",
-    "features.chat.title": "AI चॅट सपोर्ट",
-    "features.chat.desc": "Gemini 2.5 Flash द्वारे चालवलेला निर्णयमुक्त संभाषण सहाय्य. कोणत्याही वेळी तुमचा दिवस, ताण किंवा चिंता यावर चर्चा करा.",
-    "features.voice.title": "व्हॉइस मोड",
-    "features.voice.desc": "हँड्स-फ्री वेंटिंग. जेव्हा टाइपिंग खूप जड वाटेल तेव्हा MindBridge ला ऐकू द्या.",
-    "features.phq9.title": "PHQ-9 स्क्रीनिंग",
-    "features.phq9.desc": "आपली बेसलाइन स्थापित करण्यासाठी पूर्णपणे इन-ऐप क्लिनिकल नैराश्य स्क्रीनिंग घ्या.",
-    "features.mood.title": "मूड ट्रॅकर",
-    "features.mood.desc": "ट्रिगर चांगल्या प्रकारे समजण्यासाठी मागील 14 दिवसांतील आपला भावनिक प्रवास पाहा.",
-    "features.insights.title": "AI इनसाइट्स",
-    "features.insights.desc": "Gemini तुमच्या चॅट, मूड डेटा आणि मूल्यमापनांचे विश्लेषण करून वैयक्तिक साप्ताहिक सारांश तयार करतो.",
-    "features.privacy.title": "झीरो-ट्रस्ट गोपनीयता",
-    "features.privacy.desc": "तुमचा डेटा तुमच्या खात्याशी लॉक आहे. आम्ही तुमचे चॅट लॉग जाहिरातदारांना कधीही विकत नाही.",
+  // ─── Stats ───────────────────────────────────────────────────────────────
+  "stats.indiansCare": "ಭಾರತೀಯರಿಗೆ ಆರೈಕೆ ಅಗತ್ಯ",
+  "stats.aiSupport": "AI ಬೆಂಬಲ",
+  "stats.private": "ಖಾಸಗಿ & ಸುರಕ್ಷಿತ",
+  "stats.free": "ಉಚಿತ",
+  "stats.forever": "ಎಂದಿಗೂ",
 
-    // ─── How It Works ────────────────────────────────────────────────────────
-    "how.heading": "साइनअप ते सहाय्य 60 सेकंदात.",
-    "how.sub": "आम्ही प्रत्येक अनावश्यक पाऊल काढून टाकले जेणेकरून तुम्हाला गरज पडेल तेव्हा मदत मिळू शकेल.",
-    "how.step1.title": "सुरक्षितपणे साइन अप करा",
-    "how.step1.desc": "Google सह एक क्लिक. कोणते क्लिष्ट पासवर्ड नाही.",
-    "how.step2.title": "संपर्क जोडा",
-    "how.step2.desc": "सुरक्षा आणीबाणीसाठी विश्वासू मित्राचा नंबर टाका.",
-    "how.step3.title": "बोलणे सुरू करा",
-    "how.step3.desc": "त्वरित चॅटमध्ये या आणि ताण दूर करणे सुरू करा.",
+  // ─── Features ────────────────────────────────────────────────────────────
+  "features.heading": "ನಿಮ್ಮ ಮನಸ್ಸಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ.",
+  "features.sub": "ನಿಮ್ಮ ಮಾನಸಿಕ ಆರೋಗ್ಯವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಬೇಕಾದ ಎಲ್ಲವೂ.",
+  "features.chat.title": "AI ಚಾಟ್ ಬೆಂಬಲ",
+  "features.chat.desc": "ನ್ಯಾಯವಿಲ್ಲದ ಸಂಭಾಷಣೆ ಬೆಂಬಲ.",
+  "features.voice.title": "ವಾಯ್ಸ್ ಮೋಡ್",
+  "features.voice.desc": "ಹ್ಯಾಂಡ್ಸ್-ಫ್ರೀ ಮಾತನಾಡಿ.",
+  "features.phq9.title": "PHQ-9 ಪರೀಕ್ಷೆ",
+  "features.phq9.desc": "ಡಿಪ್ರೆಷನ್ ಪರಿಶೀಲನೆ.",
+  "features.mood.title": "ಮೂಡ್ ಟ್ರ್ಯಾಕರ್",
+  "features.mood.desc": "ನಿಮ್ಮ ಭಾವನೆಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ.",
+  "features.insights.title": "AI ಇನ್ಸೈಟ್ಸ್",
+  "features.insights.desc": "ವೈಯಕ್ತಿಕ ವಿಶ್ಲೇಷಣೆ.",
+  "features.privacy.title": "ಗೋಪ್ಯತೆ",
+  "features.privacy.desc": "ನಿಮ್ಮ ಡೇಟಾ ಸುರಕ್ಷಿತವಾಗಿದೆ.",
 
-    // ─── Quote ───────────────────────────────────────────────────────────────
-    "quote.text": "\"मला वाटले नव्हते की AI मला ऐकल्यासारखे वाटवू शकतो. रात्री 2 वाजता जेव्हा बोलायला कोणी नव्हते तेव्हा MindBridge होते.\"",
-    "quote.attr": "— एक MindBridge वापरकर्ता, मुंबई",
-    "quote.badge1": "खाजगी",
-    "quote.badge2": "मोफत",
-    "quote.badge3": "भारत",
+  // ─── How It Works ────────────────────────────────────────────────────────
+  "how.heading": "60 ಸೆಕೆಂಡ್‌ನಲ್ಲಿ ಸಹಾಯ ಪಡೆಯಿರಿ.",
+  "how.sub": "ತಕ್ಷಣ ಸಹಾಯ ಪಡೆಯಲು ಸರಳ ಹಂತಗಳು.",
+  "how.step1.title": "ಸೈನ್ ಅಪ್ ಮಾಡಿ",
+  "how.step1.desc": "Google ಮೂಲಕ ಒಂದು ಕ್ಲಿಕ್.",
+  "how.step2.title": "ಸಂಪರ್ಕ ಸೇರಿಸಿ",
+  "how.step2.desc": "ವಿಶ್ವಾಸಾರ್ಹ ಸ್ನೇಹಿತನ ಸಂಖ್ಯೆಯನ್ನು ಸೇರಿಸಿ.",
+  "how.step3.title": "ಮಾತನಾಡಲು ಪ್ರಾರಂಭಿಸಿ",
+  "how.step3.desc": "ತಕ್ಷಣ ಚಾಟ್ ಪ್ರಾರಂಭಿಸಿ.",
 
-    // ─── CTA ─────────────────────────────────────────────────────────────────
-    "cta.heading": "तुमचे मानसिक आरोग्य महत्त्वाचे आहे.",
-    "cta.button": "MindBridge उघडा →",
-    "cta.crisis": "संकटात? iCall India:",
+  
+  // ─── CTA ─────────────────────────────────────────────────────────────────
+  "cta.heading": "ನಿಮ್ಮ ಮಾನಸಿಕ ಆರೋಗ್ಯ ಮುಖ್ಯವಾಗಿದೆ.",
+  "cta.button": "MindfulSpace ತೆರೆಯಿರಿ →",
+  "cta.crisis": "ತುರ್ತು ಪರಿಸ್ಥಿತಿ? iCall India:",
 
-    // ─── Footer ──────────────────────────────────────────────────────────────
-    "footer.tagline": "Google Gemini द्वारे चालवलेला AI मानसिक आरोग्य साथीदार. सुलभ, खाजगी आणि 100% मोफत. भारतासाठी बनवले.",
-    "footer.product": "उत्पादन",
-    "footer.signIn": "साइन इन",
-    "footer.docs": "दस्तऐवजीकरण",
-    "footer.features": "वैशिष्ट्ये",
-    "footer.privacy": "गोपनीयता धोरण",
-    "footer.crisis": "संकट हेल्पलाइन (भारत)",
-    "footer.copy": "MindBridge AI. सर्व हक्क राखीव.",
-    "footer.builtWith": "🤍 आणि सह बनवले",
+  // ─── Footer ──────────────────────────────────────────────────────────────
+  "footer.tagline": "AI ಮಾನಸಿಕ ಆರೋಗ್ಯ ಸಂಗಾತಿ.",
+  "footer.product": "ಉತ್ಪನ್ನ",
+  "footer.signIn": "ಸೈನ್ ಇನ್",
+  "footer.docs": "ಡಾಕ್ಯುಮೆಂಟೇಶನ್",
+  "footer.features": "ವೈಶಿಷ್ಟ್ಯಗಳು",
+  "footer.privacy": "ಗೋಪ್ಯತೆ ನೀತಿ",
+  "footer.crisis": "ಸಂಕಟ ಸಹಾಯವಾಣಿ",
+  "footer.copy": " ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
+  "footer.builtWith": " ಸಹ ನಿರ್ಮಿಸಲಾಗಿದೆ",
 
-    // ─── Personality Test ────────────────────────────────────────────────────
-    "personality.title": "द्रुत व्यक्तिमत्व चाचणी",
-    "personality.sub": "MindBridge ला तुम्हाला अधिक चांगल्या प्रकारे समजण्यास मदत करा — 6 द्रुत प्रश्न",
-    "personality.questionOf": "प्रश्न {n} / {total}",
-    "personality.skip": "आत्ता वगळा",
-    // Q1
-    "personality.q1": "तुम्ही स्वतःचे वर्णन कसे कराल?",
-    "personality.q1.o1": "अंतर्मुखी — मला एकट्याने वेळ घालवायला आवडते",
-    "personality.q1.o2": "बहिर्मुखी — मला सामाजिकरण आवडते",
-    "personality.q1.o3": "मध्ये कुठेतरी",
-    // Q2
-    "personality.q2": "जेव्हा तुम्ही संघर्षात असता, तेव्हा तुम्हाला सर्वात जास्त काय हवे असते?",
-    "personality.q2.o1": "फक्त कोणी ऐकणारे",
-    "personality.q2.o2": "व्यावहारिक सल्ला",
-    "personality.q2.o3": "लक्ष विचलित करणे",
-    "personality.q2.o4": "प्रेरणा",
-    // Q3
-    "personality.q3": "तुम्ही तुमच्या भावनांबद्दल बोलण्यात किती सोयीस्कर आहात?",
-    "personality.q3.o1": "खूप सोयीस्कर",
-    "personality.q3.o2": "काही प्रमाणात सोयीस्कर",
-    "personality.q3.o3": "फारसे सोयीस्कर नाही",
-    "personality.q3.o4": "मला कठीण वाटते",
-    // Q4
-    "personality.q4": "तुम्ही सहसा ताणाचा सामना कसा करता?",
-    "personality.q4.o1": "कोणाशी तरी बोलणे",
-    "personality.q4.o2": "स्वतःजवळ ठेवणे",
-    "personality.q4.o3": "व्यायाम किंवा व्यस्त राहणे",
-    "personality.q4.o4": "मी चांगला सामना करत नाही",
-    // Q5
-    "personality.q5": "तुमची सध्याची परिस्थिती सर्वोत्तम कशाने वर्णित होते?",
-    "personality.q5.o1": "चिंताग्रस्त वाटत आहे",
-    "personality.q5.o2": "उदास वाटत आहे",
-    "personality.q5.o3": "तणावग्रस्त वाटत आहे",
-    "personality.q5.o4": "फक्त ॲप एक्सप्लोर करत आहे",
-    // Q6
-    "personality.q6": "तुम्हाला MindBridge कडून कोणत्या प्रकारचा आधार हवा आहे?",
-    "personality.q6.o1": "सौम्य आणि सहानुभूतीपूर्ण",
-    "personality.q6.o2": "प्रेरक आणि उत्साही",
-    "personality.q6.o3": "शांत आणि व्यावहारिक",
-    "personality.q6.o4": "कोणतीही प्राथमिकता नाही",
+  // ─── Personality Test ────────────────────────────────────────────────────
+  "personality.title": "ವೇಗವಾದ ವ್ಯಕ್ತಿತ್ವ ಪರೀಕ್ಷೆ",
+  "personality.sub": "MindfulSpace ನಿಮಗೆ ಉತ್ತಮವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡಿ — 6 ವೇಗವಾದ ಪ್ರಶ್ನೆಗಳು",
+  "personality.questionOf": "ಪ್ರಶ್ನೆ {n} / {total}",
+  "personality.skip": "ಈಗ ಬಿಡಿ",
 
-    // ─── Chat Page ─────────────────────────────────────────────────────
-    "chat.title": "MindBridge चॅट",
-    "chat.subtitle": "तुमची सुरक्षित, AI-चालित वेलनेस जागा.",
-    "chat.newChat": "नवीन चॅट +",
-    "chat.today": "आज",
-    "chat.yesterday": "काल",
-    "chat.last7": "मागील 7 दिवस",
-    "chat.thisMonth": "या महिन्यात",
-    "chat.older": "आधी",
-    "chat.placeholder": "तुम्हाला कसे वाटत आहे…",
-    "chat.listening": "ऐकत आहे",
-    "chat.welcome": "नमस्ते 👋 मी **MindBridge** आहे, तुमचा वैयक्तिक वेलनेस साथीदार.\n\nमी निर्णयाशिवाय ऐकण्यासाठी इथे आहे. आज तुम्हाला कसे वाटत आहे?",
-    "chat.errorMsg": "मला माफ करा, मला उत्तर देण्यात अडचण आली. कृपया एका क्षणात पुन्हा प्रयत्न करा.",
-    "chat.voiceUnsupported": "या ब्राउझरमध्ये व्हॉइस इनपुट समर्थित नाही. Chrome वापरून पाहा.",
-    "chat.speechUnsupported": "या ब्राउझरमध्ये स्पीच सिंथेसिस समर्थित नाही.",
+  // Q1
+  "personality.q1": "ನೀವು ನಿಮ್ಮನ್ನು ಹೇಗೆ ವರ್ಣಿಸುತ್ತೀರಿ?",
+  "personality.q1.o1": "ಅಂತರ್ಮುಖಿ — ನಾನು ಒಂಟಿಯಾಗಿ ಸಮಯ ಕಳೆಯಲು ಇಷ್ಟಪಡುತ್ತೇನೆ",
+  "personality.q1.o2": "ಬಹಿರ್ಮುಖಿ — ನನಗೆ ಸಾಮಾಜಿಕವಾಗಿರುವುದು ಇಷ್ಟ",
+  "personality.q1.o3": "ಮಧ್ಯದಲ್ಲೇ ಎಲ್ಲೋ",
 
-    // ─── Dashboard Page ─────────────────────────────────────────────────
-    "dash.title": "डॅशबोर्ड",
-    "dash.sub": "तुमचे मनोवैज्ञानिक कल्याण ट्रॅक करा आणि पुनरावलोकन करा.",
-    "dash.insights": "AI इनसाइट्स तयार करा",
-    "dash.avgMood": "सरासरी मूड (14 दिवस)",
-    "dash.overall": "एकंदर",
-    "dash.depression": "नैराश्य",
-    "dash.anxiety": "चिंता",
-    "dash.notTaken": "अजून घेतले नाही",
-    "dash.moodTrend": "मूड ट्रेंड",
-    "dash.moodTrendSub": "मागील 14 दिवसांतील दैनंदिन मूड स्कोर",
-    "dash.noLogs": "अजून कोणतेही मूड लॉग नाहीत. ट्रेंड पाहण्यासाठी खाली लॉग करा.",
-    "dash.logMood": "आजचा मूड लॉग करा",
-    "dash.logMoodSub": "तुम्हाला आत्ता कसे वाटत आहे?",
-    "dash.low": "कमी",
-    "dash.high": "जास्त",
-    "dash.notePlaceholder": "तुमच्या दिवसाबद्दल एक वैकल्पिक नोट जोडा...",
-    "dash.saveEntry": "नोंद जतन करा",
-    "dash.saving": "जतन होत आहे...",
-    "dash.phq9History": "PHQ-9 इतिहास",
-    "dash.gad7History": "GAD-7 इतिहास",
+  // Q2
+  "personality.q2": "ನೀವು ಸಂಕಷ್ಟದಲ್ಲಿದ್ದಾಗ, ನಿಮಗೆ ಅತ್ಯಂತ ಬೇಕಾಗಿರುವುದು ಏನು?",
+  "personality.q2.o1": "ಯಾರಾದರೂ ಕೇಳುವವರು",
+  "personality.q2.o2": "ಪ್ರಾಯೋಗಿಕ ಸಲಹೆ",
+  "personality.q2.o3": "ಮನಸ್ಸು ಬೇರೆಡೆಗೆ ತಿರುಗಿಸುವುದು",
+  "personality.q2.o4": "ಪ್ರೇರಣೆ",
 
-    // ─── Assessment Page ─────────────────────────────────────────────────
-    "assess.title": "मूल्यमापन",
-    "assess.sub": "तुमचे कल्याण समजण्यासाठी वैज्ञानिकदृष्ट्या प्रमाणित स्क्रीनिंग साधने. या चाचण्या फक्त काही मिनिटे घेतात.",
-    "assess.note": "नोंद:",
-    "assess.noteText": "ही साधने केवळ स्क्रीनिंगसाठी आहेत आणि नैदानिक निदान नाहीत. नेहमी आरोग्य व्यावसायिकाचा सल्ला घ्या.",
-    "assess.phq9.sub": "नैराश्य स्क्रीनिंग",
-    "assess.phq9.desc": "मागील 2 आठवड्यांबद्दल 9 प्रश्न. ~2 मिनिटे लागतात.",
-    "assess.gad7.sub": "चिंता स्क्रीनिंग",
-    "assess.gad7.desc": "मागील 2 आठवड्यांबद्दल 7 प्रश्न. ~1 मिनिट लागतो.",
-    "assess.over2weeks": "मागील 2 आठवड्यांत, तुम्हाला किती वेळा त्रास झाला:",
-    "assess.opt.never": "अजिबात नाही",
-    "assess.opt.several": "काही दिवस",
-    "assess.opt.half": "अर्ध्याहून अधिक दिवस",
-    "assess.opt.nearly": "जवळजवळ दररोज",
-    "assess.crisis": "तुम्हाला स्वत:ला इजा करण्याचे विचार येत असल्यास, कृपया iCall (9152987821) शी त्वरित संपर्क करा.",
-    "assess.cancel": "रद्द करा",
-    "assess.submit": "मूल्यमापन सबमिट करा",
-    "assess.takeAnother": "आणखी एक चाचणी घ्या",
-    "assess.analysis": "MindBridge विश्लेषण",
-    "assess.strategies": "शिफारस केलेल्या रणनीती",
-    "assess.reachOut": "⚠️ कृपया मदतीसाठी संपर्क करा",
-    "assess.selfHarm": "तुमच्या उत्तरावरून असे सूचित होते की तुम्हाला स्वत:ला इजा करण्याचे विचार येत असतील. मदत उपलब्ध आहे.",
-    "assess.unanswered": "कृपया सर्व प्रश्नांची उत्तरे द्या.",
+  // Q3
+  "personality.q3": "ನಿಮ್ಮ ಭಾವನೆಗಳ ಬಗ್ಗೆ ಮಾತನಾಡಲು ನೀವು ಎಷ್ಟು ಆರಾಮವಾಗಿದ್ದೀರಿ?",
+  "personality.q3.o1": "ತುಂಬಾ ಆರಾಮವಾಗಿದ್ದೇನೆ",
+  "personality.q3.o2": "ಸ್ವಲ್ಪ ಆರಾಮವಾಗಿದ್ದೇನೆ",
+  "personality.q3.o3": "ಅಷ್ಟಾಗಿ ಆರಾಮವಾಗಿಲ್ಲ",
+  "personality.q3.o4": "ನನಗೆ ಇದು ಕಷ್ಟವಾಗಿದೆ",
 
-    // ─── Fallback Coping Tips ────────────────────────────────────────────
-    "assess.fallback.tip1": "जेव्हा तुम्हाला भारावून गेल्यासारखे वाटेल तेव्हा 5 मिनिटांसाठी हळू गहिरी श्वास घ्या",
-    "assess.fallback.tip2": "पैटर्न लवकर पकडण्यासाठी एक लहान दैनिक मूड जर्नल ठेवा",
-    "assess.fallback.tip3": "या आठवड्यात आपल्या विश्वासू मित्राकडे पोहोचा आणि आपल्या भावनांबद्दल बोला",
-    "assess.fallback.tip4": "एखाद्या परामर्शदाता किंवा थेरपिस्टशी बोलण्याचा विचार करा",
-    "assess.fallback.interpretation": "या मूल्यमापनाचे पूर्ण केल्याबद्दल धन्यवाद. हे परिणाम मानसिक आरोग्य व्यावसायिकांशी संभाषणाची सहायक सुरुवात असू शकतात.",
+  // Q4
+  "personality.q4": "ನೀವು ಸಾಮಾನ್ಯವಾಗಿ ಒತ್ತಡವನ್ನು ಹೇಗೆ ನಿಭಾಯಿಸುತ್ತೀರಿ?",
+  "personality.q4.o1": "ಯಾರಾದರೂ ಜೊತೆ ಮಾತನಾಡುತ್ತೇನೆ",
+  "personality.q4.o2": "ನನ್ನಲ್ಲೇ ಇಟ್ಟುಕೊಳ್ಳುತ್ತೇನೆ",
+  "personality.q4.o3": "ವ್ಯಾಯಾಮ ಮಾಡುತ್ತೇನೆ ಅಥವಾ ಬ್ಯುಸಿಯಾಗಿರುತ್ತೇನೆ",
+  "personality.q4.o4": "ನಾನು ಸರಿಯಾಗಿ ನಿಭಾಯಿಸಲಾರೆ",
 
-    // PHQ-9 questions
-    "assess.phq9.q1": "गोष्टीं करण्यात कमी रूची किंवा आनंद?",
-    "assess.phq9.q2": "उदास, निराश किंवा निराशावादी वाटणे?",
-    "assess.phq9.q3": "झोप न लागणे किंवा जास्त झोपणे?",
-    "assess.phq9.q4": "थकवा वाटणे किंवा कमी शक्ती वाटणे?",
-    "assess.phq9.q5": "भूक न लागणे किंवा जास्त खाणे?",
-    "assess.phq9.q6": "स्वतःबद्दल वाईट वाटणे किंवा अपयशी वाटणे?",
-    "assess.phq9.q7": "एखाद्या गोष्टीवर लक्ष केंद्रित करण्यात अडचण?",
-    "assess.phq9.q8": "इतक्या संथपणे हलणे-चलणे कि इतरांनी लक्षात घेतले, किंवा अस्वस्थ वाटणे?",
-    "assess.phq9.q9": "मेल्यानंतर बरे वाटणे किंवा स्वतःला इजा करण्याचे विचार?",
-    // GAD-7 questions
-    "assess.gad7.q1": "घाबरणे, चिंता किंवा अस्वस्थ वाटणे?",
-    "assess.gad7.q2": "काळजी थांबवणे कठीण वाटणे?",
-    "assess.gad7.q3": "वेगवेगळ्या गोष्टींवर गरजेपेक्षा जास्त फिकीरी करणे?",
-    "assess.gad7.q4": "आराम करण्यात अडचण?",
-    "assess.gad7.q5": "इतके अस्वस्थ वाटणे की स्थिर बसणे कठीण वाटणे?",
-    "assess.gad7.q6": "सहज चिडचिडणे किंवा राग येणे?",
-    "assess.gad7.q7": "काही वाईट घडणार आहे यासारखी भीती वाटणे?",
+  // Q5
+  "personality.q5": "ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಪರಿಸ್ಥಿತಿಯನ್ನು ಯಾವುದು ಉತ್ತಮವಾಗಿ ವರ್ಣಿಸುತ್ತದೆ?",
+  "personality.q5.o1": "ಚಿಂತೆಗೊಳಗಾಗಿದ್ದೇನೆ",
+  "personality.q5.o2": "ದುಃಖವಾಗುತ್ತಿದೆ",
+  "personality.q5.o3": "ಒತ್ತಡದಲ್ಲಿದ್ದೇನೆ",
+  "personality.q5.o4": "ಅಪ್ ಅನ್ನು ಅನ್ವೇಷಿಸುತ್ತಿದ್ದೇನೆ",
 
-    // ─── Severity Labels ──────────────────────────────────────────────────
-    "sev.Minimal": "न्यूनतम",
-    "sev.Mild": "सौम्य",
-    "sev.Moderate": "मध्यम",
-    "sev.ModeratelySevere": "मध्यम तीव्र",
-    "sev.Severe": "तीव्र",
-    "sev.MinimalAnxiety": "न्यूनतम चिंता",
-    "sev.MildAnxiety": "सौम्य चिंता",
-    "sev.ModerateAnxiety": "मध्यम चिंता",
-    "sev.SevereAnxiety": "तीव्र चिंता",
+  // Q6
+  "personality.q6": "MindfulSpace ನಿಂದ ನೀವು ಯಾವ ರೀತಿಯ ಬೆಂಬಲವನ್ನು ಇಷ್ಟಪಡುತ್ತೀರಿ?",
+  "personality.q6.o1": "ಮೃದುವಾದ ಮತ್ತು ಸಹಾನುಭೂತಿಯುತ",
+  "personality.q6.o2": "ಪ್ರೇರಣಾದಾಯಕ ಮತ್ತು ಶಕ್ತಿಯುತ",
+  "personality.q6.o3": "ಶಾಂತ ಮತ್ತು ಪ್ರಾಯೋಗಿಕ",
+  "personality.q6.o4": "ಯಾವುದೇ ಆದ್ಯತೆ ಇಲ್ಲ",
 
-    // ─── Crisis Modal ────────────────────────────────────────────────────
-    "crisis.title": "आम्ही तुमच्यासाठी इथे आहोत",
-    "crisis.sub1": "असे दिसते की तुम्ही खूप कठीण प्रसंगातून जात आहात.",
-    "crisis.sub2": "तुम्ही एकटे नाही.",
-    "crisis.sub3": "कृपया आत्ता संकट सल्लागाराशी किंवा तुमच्या विश्वासू संपर्काशी संपर्क साधा.",
-    "crisis.whatsapp": "विश्वासू संपर्काला संदेश पाठवा",
-    "crisis.continue": "मला समजले — सुरू ठेवा",
-  },
+  // ─── Chat Page ─────────────────────────────────────────────────────
+  "chat.title": "MindfulSpace ಚಾಟ್",
+  "chat.subtitle": "ನಿಮ್ಮ ಸುರಕ್ಷಿತ ವೆಲ್‌ನೆಸ್ ಸ್ಥಳ.",
+  "chat.newChat": "ಹೊಸ ಚಾಟ್ +",
+  "chat.today": "ಇಂದು",
+  "chat.yesterday": "ನಿನ್ನೆ",
+  "chat.last7": "ಕಳೆದ 7 ದಿನಗಳು",
+  "chat.thisMonth": "ಈ ತಿಂಗಳು",
+  "chat.older": "ಹಳೆಯವು",
+  "chat.placeholder": "ನೀವು ಹೇಗೆ ಅನುಭವಿಸುತ್ತಿದ್ದೀರಿ…",
+  "chat.listening": "ಕೆಳುತ್ತಿದೆ",
+  "chat.welcome": "ನಮಸ್ಕಾರ 👋 ನಾನು **MindfulSpace**",
+  "chat.errorMsg":"ಕ್ಷಮಿಸಿ, ಉತ್ತರಿಸಲು ನನಗೆ ಕಷ್ಟವಾಗಿದೆ. ದಯವಿಟ್ಟು ಒಂದು ಕ್ಷಣದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+
+  // ─── Dashboard Page ─────────────────────────────────────────────────
+  "dash.title": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+  "dash.sub": "ನಿಮ್ಮ ಮಾನಸಿಕ ಆರೋಗ್ಯ ಸ್ಥಿತಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಮತ್ತು ಪರಿಶೀಲಿಸಿ.",
+  "dash.insights": "AI ಒಳನೋಟಗಳನ್ನು ರಚಿಸಿ",
+  "dash.avgMood": "ಸರಾಸರಿ ಮೂಡ್ (14 ದಿನಗಳು)",
+  "dash.overall": "ಒಟ್ಟು",
+  "dash.depression": "ಅವಸಾದ",
+  "dash.anxiety": "ಆತಂಕ",
+  "dash.notTaken": "ಇನ್ನೂ ತೆಗೆದುಕೊಳ್ಳಲಾಗಿಲ್ಲ",
+  "dash.moodTrend": "ಮೂಡ್ ಟ್ರೆಂಡ್",
+  "dash.moodTrendSub": "ಕಳೆದ 14 ದಿನಗಳ ದೈನಂದಿನ ಮೂಡ್ ಅಂಕಗಳು",
+  "dash.noLogs": "ಇನ್ನೂ ಮೂಡ್ ದಾಖಲೆಗಳಿಲ್ಲ. ಟ್ರೆಂಡ್ ನೋಡಲು ಕೆಳಗೆ ದಾಖಲಿಸಿ.",
+  "dash.logMood": "ಇಂದಿನ ಮೂಡ್ ದಾಖಲಿಸಿ",
+  "dash.logMoodSub": "ನೀವು ಈಗ ಹೇಗೆ ಅನುಭವಿಸುತ್ತಿದ್ದೀರಿ?",
+  "dash.low": "ಕಡಿಮೆ",
+  "dash.high": "ಹೆಚ್ಚು",
+  "dash.notePlaceholder": "ನಿಮ್ಮ ದಿನದ ಬಗ್ಗೆ ಐಚ್ಛಿಕ ಟಿಪ್ಪಣಿ ಸೇರಿಸಿ...",
+  "dash.saveEntry": "ದಾಖಲೆಯನ್ನು ಉಳಿಸಿ",
+  "dash.saving": "ಉಳಿಸಲಾಗುತ್ತಿದೆ...",
+  "dash.phq9History": "PHQ-9 ಇತಿಹಾಸ",
+  "dash.gad7History": "GAD-7 ಇತಿಹಾಸ",
+
+  // ─── Assessment Page ─────────────────────────────────────────────────
+  "assess.title": "ಮೌಲ್ಯಮಾಪನಗಳು",
+  "assess.sub": "ನಿಮ್ಮ ಸ್ಥಿತಿಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ವೈಜ್ಞಾನಿಕವಾಗಿ ಪರಿಶೀಲಿಸಲಾದ ಪರೀಕ್ಷೆಗಳು. ಈ ಪರೀಕ್ಷೆಗಳು ಕೆಲವೇ ನಿಮಿಷಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುತ್ತವೆ.",
+  "assess.note": "ಗಮನಿಸಿ:",
+  "assess.noteText": "ಈ ಪರೀಕ್ಷೆಗಳು ಕೇವಲ ಪರಿಶೀಲನೆಗಾಗಿ ಮಾತ್ರ ಮತ್ತು ವೈದ್ಯಕೀಯ ನಿರ್ಣಯವಲ್ಲ. ದಯವಿಟ್ಟು ವೈದ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+  "assess.phq9.sub": "ಅವಸಾದ ಪರೀಕ್ಷೆ",
+  "assess.phq9.desc": "ಕಳೆದ 2 ವಾರಗಳ ಬಗ್ಗೆ 9 ಪ್ರಶ್ನೆಗಳು. ~2 ನಿಮಿಷಗಳು.",
+  "assess.gad7.sub": "ಆತಂಕ ಪರೀಕ್ಷೆ",
+  "assess.gad7.desc": "ಕಳೆದ 2 ವಾರಗಳ ಬಗ್ಗೆ 7 ಪ್ರಶ್ನೆಗಳು. ~1 ನಿಮಿಷ.",
+  "assess.over2weeks": "ಕಳೆದ 2 ವಾರಗಳಲ್ಲಿ, ನೀವು ಎಷ್ಟು ಬಾರಿ ಇದರಿಂದ ಕಂಗೆಟ್ಟಿದ್ದೀರಿ:",
+  "assess.opt.never": "ಎಲ್ಲಾ ಇಲ್ಲ",
+  "assess.opt.several": "ಕೆಲವು ದಿನಗಳು",
+  "assess.opt.half": "ಅರ್ಧಕ್ಕಿಂತ ಹೆಚ್ಚು ದಿನಗಳು",
+  "assess.opt.nearly": "ಬಹುತೇಕ ಪ್ರತಿದಿನ",
+  "assess.crisis": "ನೀವು ನಿಮ್ಮನ್ನು ಹಾನಿ ಮಾಡಿಕೊಳ್ಳುವ ಆಲೋಚನೆಗಳಿದ್ದರೆ, ತಕ್ಷಣ iCall (9152987821) ಸಂಪರ್ಕಿಸಿ.",
+  "assess.cancel": "ರದ್ದುಮಾಡಿ",
+  "assess.submit": "ಮೌಲ್ಯಮಾಪನ ಸಲ್ಲಿಸಿ",
+  "assess.takeAnother": "ಮತ್ತೊಂದು ಪರೀಕ್ಷೆ ತೆಗೆದುಕೊಳ್ಳಿ",
+  "assess.analysis": "MindfulSpace ವಿಶ್ಲೇಷಣೆ",
+  "assess.strategies": "ಶಿಫಾರಸು ಮಾಡಿದ ವಿಧಾನಗಳು",
+  "assess.reachOut": "⚠️ ದಯವಿಟ್ಟು ಸಹಾಯಕ್ಕಾಗಿ ಸಂಪರ್ಕಿಸಿ",
+  "assess.selfHarm": "ನಿಮ್ಮ ಉತ್ತರವು ಸ್ವಯಂ ಹಾನಿ ಆಲೋಚನೆಗಳನ್ನು ಸೂಚಿಸುತ್ತದೆ. ಸಹಾಯ ಲಭ್ಯವಿದೆ.",
+  "assess.unanswered": "ದಯವಿಟ್ಟು ಎಲ್ಲಾ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸಿ.",
+
+  // ─── Fallback Coping Tips ────────────────────────────────────────────
+"assess.fallback.tip1": "ನೀವು ತುಂಬಾ ಒತ್ತಡವಾಗಿರುವಂತೆ ಅನುಭವಿಸಿದಾಗ 5 ನಿಮಿಷಗಳ ಕಾಲ ನಿಧಾನವಾಗಿ ಆಳವಾದ ಉಸಿರಾಟ ಮಾಡಿ",
+"assess.fallback.tip2": "ಪ್ಯಾಟರ್ನ್‌ಗಳನ್ನು ಬೇಗ ಗುರುತಿಸಲು ಒಂದು ಚಿಕ್ಕ ದೈನಂದಿನ ಮೂಡ್ ಡೈರಿಯನ್ನು ಇಟ್ಟುಕೊಳ್ಳಿ",
+"assess.fallback.tip3": "ಈ ವಾರ ನಿಮ್ಮ ವಿಶ್ವಾಸಾರ್ಹ ಸ್ನೇಹಿತನೊಂದಿಗೆ ನಿಮ್ಮ ಭಾವನೆಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ",
+"assess.fallback.tip4": "ಒಬ್ಬ ಸಲಹೆಗಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ಮಾತನಾಡುವುದನ್ನು ಪರಿಗಣಿಸಿ",    
+"assess.fallback.interpretation": "ಈ ಮೌಲ್ಯಮಾಪನವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು. ಈ ಫಲಿತಾಂಶಗಳು ಮಾನಸಿಕ ಆರೋಗ್ಯ ತಜ್ಞರೊಂದಿಗೆ ಮಾತುಕತೆಗೆ ಒಳ್ಳೆಯ ಪ್ರಾರಂಭವಾಗಬಹುದು।",
+
+// PHQ-9 questions
+"assess.phq9.q1": "ಕಾರ್ಯಗಳಲ್ಲಿ ಆಸಕ್ತಿ ಅಥವಾ ಆನಂದ ಕಡಿಮೆಯಾಗಿದೆಯೇ?",
+"assess.phq9.q2": "ದುಃಖ, ನಿರಾಶೆ ಅಥವಾ ನಿರಾಶಾವಾದಿ ಭಾವನೆ ಅನುಭವಿಸುತ್ತಿದ್ದೀರಾ?",
+"assess.phq9.q3": "ನಿದ್ರೆ ಬರದಿರುವುದು ಅಥವಾ ಹೆಚ್ಚು ನಿದ್ರೆ ಮಾಡುವುದು?",
+"assess.phq9.q4": "ದಣಿವು ಅಥವಾ ಶಕ್ತಿಯ ಕೊರತೆ ಅನುಭವಿಸುತ್ತಿದ್ದೀರಾ?",
+"assess.phq9.q5": "ಭಕ್ಷಣಾ ಆಸಕ್ತಿ ಕಡಿಮೆಯಾಗಿದೆಯೇ ಅಥವಾ ಹೆಚ್ಚು ತಿನ್ನುತ್ತಿದ್ದೀರಾ?",
+"assess.phq9.q6": "ನಿಮ್ಮ ಬಗ್ಗೆ ಕೆಟ್ಟದಾಗಿ ಭಾಸವಾಗುತ್ತಿದೆಯೇ ಅಥವಾ ನೀವು ವಿಫಲರಾಗಿದ್ದೀರಿ ಎಂದು ಭಾಸವಾಗುತ್ತಿದೆಯೇ?",
+"assess.phq9.q7": "ಒಂದು ವಿಷಯದ ಮೇಲೆ ಗಮನ ಕೇಂದ್ರೀಕರಿಸಲು ಕಷ್ಟವಾಗುತ್ತಿದೆಯೇ?",
+"assess.phq9.q8": "ನೀವು ನಿಧಾನವಾಗಿ ಚಲಿಸುವುದು/ಮಾತನಾಡುವುದು ಇತರರಿಗೆ ಗಮನಕ್ಕೆ ಬಂದಿದೆಯೇ ಅಥವಾ ಅಶಾಂತತೆ ಅನುಭವಿಸುತ್ತಿದ್ದೀರಾ?",
+"assess.phq9.q9": "ಸಾಯುವುದು ಉತ್ತಮ ಎಂದು ಅಥವಾ ನಿಮ್ಮನ್ನು ನೀವು ಹಾನಿ ಮಾಡಿಕೊಳ್ಳುವ ಆಲೋಚನೆಗಳಿವೆಯೇ?",
+
+// GAD-7 questions
+"assess.gad7.q1": "ನರ್ವಸ್, ಆತಂಕ ಅಥವಾ ಅಶಾಂತಿ ಅನುಭವಿಸುತ್ತಿದ್ದೀರಾ?",
+"assess.gad7.q2": "ಚಿಂತೆ ನಿಯಂತ್ರಿಸಲು ಕಷ್ಟವಾಗುತ್ತಿದೆಯೇ?",
+"assess.gad7.q3": "ವಿವಿಧ ವಿಷಯಗಳ ಬಗ್ಗೆ ಅತಿಯಾಗಿ ಚಿಂತಿಸುತ್ತಿದ್ದೀರಾ?",
+"assess.gad7.q4": "ವಿಶ್ರಾಂತಿ ಪಡೆಯಲು ಕಷ್ಟವಾಗುತ್ತಿದೆಯೇ?",
+"assess.gad7.q5": "ನಿಶ್ಚಲವಾಗಿ ಕುಳಿತುಕೊಳ್ಳಲು ಕಷ್ಟವಾಗುವಷ್ಟು ಅಶಾಂತವಾಗಿದ್ದೀರಾ?",
+"assess.gad7.q6": "ಸುಲಭವಾಗಿ ಕೋಪ ಅಥವಾ ಚಡಪಡಿಕೆ ಬರುತ್ತಿದೆಯೇ?",
+"assess.gad7.q7": "ಯಾವುದೋ ಕೆಟ್ಟದ್ದು ಸಂಭವಿಸಬಹುದು ಎಂಬ ಭಯವಿದೆಯೇ?",
+
+// ─── Severity Labels ──────────────────────────────────────────────────
+"sev.Minimal": "ಕನಿಷ್ಠ",
+"sev.Mild": "ಸ್ವಲ್ಪ",
+"sev.Moderate": "ಮಧ್ಯಮ",
+"sev.ModeratelySevere": "ಮಧ್ಯಮ ಗಂಭೀರ",
+"sev.Severe": "ಗಂಭೀರ",
+"sev.MinimalAnxiety": "ಕನಿಷ್ಠ ಆತಂಕ",
+"sev.MildAnxiety": "ಸ್ವಲ್ಪ ಆತಂಕ",
+"sev.ModerateAnxiety": "ಮಧ್ಯಮ ಆತಂಕ",
+"sev.SevereAnxiety": "ಗಂಭೀರ ಆತಂಕ",
+
+  // ─── Crisis Modal ────────────────────────────────────────────────────
+  "crisis.title": "ನಾವು ನಿಮ್ಮ ಜೊತೆ ಇದ್ದೇವೆ",
+  "crisis.sub1": "ನೀವು ಕಷ್ಟದಲ್ಲಿದ್ದೀರಿ.",
+  "crisis.sub2": "ನೀವು ಒಬ್ಬರಲ್ಲ.",
+  "crisis.sub3": "ದಯವಿಟ್ಟು ಸಹಾಯ ಪಡೆಯಿರಿ.",
+  "crisis.continue": "ಮುಂದುವರಿಸಿ",
+
+  // ─── Crisis Helplines ─────────────────────────────────────────────
+"crisis.helplines.title": "ಸಂಕಟ ಸಹಾಯವಾಣಿಗಳು (ಭಾರತ)",
+"crisis.helplines.kiran": "📞 ಕಿರಣ್ (24/7): 1800-599-0019",
+"crisis.helplines.icall": "📞 iCALL (TISS - ಕಾರ್ಯ ಸಮಯ): 9152987821",
+"crisis.helplines.vandrevala": "📞 ವಂದ್ರೇವಾಲಾ (24/7): 1860-2662-345",
+"crisis.helplines.aasra": "📞 AASRA (24/7): 9820466627",
+"crisis.helplines.note": "*ಲಭ್ಯತೆ ಬದಲಾಗಬಹುದು. ತುರ್ತು ಪರಿಸ್ಥಿತಿಯಲ್ಲಿ ಸ್ಥಳೀಯ ಸೇವೆಗಳನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+
+
+},
 };
+
 
 export default translations;

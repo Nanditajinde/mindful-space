@@ -31,9 +31,9 @@ export function DocsNavbar({ setMobileOpen, openSearch }) {
                 </button>
 
                 {/* Only show logo here on mobile, or on desktop if sidebar is hidden (but sidebar is fixed) */}
-                <Link to="/docs/what-is-mindbridge" className="flex items-center gap-2 lg:hidden font-semibold text-white tracking-tight">
+                <Link to="/docs/what-is-MindfulSpace" className="flex items-center gap-2 lg:hidden font-semibold text-white tracking-tight">
                     <span className="text-xl">🧠</span>
-                    MindBridge Docs
+                    MindfulSpace Docs
                 </Link>
             </div>
 
@@ -61,7 +61,7 @@ export function DocsNavbar({ setMobileOpen, openSearch }) {
                     href="http://localhost:5173"
                     className="ml-2 text-xs sm:text-sm font-medium bg-teal-600 hover:bg-teal-500 text-white px-3 sm:px-4 py-1.5 rounded-full transition-colors whitespace-nowrap"
                 >
-                    Try MindBridge
+                    Try MindfulSpace
                 </a>
             </div>
         </nav>

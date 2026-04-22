@@ -6,12 +6,12 @@ const content = {
   en: {
     lastUpdated: "Last updated: Oct 24, 2024",
     h1: "AI Insights Dashboard",
-    intro: "The AI Insights feature is the analytical brain of MindBridge. Instead of leaving you to interpret raw graphs and assessment scores by yourself, MindBridge uses Google Gemini to synthesize your data into a clear, actionable weekly psychological report.",
+    intro: "The AI Insights feature is the analytical brain of MindfulSpace. Instead of leaving you to interpret raw graphs and assessment scores by yourself, MindfulSpace uses Google Gemini to synthesize your data into a clear, actionable weekly psychological report.",
     whatH2: "What are AI Insights?",
     whatP: "Unlike the Chat Support feature (which is tactical and immediate), AI Insights is strategic to your mental well-being over time. It reviews your data and searches for patterns you might have missed.",
     howH2: "How insights are generated",
     steps: [
-      { title: "Data Aggregation", desc: "MindBridge fetches your last 14 days of mood logs, text-sentiment logs, and your 3 most recent clinical assessments (PHQ-9 and GAD-7) from secure Firebase storage." },
+      { title: "Data Aggregation", desc: "MindfulSpace fetches your last 14 days of mood logs, text-sentiment logs, and your 3 most recent clinical assessments (PHQ-9 and GAD-7) from secure Firebase storage." },
       { title: "Format and Payload construction", desc: "This raw data is simplified and securely bundled into a JSON payload. Personal identifiers (like your exact messages) are heavily limited in this contextual payload." },
       { title: "Gemini 2.5 Analysis", desc: "The payload is sent to Google Gemini 2.5 Flash with a strict medical-grade system prompt guiding the model to act as a psychological analyst, writing a structured Markdown report highlighting variances and suggesting CBT/DBT frameworks." },
     ],
@@ -27,12 +27,12 @@ const content = {
   hi: {
     lastUpdated: "अंतिम अपडेट: अक्टू. 24, 2024",
     h1: "AI इनसाइट्स डैशबोर्ड",
-    intro: "AI इनसाइट्स फीचर MindBridge का विश्लेषणात्मक दिमाग है। आपको कच्चे ग्राफ और मूल्यांकन स्कोर खुद समझने के लिए छोड़ने के बजाय, MindBridge आपके डेटा को स्पष्ट, कार्रवाई योग्य साप्ताहिक मनोवैज्ञानिक रिपोर्ट में संश्लेषित करने के लिए Google Gemini का उपयोग करता है।",
+    intro: "AI इनसाइट्स फीचर MindfulSpace का विश्लेषणात्मक दिमाग है। आपको कच्चे ग्राफ और मूल्यांकन स्कोर खुद समझने के लिए छोड़ने के बजाय, MindfulSpace आपके डेटा को स्पष्ट, कार्रवाई योग्य साप्ताहिक मनोवैज्ञानिक रिपोर्ट में संश्लेषित करने के लिए Google Gemini का उपयोग करता है।",
     whatH2: "AI इनसाइट्स क्या हैं?",
     whatP: "चैट सपोर्ट फीचर (जो सामरिक और तत्काल है) के विपरीत, AI इनसाइट्स समय के साथ आपकी मानसिक भलाई के लिए रणनीतिक है। यह आपके डेटा की समीक्षा करता है और उन पैटर्न की खोज करता है जो आपने शायद नहीं देखे।",
     howH2: "इनसाइट्स कैसे उत्पन्न होते हैं",
     steps: [
-      { title: "डेटा एकत्रीकरण", desc: "MindBridge सुरक्षित Firebase स्टोरेज से आपके पिछले 14 दिनों के मूड लॉग, टेक्स्ट-सेंटिमेंट लॉग और आपके 3 सबसे हालिया नैदानिक मूल्यांकन (PHQ-9 और GAD-7) प्राप्त करता है।" },
+      { title: "डेटा एकत्रीकरण", desc: "MindfulSpace सुरक्षित Firebase स्टोरेज से आपके पिछले 14 दिनों के मूड लॉग, टेक्स्ट-सेंटिमेंट लॉग और आपके 3 सबसे हालिया नैदानिक मूल्यांकन (PHQ-9 और GAD-7) प्राप्त करता है।" },
       { title: "प्रारूप और पेलोड निर्माण", desc: "इस कच्चे डेटा को सरल बनाया जाता है और JSON पेलोड में सुरक्षित रूप से बांधा जाता है। व्यक्तिगत पहचानकर्ता (जैसे आपके सटीक संदेश) इस संदर्भात्मक पेलोड में बहुत सीमित हैं।" },
       { title: "Gemini 2.5 विश्लेषण", desc: "पेलोड को Google Gemini 2.5 Flash को कड़े चिकित्सा-ग्रेड सिस्टम प्रॉम्प्ट के साथ भेजा जाता है जो मॉडल को मनोवैज्ञानिक विश्लेषक के रूप में कार्य करने के लिए, भिन्नताओं को उजागर करते हुए और CBT/DBT फ्रेमवर्क सुझाते हुए एक संरचित Markdown रिपोर्ट लिखने के लिए निर्देशित करता है।" },
     ],
@@ -45,27 +45,31 @@ const content = {
       <><strong>फोकस क्षेत्र:</strong> आने वाले हफ्ते के लिए आपके लिए काम करने का एक प्राथमिक मानसिक स्वास्थ्य लक्ष्य।</>,
     ],
   },
-  mr: {
-    lastUpdated: "शेवटचे अपडेट: ऑक्टो. 24, 2024",
-    h1: "AI इनसाइट्स डॅशबोर्ड",
-    intro: "AI इनसाइट्स वैशिष्ट्य हे MindBridge चे विश्लेषणात्मक मेंदू आहे. तुम्हाला कच्चे आलेख आणि मूल्यमापन स्कोर स्वतः अर्थ लावण्यासाठी सोडण्याऐवजी, MindBridge तुमच्या डेटाला स्पष्ट, कृतियोग्य साप्ताहिक मनोवैज्ञानिक अहवालात संश्लेषित करण्यासाठी Google Gemini वापरतो.",
-    whatH2: "AI इनसाइट्स म्हणजे काय?",
-    whatP: "चॅट सपोर्ट वैशिष्ट्याच्या विपरीत (जे सामरिक आणि तात्काळ आहे), AI इनसाइट्स कालांतराने तुमच्या मानसिक कल्याणासाठी धोरणात्मक आहे. ते तुमचा डेटा आढावा घेते आणि तुम्ही कदाचित चुकवले असतील असे नमुने शोधते.",
-    howH2: "इनसाइट्स कसे तयार होतात",
-    steps: [
-      { title: "डेटा एकत्रीकरण", desc: "MindBridge सुरक्षित Firebase स्टोरेजमधून तुमचे मागील 14 दिवसांचे मूड लॉग, टेक्स्ट-सेंटिमेंट लॉग आणि तुमचे 3 सर्वात अलीकडील क्लिनिकल मूल्यमापन (PHQ-9 आणि GAD-7) आणतो." },
-      { title: "स्वरूप आणि पेलोड बांधणी", desc: "हा कच्चा डेटा सरल केला जातो आणि JSON पेलोडमध्ये सुरक्षितपणे बांधला जातो. वैयक्तिक ओळखकर्ते (तुमच्या अचूक संदेशांसारखे) या संदर्भात्मक पेलोडमध्ये मोठ्या प्रमाणात मर्यादित आहेत." },
-      { title: "Gemini 2.5 विश्लेषण", desc: "पेलोड Google Gemini 2.5 Flash ला कडक वैद्यकीय-श्रेणी सिस्टम प्रॉम्प्टसह पाठवला जातो जे मॉडेलला मनोवैज्ञानिक विश्लेषक म्हणून कार्य करण्यास, फरक अधोरेखित करणारा आणि CBT/DBT फ्रेमवर्क सुचवणारा संरचित Markdown अहवाल लिहिण्यास मार्गदर्शन करतो." },
-    ],
-    understandH2: "तुमचा अहवाल समजून घेणे",
-    understandP: "तयार केलेला अहवाल खूप संरचित आहे त्यामुळे वाचणे सोपे आहे. तुम्ही साधारणत: पाहाल:",
-    sections: [
-      <><strong>निरीक्षित नमुने:</strong> "तुमचा मूड गुरुवारी लक्षणीयरित्या घसरतो, जे साप्ताहिक स्प्रिंट डेडलाइनबद्दलच्या तुमच्या नोट्सशी संबंधित आहे."</>,
-      <><strong>मूल्यमापन संदर्भ:</strong> "तुमचा अलीकडील GAD-7 स्कोर मागील तीन आठवड्यांत 12 (मध्यम) वरून 8 (सौम्य) वर गेला, चिंता व्यवस्थापनात सकारात्मक ट्रेंड दर्शवतो."</>,
-      <><strong>कृती योजना:</strong> तात्काळ, कमी-घर्षण कोपिंग धोरणांची (जसे 5-4-3-2-1 ग्राउंडिंग) एक छोटी, बुलेट केलेली यादी विशेषतः तुम्ही अलीकडे चार्ट केलेल्या नकारात्मक भावनांवर लक्ष्यित.</>,
-      <><strong>फोकस क्षेत्र:</strong> येणाऱ्या आठवड्यासाठी तुमच्यासाठी काम करण्याचे एक प्राथमिक मानसिक आरोग्य ध्येय.</>,
-    ],
-  },
+  kn: {
+  lastUpdated: "ಕೊನೆಯ ಅಪ್‌ಡೇಟ್: ಏಪ್ರಿಲ್ 12, 2026",
+  h1: "AI ಇನ್‌ಸೈಟ್ಸ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+  intro: "AI ಇನ್‌ಸೈಟ್ಸ್ ವೈಶಿಷ್ಟ್ಯವು MindfulSpace ನ ವಿಶ್ಲೇಷಣಾತ್ಮಕ ಮೆದುಳು ಆಗಿದೆ. ಕಚ್ಚಾ ಗ್ರಾಫ್‌ಗಳು ಮತ್ತು ಮೌಲ್ಯಮಾಪನ ಸ್ಕೋರ್‌ಗಳನ್ನು ನೀವು ಸ್ವತಃ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಬೇಕಾಗಿಲ್ಲ. ಬದಲಾಗಿ, MindfulSpace ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಸ್ಪಷ್ಟ ಮತ್ತು ಕ್ರಿಯಾತ್ಮಕ ವಾರಾಂತ್ಯ ಮಾನಸಿಕ ವರದಿಯಾಗಿ ಪರಿವರ್ತಿಸಲು Google Gemini ಅನ್ನು ಬಳಸುತ್ತದೆ.",
+
+  whatH2: "AI ಇನ್‌ಸೈಟ್ಸ್ ಎಂದರೇನು?",
+  whatP: "ಚಾಟ್ ಸಪೋರ್ಟ್ ವೈಶಿಷ್ಟ್ಯವು (ತಕ್ಷಣದ ಮತ್ತು ತಾತ್ಕಾಲಿಕವಾದದ್ದು) ಇದ್ದರೆ, AI ಇನ್‌ಸೈಟ್ಸ್ ನಿಮ್ಮ ಮಾನಸಿಕ ಆರೋಗ್ಯವನ್ನು ದೀರ್ಘಾವಧಿಯಲ್ಲಿ ಸುಧಾರಿಸಲು ಸಹಾಯಕವಾಗುತ್ತದೆ. ಇದು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ವಿಶ್ಲೇಷಿಸಿ ನೀವು ಗಮನಿಸದೇ ಇರುವ ಮಾದರಿಗಳನ್ನು ಪತ್ತೆಹಚ್ಚುತ್ತದೆ.",
+
+  howH2: "ಇನ್‌ಸೈಟ್ಸ್ ಹೇಗೆ ರಚಿಸಲಾಗುತ್ತದೆ",
+  steps: [
+    { title: "ಡೇಟಾ ಸಂಗ್ರಹಣೆ", desc: "MindfulSpace ನಿಮ್ಮ ಕಳೆದ 14 ದಿನಗಳ ಮೂಡ್ ಲಾಗ್‌ಗಳು, ಟೆಕ್ಸ್ಟ್-ಸೆಂಟಿಮೆಂಟ್ ಲಾಗ್‌ಗಳು ಮತ್ತು ನಿಮ್ಮ ಇತ್ತೀಚಿನ 3 ಕ್ಲಿನಿಕಲ್ ಮೌಲ್ಯಮಾಪನಗಳು (PHQ-9 ಮತ್ತು GAD-7) ಅನ್ನು ಸುರಕ್ಷಿತ Firebase ಸಂಗ್ರಹಣೆಯಿಂದ ಪಡೆಯುತ್ತದೆ." },
+    { title: "ಫಾರ್ಮ್ಯಾಟ್ ಮತ್ತು ಪೇಲೋಡ್ ನಿರ್ಮಾಣ", desc: "ಈ ಕಚ್ಚಾ ಡೇಟಾವನ್ನು ಸರಳಗೊಳಿಸಿ JSON ಪೇಲೋಡ್ ರೂಪದಲ್ಲಿ ಸುರಕ್ಷಿತವಾಗಿ ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತದೆ. ವೈಯಕ್ತಿಕ ಮಾಹಿತಿ (ನಿಮ್ಮ ನಿಖರ ಸಂದೇಶಗಳಂತೆ) ಈ ಪೇಲೋಡ್‌ನಲ್ಲಿ ತುಂಬಾ ಸೀಮಿತವಾಗಿರುತ್ತದೆ." },
+    { title: "Gemini 2.5 ವಿಶ್ಲೇಷಣೆ", desc: "ಈ ಪೇಲೋಡ್ ಅನ್ನು Google Gemini 2.5 Flash ಗೆ ಕಠಿಣ ವೈದ್ಯಕೀಯ-ಮಟ್ಟದ ಸಿಸ್ಟಮ್ ಪ್ರಾಂಪ್ಟ್‌ನೊಂದಿಗೆ ಕಳುಹಿಸಲಾಗುತ್ತದೆ. ಇದು ಮಾದರಿಯನ್ನು ಮಾನಸಿಕ ವಿಶ್ಲೇಷಕರಂತೆ ಕಾರ್ಯನಿರ್ವಹಿಸಲು ಮತ್ತು ವ್ಯತ್ಯಾಸಗಳನ್ನು ಗುರುತಿಸಿ CBT/DBT ವಿಧಾನಗಳನ್ನು ಸೂಚಿಸುವ ರಚಿತ Markdown ವರದಿ ಬರೆಯಲು ಮಾರ್ಗದರ್ಶನ ಮಾಡುತ್ತದೆ." },
+  ],
+
+  understandH2: "ನಿಮ್ಮ ವರದಿಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು",
+  understandP: "ರಚಿತ ವರದಿಯನ್ನು ಸುಲಭವಾಗಿ ಓದಲು ರೂಪಿಸಲಾಗಿದೆ. ನೀವು ಸಾಮಾನ್ಯವಾಗಿ ನೋಡಬಹುದಾದವು:",
+
+  sections: [
+    <><strong>ಗಮನಿಸಿದ ಮಾದರಿಗಳು:</strong> "ನಿಮ್ಮ ಮೂಡ್ ಗುರುವಾರಗಳಲ್ಲಿ ಹೆಚ್ಚು ಕಡಿಮೆಯಾಗುತ್ತದೆ, ಇದು ವಾರದ ಸ್ಪ್ರಿಂಟ್ ಡೆಡ್‌ಲೈನ್‌ಗಳ ಬಗ್ಗೆ ನಿಮ್ಮ ನೋಟ್‌ಗಳೊಂದಿಗೆ ಸಂಬಂಧಿಸಿದೆ."</>,
+    <><strong>ಮೌಲ್ಯಮಾಪನ ಸಂದರ್ಭ:</strong> "ನಿಮ್ಮ ಇತ್ತೀಚಿನ GAD-7 ಸ್ಕೋರ್ ಕಳೆದ ಮೂರು ವಾರಗಳಲ್ಲಿ 12 (ಮಧ್ಯಮ) ರಿಂದ 8 (ಸಾಮಾನ್ಯ) ಗೆ ಇಳಿದಿದೆ, ಇದು ಆತಂಕ ನಿರ್ವಹಣೆಯಲ್ಲಿ ಸುಧಾರಣೆಯನ್ನು ಸೂಚಿಸುತ್ತದೆ."</>,
+    <><strong>ಕ್ರಿಯಾ ಯೋಜನೆ:</strong> ತಕ್ಷಣದ, ಸರಳ ನಿರ್ವಹಣಾ ವಿಧಾನಗಳ (ಉದಾ: 5-4-3-2-1 ಗ್ರೌಂಡಿಂಗ್) ಚಿಕ್ಕ ಪಟ್ಟಿಯನ್ನು ನೀಡಲಾಗುತ್ತದೆ, ಇದು ಇತ್ತೀಚಿನ ನಕಾರಾತ್ಮಕ ಭಾವನೆಗಳಿಗೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ.</>,
+    <><strong>ಫೋಕಸ್ ಪ್ರದೇಶ:</strong> ಮುಂದಿನ ವಾರದಲ್ಲಿ ನೀವು ಗಮನಹರಿಸಬೇಕಾದ ಪ್ರಮುಖ ಮಾನಸಿಕ ಆರೋಗ್ಯ ಗುರಿ.</>,
+  ],
+},
 };
 
 export default function AIInsights() {

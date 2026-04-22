@@ -2,7 +2,7 @@ export const DOCS_NAV = [
     {
         title: "GETTING STARTED",
         links: [
-            { title: "What is MindBridge?", href: "/docs/what-is-mindbridge" },
+            { title: "What is MindfulSpace?", href: "/docs/what-is-MindfulSpace" },
             { title: "How it works", href: "/docs/how-it-works" },
             { title: "Quick start guide", href: "/docs/quick-start" },
         ]

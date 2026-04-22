@@ -1,6 +1,6 @@
 # ⚙️ CI/CD Pipeline
 
-Every time you push code to GitHub, MindBridge automatically builds and deploys to Firebase Hosting. No manual steps needed.
+Every time you push code to GitHub, MindfulSpace automatically builds and deploys to Firebase Hosting. No manual steps needed.
 
 ---
 
@@ -19,7 +19,7 @@ Workflow builds the app (npm run build)
         ↓
 Workflow deploys to Firebase Hosting
         ↓
-Live site updates at mindbridge-v2-18fa8.web.app
+Live site updates at MindfulSpace-v2-18fa8.web.app
 ```
 
 Total time: ~2 minutes from push to live.
@@ -54,9 +54,9 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MINDBRIDGE_V2_18FA8 }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MindfulSpace_V2_18FA8 }}
           channelId: live
-          projectId: mindbridge-v2-18fa8
+          projectId: MindfulSpace-v2-18fa8
 ```
 
 ---
@@ -94,7 +94,7 @@ git push
 
 ## Checking Deployment Status
 
-1. Go to **https://github.com/prats010/mindbridge-v2/actions**
+1. Go to **https://github.com/prats010/MindfulSpace-v2/actions**
 2. Green ✅ = deployed successfully
 3. Red ❌ = something failed, click to see the error logs
 

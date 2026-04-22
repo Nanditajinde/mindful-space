@@ -21,9 +21,9 @@ export function DocsSidebar({ mobileOpen, setMobileOpen }) {
             >
                 {/* Logo Area */}
                 <div className="h-14 flex items-center px-6 shrink-0 border-b border-transparent">
-                    <Link to="/docs/what-is-mindbridge" className="flex items-center gap-2 font-semibold text-white tracking-tight hover:opacity-80 transition-opacity">
+                    <Link to="/docs/what-is-MindfulSpace" className="flex items-center gap-2 font-semibold text-white tracking-tight hover:opacity-80 transition-opacity">
                         <span className="text-xl">🧠</span>
-                        MindBridge Docs
+                        MindfulSpace Docs
                     </Link>
                 </div>
 
@@ -69,7 +69,7 @@ export function DocsSidebar({ mobileOpen, setMobileOpen }) {
                         href="http://localhost:5173"
                         className="flex items-center justify-between w-full px-4 py-2.5 rounded-lg bg-[#1E293B] border border-[#1F2937] text-[13px] font-medium text-slate-300 hover:text-white hover:border-teal-500/30 transition-all shadow-sm group"
                     >
-                        Open MindBridge App
+                        Open MindfulSpace App
                         <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-teal-400 transition-colors group-hover:translate-x-0.5 transform duration-300" />
                     </a>
                 </div>

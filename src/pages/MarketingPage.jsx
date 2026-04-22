@@ -25,7 +25,7 @@ export default function MarketingPage() {
             <Stats />
             <Features />
             <HowItWorks />
-            <Quote />
+            {/* <Quote /> */}
             <CTA />
             <Footer />
         </div>

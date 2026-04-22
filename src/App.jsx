@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, saveUserProfile, getTrustedContact, getPersonality } from "./firebase";
+import { ThemeProvider } from "./context/ThemeContext";
+
 
 // Main App Layout & Pages
 import Layout from "./components/Layout";
@@ -16,7 +18,7 @@ import DashboardPage from "./pages/DashboardPage";
 // Docs Layout & Pages
 import { DocsLayout } from "./components/docs/layout/DocsLayout";
 import { InAppDocsLayout } from "./components/docs/layout/InAppDocsLayout";
-import WhatIsMindBridge from "./pages/docs/WhatIsMindBridge";
+import WhatIsMindfulSpace from "./pages/docs/WhatIsMindfulSpace";
 import HowItWorks from "./pages/docs/HowItWorks";
 import QuickStart from "./pages/docs/QuickStart";
 import AIChatSupport from "./pages/docs/AIChatSupport";
@@ -36,6 +38,10 @@ import TechStack from "./pages/docs/TechStack";
 // Marketing
 import MarketingPage from "./pages/MarketingPage";
 
+<ThemeProvider>
+  <App />
+</ThemeProvider>
+
 /** Rejects after ms milliseconds — prevents Firestore from hanging */
 const withTimeout = (promise, ms = 5000) =>
   Promise.race([
@@ -44,6 +50,8 @@ const withTimeout = (promise, ms = 5000) =>
       setTimeout(() => reject(new Error("timeout")), ms)
     ),
   ]);
+
+  
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -125,7 +133,7 @@ export default function App() {
         <div className="flex flex-col items-center gap-4">
           <div className="spinner-orbital" />
           <p className="text-slate-400 font-medium text-sm tracking-wide">
-            Loading MindBridge…
+            Loading MindfulSpace…
           </p>
         </div>
       </div>
@@ -134,7 +142,7 @@ export default function App() {
 
   const AppDocsRoutes = (
     <Routes>
-      <Route path="what-is-mindbridge" element={<WhatIsMindBridge />} />
+      <Route path="what-is-MindfulSpace" element={<WhatIsMindfulSpace />} />
       <Route path="how-it-works" element={<HowItWorks />} />
       <Route path="quick-start" element={<QuickStart />} />
       <Route path="ai-chat" element={<AIChatSupport />} />
@@ -150,7 +158,7 @@ export default function App() {
       <Route path="mission" element={<Mission />} />
       <Route path="built-with-gemini" element={<BuiltWithGemini />} />
       <Route path="tech-stack" element={<TechStack />} />
-      <Route path="*" element={<Navigate to="what-is-mindbridge" />} />
+      <Route path="*" element={<Navigate to="what-is-MindfulSpace" />} />
     </Routes>
   );
 

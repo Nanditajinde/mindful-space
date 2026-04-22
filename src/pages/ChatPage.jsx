@@ -7,6 +7,7 @@ import { analyzeSentiment } from "../sentiment";
 import { analyzeMessage, aggregateSessionMood } from "../utils/passiveMoodDetector";
 import { useLanguage } from "../context/LanguageContext";
 
+
 const SpeechRecognitionAPI =
   typeof window !== "undefined"
     ? window.SpeechRecognition || window.webkitSpeechRecognition
@@ -87,7 +88,7 @@ function saveMoodIfNeeded(analyses, userId, setToastMsg) {
 }
 
 export default function ChatPage({ user, onCrisis }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const WELCOME = {
     role: "assistant",
     content: t("chat.welcome"),
@@ -619,4 +620,4 @@ function TypingIndicator() {
       </div>
     </div>
   );
-}
+}     

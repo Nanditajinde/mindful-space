@@ -136,7 +136,7 @@ export function DocsLayout({ children }) {
 
                         {/* Copyright */}
                         <div className="mt-16 text-center text-[13px] text-slate-500">
-                            © {new Date().getFullYear()} MindBridge. Built with 🧠 and Google Gemini.
+                            © {new Date().getFullYear()} MindfulSpace. Built with 🧠 and Google Gemini.
                         </div>
 
                     </main>

@@ -1,6 +1,6 @@
 # 🚀 Deployment
 
-How to deploy MindBridge to Firebase Hosting.
+How to deploy MindfulSpace to Firebase Hosting.
 
 ---
 
@@ -24,7 +24,7 @@ npm run build
 firebase deploy --only hosting
 
 # Your live URL:
-# https://mindbridge-v2-18fa8.web.app
+# https://MindfulSpace-v2-18fa8.web.app
 ```
 
 ---
@@ -70,8 +70,8 @@ See [CI/CD Pipeline](CICD-Pipeline) for setup instructions.
 | Environment | URL |
 |------------|-----|
 | Local dev | http://localhost:5173 |
-| Live (Firebase) | https://mindbridge-v2-18fa8.web.app |
-| Live (alt) | https://mindbridge-v2-18fa8.firebaseapp.com |
+| Live (Firebase) | https://MindfulSpace-v2-18fa8.web.app |
+| Live (alt) | https://MindfulSpace-v2-18fa8.firebaseapp.com |
 
 ---
 

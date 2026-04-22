@@ -3,7 +3,7 @@ import { useLanguage } from "../../context/LanguageContext";
 
 const content = {
   en: {
-    lastUpdated: "Last updated: Oct 24, 2024",
+    lastUpdated: "Last updated: Apr 12, 2026",
     h1: "Crisis Resources in India",
     intro: "If you are feeling overwhelmed, having thoughts of self-harm, or experiencing a mental health emergency, please reach out for professional help immediately. You do not have to go through this alone.",
     calloutTitle: "Immediate Hotlines",
@@ -20,12 +20,12 @@ const content = {
     steps: [
       <><strong>Ensure your physical safety.</strong> Remove yourself from any immediately dangerous situations or implements.</>,
       <><strong>Call a hotline.</strong> The people on the other end are trained to listen without judgment.</>,
-      <><strong>Reach out to your trusted contact.</strong> Call a friend, family member, or whoever you listed in the MindBridge onboarding flow. Tell them "I am not safe right now."</>,
+      <><strong>Reach out to your trusted contact.</strong> Call a friend, family member, or whoever you listed in the MindfulSpace onboarding flow. Tell them "I am not safe right now."</>,
       <><strong>Go to the hospital.</strong> If you cannot guarantee your own safety, go to the nearest hospital casualty (ER) ward.</>,
     ],
   },
   hi: {
-    lastUpdated: "अंतिम अपडेट: अक्टू. 24, 2024",
+    lastUpdated: "अंतिम अपडेट: एप्रिल 12, 2026",
     h1: "भारत में संकट संसाधन",
     intro: "यदि आप अभिभूत महसूस कर रहे हैं, आत्म-नुकसान के विचार आ रहे हैं, या मानसिक स्वास्थ्य आपातकाल का अनुभव कर रहे हैं, तो कृपया तुरंत पेशेवर मदद के लिए संपर्क करें। आपको यह अकेले नहीं झेलना है।",
     calloutTitle: "तुरंत हेल्पलाइन",
@@ -42,32 +42,38 @@ const content = {
     steps: [
       <><strong>अपनी शारीरिक सुरक्षा सुनिश्चित करें।</strong> किसी भी तुरंत खतरनाक स्थिति या वस्तुओं से खुद को दूर करें।</>,
       <><strong>हेल्पलाइन पर कॉल करें।</strong> दूसरी तरफ के लोग बिना निर्णय के सुनने के लिए प्रशिक्षित हैं।</>,
-      <><strong>अपने विश्वसनीय संपर्क से संपर्क करें।</strong> किसी मित्र, परिवार के सदस्य, या जो भी आपने MindBridge ऑनबोर्डिंग में सूचीबद्ध किया हो उसे कॉल करें। उन्हें बताएं "मैं अभी सुरक्षित नहीं हूं।"</>,
+      <><strong>अपने विश्वसनीय संपर्क से संपर्क करें।</strong> किसी मित्र, परिवार के सदस्य, या जो भी आपने MindfulSpace ऑनबोर्डिंग में सूचीबद्ध किया हो उसे कॉल करें। उन्हें बताएं "मैं अभी सुरक्षित नहीं हूं।"</>,
       <><strong>अस्पताल जाएं।</strong> यदि आप अपनी सुरक्षा की गारंटी नहीं दे सकते, तो निकटतम अस्पताल के इमरजेंसी वार्ड जाएं।</>,
     ],
   },
-  mr: {
-    lastUpdated: "शेवटचे अपडेट: ऑक्टो. 24, 2024",
-    h1: "भारतातील संकट संसाधने",
-    intro: "तुम्हाला भारावून गेल्यासारखे वाटत असल्यास, स्वत:ला इजा करण्याचे विचार येत असल्यास, किंवा मानसिक आरोग्य आणीबाणीचा अनुभव येत असल्यास, कृपया त्वरित व्यावसायिक मदतीसाठी संपर्क करा. तुम्हाला हे एकट्याने सहन करावे लागणार नाही.",
-    calloutTitle: "तात्काळ हेल्पलाइन",
-    aboutH2: "या सेवांबद्दल",
-    icallH3: "iCall (TISS)",
-    icallP: "Tata Institute of Social Sciences (TISS) द्वारे सुरू केलेले. ते मोफत टेलीफोन आणि ईमेल-आधारित समुपदेशन सेवा देतात. टेलीफोन लाइन सोमवार ते शनिवार, सकाळी 10 ते सायंकाळी 8 वाजेपर्यंत चालतात.",
-    vandrevalaH3: "Vandrevala Foundation",
-    vandrevalaP: "प्रशिक्षित क्लिनिकल मनोशास्त्रज्ञ आणि मनोचिकित्सकांद्वारे चालवल्या जाणाऱ्या 24×7 संकट हस्तक्षेप आणि मानसिक आरोग्य हेल्पलाइन. ते बहुभाषी सहाय्य देतात आणि आत्महत्या प्रतिबंधासाठी नेहमी उपलब्ध असतात.",
-    nimhansH3: "NIMHANS टोल-फ्री हेल्पलाइन",
-    nimhansP: "National Institute of Mental Health and Neuro-Sciences मनोसामाजिक सहाय्य आणि मानसिक आरोग्य काळजी प्रदान करते. तीव्र त्रासासाठी अत्यंत शिफारसीय.",
-    aasraH3: "AASRA",
-    aasraP: "आत्महत्या प्रतिबंधावर विशेषतः लक्ष केंद्रित करणारे 24×7 संकट हस्तक्षेप केंद्र. गोपनीय आणि निर्णयमुक्त सहाय्य.",
-    whatH2: "आत्ता काय करायचे",
-    steps: [
-      <><strong>तुमची शारीरिक सुरक्षा सुनिश्चित करा.</strong> कोणत्याही तात्काळ धोकादायक परिस्थिती किंवा वस्तूंपासून स्वत:ला दूर करा.</>,
-      <><strong>हेल्पलाइनवर कॉल करा.</strong> दुसऱ्या बाजूचे लोक निर्णयाशिवाय ऐकण्यासाठी प्रशिक्षित आहेत.</>,
-      <><strong>तुमच्या विश्वासू संपर्काशी संपर्क साधा.</strong> एखाद्या मित्राला, कुटुंबातील सदस्याला, किंवा तुम्ही MindBridge ऑनबोर्डिंगमध्ये सूचीबद्ध केलेल्या कोणाला कॉल करा. त्यांना सांगा "मी आत्ता सुरक्षित नाही."</>,
-      <><strong>रुग्णालयात जा.</strong> तुम्ही स्वत:च्या सुरक्षिततेची हमी देऊ शकत नसल्यास, जवळच्या रुग्णालयाच्या आपत्कालीन विभागात जा.</>,
-    ],
-  },
+  kn: {
+  lastUpdated: "ಕೊನೆಯ ನವೀಕರಣ: ಏಪ್ರಿಲ್ 12, 2026",
+  h1: "ಭಾರತದಲ್ಲಿನ ತುರ್ತು ಸಹಾಯ ಸಂಪನ್ಮೂಲಗಳು",
+  intro: "ನೀವು ಒತ್ತಡದಿಂದ ತುಂಬಿಕೊಂಡಿರುವಂತೆ ಅನಿಸುತ್ತಿದ್ದರೆ, ಸ್ವಯಂ ಹಾನಿ ಬಗ್ಗೆ ಆಲೋಚನೆಗಳು ಬರುತ್ತಿದ್ದರೆ ಅಥವಾ ಮಾನಸಿಕ ಆರೋಗ್ಯ ತುರ್ತು ಪರಿಸ್ಥಿತಿಯನ್ನು ಅನುಭವಿಸುತ್ತಿದ್ದರೆ, ದಯವಿಟ್ಟು ತಕ್ಷಣವೇ ವೃತ್ತಿಪರ ಸಹಾಯವನ್ನು ಪಡೆಯಿರಿ. ನೀವು ಇದನ್ನು ಒಬ್ಬರೇ ಎದುರಿಸಬೇಕಾಗಿಲ್ಲ.",
+
+  calloutTitle: "ತಕ್ಷಣದ ಸಹಾಯವಾಣಿ ಸಂಖ್ಯೆಗಳು",
+
+  aboutH2: "ಈ ಸೇವೆಗಳ ಬಗ್ಗೆ",
+  icallH3: "iCall (TISS)",
+  icallP: "Tata Institute of Social Sciences (TISS) ಆರಂಭಿಸಿದ ಸೇವೆ. ಉಚಿತ ದೂರವಾಣಿ ಮತ್ತು ಇಮೇಲ್ ಆಧಾರಿತ ಸಮಾಲೋಚನೆ ನೀಡುತ್ತಾರೆ. ದೂರವಾಣಿ ಸೇವೆಗಳು ಸೋಮವಾರದಿಂದ ಶನಿವಾರದವರೆಗೆ ಬೆಳಗ್ಗೆ 10 ರಿಂದ ಸಂಜೆ 8ರವರೆಗೆ ಲಭ್ಯವಿರುತ್ತವೆ.",
+
+  vandrevalaH3: "Vandrevala Foundation",
+  vandrevalaP: "ಪ್ರಶಿಕ್ಷಿತ ಕ್ಲಿನಿಕಲ್ ಸೈಕಾಲಜಿಸ್ಟ್‌ಗಳು ಮತ್ತು ಸೈಕಿಯಾಟ್ರಿಸ್ಟ್‌ಗಳಿಂದ ನಿರ್ವಹಿಸಲ್ಪಡುವ 24×7 ತುರ್ತು ಸಹಾಯವಾಣಿ. ಬಹುಭಾಷಾ ಬೆಂಬಲವನ್ನು ನೀಡುತ್ತಾರೆ ಮತ್ತು ಆತ್ಮಹತ್ಯೆ ತಡೆಗಟ್ಟುವಲ್ಲಿ ಸದಾ ಲಭ್ಯವಿರುತ್ತಾರೆ.",
+
+  nimhansH3: "NIMHANS ಟೋಲ್-ಫ್ರೀ ಸಹಾಯವಾಣಿ",
+  nimhansP: "National Institute of Mental Health and Neuro-Sciences ಮನೋಸಾಮಾಜಿಕ ಬೆಂಬಲ ಮತ್ತು ಮಾನಸಿಕ ಆರೋಗ್ಯ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ತೀವ್ರ ಮಾನಸಿಕ ಒತ್ತಡದ ಸಂದರ್ಭಗಳಲ್ಲಿ ಬಹಳ ಶಿಫಾರಸು ಮಾಡಲಾಗುತ್ತದೆ.",
+
+  aasraH3: "AASRA",
+  aasraP: "ಆತ್ಮಹತ್ಯೆ ತಡೆಗಟ್ಟುವಿಕೆಗೆ ವಿಶೇಷವಾಗಿ ಕೇಂದ್ರೀಕರಿಸಿದ 24×7 ತುರ್ತು ಸಹಾಯ ಕೇಂದ್ರ. ಗೌಪ್ಯ ಮತ್ತು ನಿರ್ಣಯರಹಿತ ಬೆಂಬಲವನ್ನು ಒದಗಿಸುತ್ತದೆ.",
+
+  whatH2: "ಈಗ ಏನು ಮಾಡಬೇಕು",
+  steps: [
+    <><strong>ನಿಮ್ಮ ಶಾರೀರಿಕ ಸುರಕ್ಷತೆಯನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.</strong> ಯಾವುದೇ ತಕ್ಷಣದ ಅಪಾಯಕರ ಪರಿಸ್ಥಿತಿ ಅಥವಾ ವಸ್ತುಗಳಿಂದ ದೂರವಿರಿ.</>,
+    <><strong>ಸಹಾಯವಾಣಿಗೆ ಕರೆ ಮಾಡಿ.</strong> ಅಲ್ಲಿ ಇರುವವರು ನಿಮ್ಮ ಮಾತನ್ನು ನಿರ್ಣಯವಿಲ್ಲದೆ ಕೇಳಲು ತರಬೇತಿ ಪಡೆದಿದ್ದಾರೆ.</>,
+    <><strong>ನಿಮ್ಮ ವಿಶ್ವಾಸಾರ್ಹ ವ್ಯಕ್ತಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.</strong> ಸ್ನೇಹಿತ, ಕುಟುಂಬ ಸದಸ್ಯ ಅಥವಾ MindfulSpace ನಲ್ಲಿ ನೀವು ಸೇರಿಸಿದ ವ್ಯಕ್ತಿಗೆ ಕರೆ ಮಾಡಿ. ಅವರಿಗೆ "ನಾನು ಈಗ ಸುರಕ್ಷಿತವಾಗಿಲ್ಲ" ಎಂದು ತಿಳಿಸಿ.</>,
+    <><strong>ಆಸ್ಪತ್ರೆಗೆ ಹೋಗಿ.</strong> ನೀವು ನಿಮ್ಮ ಸುರಕ್ಷತೆಯನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು ಸಾಧ್ಯವಿಲ್ಲದಿದ್ದರೆ, ಹತ್ತಿರದ ಆಸ್ಪತ್ರೆಯ ತುರ್ತು ವಿಭಾಗಕ್ಕೆ ತೆರಳಿ.</>,
+  ],
+},
 };
 
 export default function CrisisResources() {

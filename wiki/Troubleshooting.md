@@ -1,6 +1,6 @@
 # 🔧 Troubleshooting
 
-Solutions to every error encountered during MindBridge development.
+Solutions to every error encountered during MindfulSpace development.
 
 ---
 
@@ -113,7 +113,7 @@ npm install
 **Cause:** Wrong remote URL.
 **Fix:**
 ```bash
-git remote set-url origin https://github.com/prats010/mindbridge-v2.git
+git remote set-url origin https://github.com/prats010/MindfulSpace-v2.git
 git push -u origin main
 ```
 

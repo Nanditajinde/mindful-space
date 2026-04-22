@@ -1,6 +1,6 @@
-# 🧠 MindBridge AI — Wiki
+# 🧠 MindfulSpace AI — Wiki
 
-Welcome to the official MindBridge AI wiki. Everything you need to know about setting up, running, deploying, and maintaining the project.
+Welcome to the official MindfulSpace AI wiki. Everything you need to know about setting up, running, deploying, and maintaining the project.
 
 ---
 
@@ -26,8 +26,8 @@ Welcome to the official MindBridge AI wiki. Everything you need to know about se
 ## ⚡ Quick Start
 
 ```bash
-git clone https://github.com/prats010/mindbridge-v2.git
-cd mindbridge-v2
+git clone https://github.com/prats010/MindfulSpace-v2.git
+cd MindfulSpace-v2
 npm install
 # create .env file with your keys
 npm run dev
@@ -41,4 +41,4 @@ Open [http://localhost:5173](http://localhost:5173)
 
 **iCall: 9152987821** · **Vandrevala: 1860-2662-345** · **NIMHANS: 080-46110007**
 
-> MindBridge is not a substitute for professional mental health care.
+> MindfulSpace is not a substitute for professional mental health care.

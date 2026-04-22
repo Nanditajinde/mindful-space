@@ -1,6 +1,6 @@
 # 🔐 Environment Variables
 
-All environment variables used in MindBridge V2.
+All environment variables used in MindfulSpace V2.
 
 ---
 

@@ -17,5 +17,5 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MINDBRIDGE_V2_18FA8 }}
-          projectId: mindbridge-v2-18fa8
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MindfulSpace_V2_18FA8 }}
+          projectId: MindfulSpace-v2-18fa8
