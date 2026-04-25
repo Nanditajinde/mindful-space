@@ -1,10 +1,13 @@
 // src/components/Layout.jsx
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { Menu } from "lucide-react";
 
 export default function Layout({ user, children }) {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const { pathname } = useLocation();
+    const isChatRoute = Boolean(user) && pathname === "/chat";
 
     return (
         <div
@@ -29,8 +32,13 @@ export default function Layout({ user, children }) {
 
             {/* Main Wrapper */}
             <div
-                className={`flex-1 flex flex-col min-w-0 transition-all duration-300 
-                ${user ? "md:pl-[260px]" : ""}`}
+                className={`flex-1 flex flex-col min-w-0 min-h-0 transition-all duration-300 
+                ${user ? "md:pl-[260px]" : ""}
+                ${
+                    isChatRoute
+                        ? "h-dvh max-h-dvh overflow-hidden"
+                        : ""
+                }`}
             >
                 {/* Mobile Header */}
                 {user && (
@@ -54,7 +62,9 @@ export default function Layout({ user, children }) {
                 <main
                     className={`flex-1 w-full flex flex-col ${
                         user
-                            ? "max-w-[1000px] mx-auto px-4 sm:px-8 py-6 md:py-12"
+                            ? `max-w-[1000px] mx-auto px-4 sm:px-8 py-6 md:py-12 ${
+                                  isChatRoute ? "min-h-0 overflow-hidden" : ""
+                              }`
                             : "h-screen"
                     }`}
                 >

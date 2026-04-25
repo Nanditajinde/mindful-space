@@ -56,12 +56,17 @@ export default function AccountPanel({ user, isOpen, onClose }) {
         onClick={onClose}
       />
 
-      {/* Panel - positioned above profile block in sidebar */}
-      <div className="fixed z-50 w-72 bg-[#111318] border border-slate-700 rounded-2xl shadow-2xl bottom-20 left-4 md:bottom-auto md:top-1/2 md:left-[270px] md:transform md:-translate-y-1/2"
+      {/* Panel — anchored to bottom edge, just right of 260px sidebar (popover from profile) */}
+      <div
+        className="fixed z-50 w-72 max-w-[min(18rem,calc(100vw-1.5rem))] bg-[#111318] border border-slate-700 rounded-2xl shadow-2xl
+        bottom-20 left-4 right-auto
+        sm:left-4
+        md:bottom-5 md:left-[272px] md:ml-0
+        max-h-[min(32rem,calc(100dvh-1.5rem))] flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with close button */}
-        <div className="flex items-center justify-between p-5 border-b border-slate-700">
+        <div className="flex items-center justify-between p-5 border-b border-slate-700 shrink-0">
           <h2 className="text-sm font-semibold text-white">{t("account.title")}</h2>
           <button
             onClick={onClose}
@@ -72,7 +77,7 @@ export default function AccountPanel({ user, isOpen, onClose }) {
         </div>
 
         {/* Content */}
-        <div className="p-5 space-y-4">
+        <div className="p-5 space-y-4 overflow-y-auto min-h-0 flex-1">
           {/* Profile Info */}
           <div className="flex items-center gap-3">
             {user.photoURL ? (

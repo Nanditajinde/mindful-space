@@ -214,6 +214,7 @@ export default function App() {
                   user={user}
                   onCrisis={() => setCrisis(true)}
                   personality={personality}
+                  trustedContact={trustedContactData}
                 />
               </Layout>
             ) : (

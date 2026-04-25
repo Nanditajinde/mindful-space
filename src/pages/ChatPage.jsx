@@ -2,7 +2,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Send, Mic, MicOff, Volume2, VolumeX, Loader2, Menu } from "lucide-react";
 import { createSession, getSessions, getSessionMessages, updateSessionPreview, saveMessage, saveMoodLog } from "../firebase";
-import { sendToOwnModel, detectCrisis } from "../gemini";
+import { sendToGemini, detectCrisis } from "../gemini";
+import { sendSilentCrisisSMS } from "../notifications";
 import { analyzeSentiment } from "../sentiment";
 import { analyzeMessage, aggregateSessionMood } from "../utils/passiveMoodDetector";
 import { useLanguage } from "../context/LanguageContext";
@@ -49,6 +50,33 @@ function formatSessionTime(timestamp) {
   return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
+function chatErrorMessage(t, err) {
+  const m = String(err?.message || err || "");
+  const code = err?.code;
+  if (code === "MISSING_GEMINI_KEY" || m.includes("VITE_GEMINI")) {
+    return t("chat.errorConfig");
+  }
+  if (/401|403|not valid|invalid api key|API key|PERMISSION_DENIED|leaked/i.test(m)) {
+    return t("chat.errorKeyInvalid");
+  }
+  if (
+    /Failed to fetch|NetworkError|Load failed|network|fetch|ECONNREFUSED|CORS|blocked|SSL/i.test(
+      m
+    )
+  ) {
+    return t("chat.errorNetwork");
+  }
+  if (
+    /429|quota|Resource exhausted|rate|too many|billing|payment required/i.test(m)
+  ) {
+    return t("chat.errorQuota");
+  }
+  if (import.meta.env.DEV && m.length > 0 && m.length < 400) {
+    return `${t("chat.errorMsg")} (${m})`;
+  }
+  return t("chat.errorMsg");
+}
+
 function groupSessions(sessions, labels) {
   const groups = {
     [labels.today]: [],
@@ -87,7 +115,7 @@ function saveMoodIfNeeded(analyses, userId, setToastMsg) {
   }
 }
 
-export default function ChatPage({ user, onCrisis }) {
+export default function ChatPage({ user, onCrisis, personality, trustedContact }) {
   const { t, lang } = useLanguage();
   const WELCOME = {
     role: "assistant",
@@ -229,7 +257,11 @@ export default function ChatPage({ user, onCrisis }) {
       setMessages((prev) => [...prev, { role: "user", content: text }]);
       setLoading(true);
 
-      if (detectCrisis(text)) onCrisis();
+      if (detectCrisis(text)) {
+        onCrisis();
+        // Silent background notification to trusted contact
+        sendSilentCrisisSMS(trustedContact, user?.displayName?.split(" ")[0]);
+      }
 
       // Capture timing BEFORE async calls
       const typingDuration = inputStartTime ? Date.now() - inputStartTime : 0;
@@ -258,9 +290,19 @@ export default function ChatPage({ user, onCrisis }) {
           );
         }
 
-        const aiText = await sendToOwnModel(text);
-        if (!aiText) throw new Error("Own model returned null");
-        if (aiText.includes("[CRISIS]")) onCrisis();
+        const aiText = await sendToGemini(
+          geminiHistory,
+          text,
+          personality ?? null,
+          lang,
+          user?.displayName ?? null
+        );
+        if (!aiText) throw new Error("Gemini returned empty");
+        if (aiText.includes("[CRISIS]")) {
+          onCrisis();
+          // Silent background notification if the AI detected it
+          sendSilentCrisisSMS(trustedContact, user?.displayName?.split(" ")[0]);
+        }
         const cleanText = aiText.replace("[CRISIS]", "").trim();
 
         const { score } = analyzeSentiment(text);
@@ -285,13 +327,27 @@ export default function ChatPage({ user, onCrisis }) {
         console.error("AI error:", err);
         setMessages((prev) => [
           ...prev,
-          { role: "assistant", content: t("chat.errorMsg") },
+          { role: "assistant", content: chatErrorMessage(t, err) },
         ]);
       } finally {
         setLoading(false);
       }
     },
-    [input, loading, geminiHistory, voiceEnabled, user.uid, onCrisis, activeSessionId, messages.length, inputStartTime, lastAiMessageTime]
+    [
+      input,
+      loading,
+      geminiHistory,
+      voiceEnabled,
+      user,
+      onCrisis,
+      activeSessionId,
+      messages.length,
+      inputStartTime,
+      lastAiMessageTime,
+      personality,
+      lang,
+      t,
+    ]
   );
 
   useEffect(() => {
@@ -351,7 +407,7 @@ export default function ChatPage({ user, onCrisis }) {
   const groupedSessions = groupSessions(sessions, sessionLabels);
 
   return (
-    <div className="flex h-full w-full relative overflow-hidden bg-[var(--bg-dark)]">
+    <div className="flex flex-1 min-h-0 w-full relative overflow-hidden bg-[var(--bg-dark)]">
 
       {sidebarOpen && (
         <div
@@ -361,7 +417,7 @@ export default function ChatPage({ user, onCrisis }) {
       )}
 
       <div
-        className={`absolute md:relative z-40 h-full w-[260px] shrink-0 bg-[#0D1117] border-r border-[#1A1F2E] flex flex-col transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`absolute md:relative z-40 md:z-0 h-full w-[260px] shrink-0 bg-[#0D1117] border-r border-[#1A1F2E] flex flex-col transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         }`}
       >
@@ -421,8 +477,8 @@ export default function ChatPage({ user, onCrisis }) {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col h-full min-w-0 relative">
-        <div className="flex-1 flex flex-col h-full w-full max-w-[800px] mx-auto px-4 sm:px-8 relative">
+      <div className="flex-1 flex flex-col h-full min-h-0 min-w-0 relative overflow-x-hidden z-0 md:bg-[var(--bg-dark)]">
+        <div className="flex-1 flex flex-col h-full min-h-0 w-full max-w-[800px] mx-auto px-4 sm:px-8 relative">
 
           <div className="pt-6 pb-5 border-b border-[var(--border)] mb-4 shrink-0 flex items-center gap-3">
             <button
@@ -444,7 +500,7 @@ export default function ChatPage({ user, onCrisis }) {
             </div>
           </div>
 
-          <div className="flex-1 overflow-y-auto space-y-6 sm:space-y-8 mb-4 min-h-0 pr-1 sm:pr-2 pb-4 scroll-smooth">
+          <div className="flex-1 overflow-y-auto overflow-x-hidden space-y-6 sm:space-y-8 mb-4 min-h-0 w-full min-w-0 pr-1 sm:pr-2 pb-4 scroll-smooth [scrollbar-gutter:stable]">
             {!fetching &&
               messages.map((msg, i) => (
                 <Bubble key={i} msg={msg} user={user} index={i} />
@@ -563,6 +619,8 @@ export default function ChatPage({ user, onCrisis }) {
 
 function Bubble({ msg, user, index }) {
   const isUser = msg.role === "user";
+  const [imgFailed, setImgFailed] = useState(false);
+  const showPhoto = Boolean(user?.photoURL) && !imgFailed;
   const parts = msg.content.split("**");
   const formatted = parts.map((p, i) =>
     i % 2 === 1 ? (
@@ -576,16 +634,26 @@ function Bubble({ msg, user, index }) {
 
   return (
     <div
-      className={`flex gap-4 ${isUser ? "flex-row-reverse" : "flex-row"} animate-fade-in`}
+      className={`flex w-full min-w-0 gap-3 sm:gap-4 ${isUser ? "flex-row-reverse" : "flex-row"} animate-fade-in`}
       style={{ animationFillMode: "both" }}
     >
-      <div className="shrink-0 mt-1">
+      <div className="shrink-0 mt-1 w-9">
         {isUser ? (
-          <img
-            src={user.photoURL}
-            alt=""
-            className="w-9 h-9 rounded-full object-cover shadow-sm ring-1 ring-white/10"
-          />
+          showPhoto ? (
+            <img
+              src={user.photoURL}
+              alt=""
+              onError={() => setImgFailed(true)}
+              className="w-9 h-9 rounded-full object-cover shadow-sm ring-1 ring-white/10"
+            />
+          ) : (
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold text-white bg-[var(--teal)]/80 ring-1 ring-white/10 shadow-sm"
+              aria-hidden
+            >
+              {(user?.displayName || user?.email || "U").charAt(0).toUpperCase()}
+            </div>
+          )
         ) : (
           <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg bg-[var(--bg-sidebar)] border border-[var(--border)] shadow-sm">
             🧠
@@ -593,7 +661,7 @@ function Bubble({ msg, user, index }) {
         )}
       </div>
       <div
-        className={`max-w-[90%] sm:max-w-[75%] px-5 py-4 text-[15px] leading-relaxed whitespace-pre-wrap shadow-sm ${
+        className={`min-w-0 max-w-[min(100%,_90%)] sm:max-w-[75%] px-4 sm:px-5 py-4 text-[15px] leading-relaxed whitespace-pre-wrap [overflow-wrap:anywhere] shadow-sm ${
           isUser
             ? "bg-[var(--teal)] text-white rounded-2xl rounded-tr-sm"
             : "bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-main)] rounded-2xl rounded-tl-sm prose-custom"
@@ -607,7 +675,7 @@ function Bubble({ msg, user, index }) {
 
 function TypingIndicator() {
   return (
-    <div className="flex gap-4 animate-fade-in">
+    <div className="flex w-full min-w-0 gap-3 sm:gap-4 animate-fade-in">
       <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0 bg-[var(--bg-sidebar)] border border-[var(--border)] shadow-sm mt-1">
         🧠
       </div>

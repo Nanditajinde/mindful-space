@@ -1,107 +1,315 @@
 // src/gemini.js
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import {
+  GoogleGenerativeAI,
+  HarmBlockThreshold,
+  HarmCategory,
+} from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const genAI = new GoogleGenerativeAI(
+  typeof API_KEY === "string" ? API_KEY : ""
+);
 
-// ── Your Own Trained Model ────────────────────────────────────────
-const OWN_MODEL_URL = "https://gayathrij08-Mindfulspace.hf.space/api/chat";
+/** Soften default filters: wellness/health phrasing is often misclassified as "dangerous". */
+const CHAT_SAFETY_SETTINGS = [
+  {
+    category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+    threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+    threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+    threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+    threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+  },
+];
 
 /**
- * Send a message to YOUR trained MindfulSpace model on Hugging Face
- * @param {string} message - user message
- * @returns {Promise<string>} AI response text
+ * `gemini-1.5-flash` is not available on current v1beta for many keys (404).
+ * Order: prefer 2.5, then flash-lite and 2.0 variants (separate per-model quota on free tier).
  */
-export async function sendToOwnModel(message) {
-  try {
-    const { Client } = await import("@gradio/client");
-    const client = await Client.connect("gayathrij08/Mindfulspace");
-    const result = await client.predict("/chat", {
-      user_input: message,
-    });
-    // Handle different response formats
-    let response = result.data;
-    if (Array.isArray(response)) {
-      response = response[0];
-    }
-    if (typeof response === "object" && response !== null) {
-      response = response.text || response.message || JSON.stringify(response);
-    }
-    return String(response);
-  } catch (err) {
-    console.error("Own model failed, falling back to Gemini:", err);
-    return null;
+const CHAT_MODELS = [
+  "gemini-2.5-flash",
+  "gemini-2.5-flash-lite",
+  "gemini-2.0-flash-001",
+  "gemini-2.0-flash",
+  "gemini-flash-latest",
+];
+
+function getTrimmedApiKey() {
+  const k = import.meta.env.VITE_GEMINI_API_KEY;
+  if (typeof k !== "string" || !k.trim()) {
+    const err = new Error("VITE_GEMINI_API_KEY_MISSING");
+    err.code = "MISSING_GEMINI_KEY";
+    throw err;
   }
+  return k.trim();
+}
+
+/**
+ * Prefer response.text(), but recover text from parts if the helper throws
+ * (e.g. some edge cases) and surface block reasons clearly.
+ * @param {import("@google/generative-ai").GenerateContentResult} result
+ * @returns {string}
+ */
+function getChatResponseText(result) {
+  const response = result?.response;
+  if (!response) {
+    throw new Error("No response from Gemini");
+  }
+  if (response.promptFeedback?.blockReason) {
+    throw new Error(
+      `Prompt was blocked: ${response.promptFeedback.blockReason}`
+    );
+  }
+  try {
+    const text = response.text();
+    if (text && String(text).trim()) return String(text).trim();
+  } catch {
+    // Fall through: manual extraction or rethrow with finish reason
+  }
+  const candidate = response.candidates?.[0];
+  const parts = candidate?.content?.parts;
+  if (Array.isArray(parts) && parts.length) {
+    const joined = parts
+      .map((p) => (p && p.text != null ? String(p.text) : ""))
+      .join("")
+      .trim();
+    if (joined) return joined;
+  }
+  const fr = candidate?.finishReason;
+  if (fr === "SAFETY" || fr === "RECITATION") {
+    throw new Error(
+      "The model could not complete a reply for that message. Try rephrasing or ask something else."
+    );
+  }
+  throw new Error(
+    fr
+      ? `The model did not return text (reason: ${fr})`
+      : "The model did not return any text"
+  );
 }
 
 // ── Base System Prompt ────────────────────────────────────────────
-const SYSTEM_PROMPT = `You are MindfulSpace, a compassionate AI mental health support companion.
-Your role is to provide emotional support, psychoeducation, and coping strategies.
+const BASE_SYSTEM_PROMPT = `You are MindfulSpace, a deeply empathetic and warm emotional companion. Your purpose is to be a safe, non-judgmental space where people can open up about their inner worlds. You aren't just a bot; you are a compassionate listener who understands the weight of human emotions.
 
-PERSONALITY:
-- Warm, empathetic, and validating
-- Always acknowledge feelings BEFORE offering advice
-- Use the user's name when you know it
-- Keep responses to 3-4 sentences for casual conversation
-- Ask ONE thoughtful follow-up question per response
+PERSONALITY & VOICE:
+- **Be Human, Not Robotic**: Avoid phrases like "As an AI," "I understand how you feel," or "It's important to..." instead, use natural, warm language. Speak like a close, wise friend.
+- **Deep Empathy**: Always validate the user's feelings first. If they are hurting, sit with them in that feeling before trying to "fix" it.
+- **Encourage Openness**: Use gentle, open-ended questions that invite the user to share more. (e.g., "That sounds like a lot to carry... what does that feel like in your body right now?" or "I'm here for all of it, if you want to let it out.")
+- **Flow**: Keep responses conversational and concise. Avoid long lists unless specifically asked. Use the user's name naturally.
 
-CONVERSATION FLOW:
-1. Start with a warm check-in and ask how they are feeling today
-2. Listen actively and reflect back what you hear
-3. If distress is detected, gently ask PHQ-9 style questions
-4. Provide personalized coping strategies
+EMOTIONAL WELL-BEING & ADVICE:
+- **Anxiety & Stress**: If you detect anxiety, overwhelm, or stress, offer immediate comfort and 1-2 gentle, practical grounding techniques (like a quick breathing exercise or a small sensory check-in). Don't just list them—introduce them as something you can do together.
+- **Vulnerability**: If a user shares something difficult, thank them for trusting you. Make them feel brave for speaking up.
 
-SAFETY RULES:
-- If the user mentions suicide, self-harm, or wanting to die:
-  Respond with compassion AND add [CRISIS] at the very end of your message
-- NEVER diagnose. Use "it sounds like..." not "you have..."
-- ALWAYS recommend professional help for moderate or severe symptoms
-- You are NOT a replacement for a real therapist
+CRISIS & SAFETY (CRITICAL):
+- **Crisis Detection**: If the user uses life-threatening language (e.g., "I don't want to live," "I want to end it," "The world is better without me"), respond with intense compassion, tell them they matter, and **MANDATORY**: add the tag [CRISIS] at the very end of your message. This triggers a safety popup.
+- **No Toxicity**: Never use toxic positivity (e.g., "Just be happy!"). Acknowledge that life is hard.
 
 NEVER:
-- Say "I'm just an AI" dismissively
-- Give medication advice
-- Minimize feelings with toxic positivity`;
+- Give medical diagnoses or prescribe medication.
+- Sound dismissive or repetitive.
+- Refuse to help with general wellness questions.`;
+
+function buildLanguageLine(language) {
+  const languageInstructions = {
+    en: "Reply in English only.",
+    hi: "Reply in Hindi (Devanagari script, everyday Indian Hindi) only.",
+    mr: "Reply in Marathi (मराठी) only.",
+  };
+  const line = languageInstructions[language] || languageInstructions.en;
+  return `
+
+LANGUAGE:
+${line}`;
+}
+
+/** User display name (first name preferred) for the model */
+function buildUserNameBlock(displayName) {
+  const name = (displayName || "").trim() || "friend";
+  return `
+
+USER (address them by this name when appropriate):
+Preferred name: ${name}`;
+}
+
+/** 
+ * Internal mapping to ensure the AI gets consistent English instructions 
+ * regardless of the user's interface language.
+ */
+const PERSONALITY_MAP = {
+  // Q1: Description
+  "personality.q1.o1": "Introverted (prefer alone time, be gentle)",
+  "personality.q1.o2": "Extroverted (enjoys socializing, be engaging)",
+  "personality.q1.o3": "Ambivert (somewhere in between)",
+  // Q2: Needs
+  "personality.q2.o1": "Just someone to listen (avoid giving unsolicited advice)",
+  "personality.q2.o2": "Practical advice (provide actionable steps)",
+  "personality.q2.o3": "Distraction (light conversation, positivity)",
+  "personality.q2.o4": "Motivation (energetic and encouraging)",
+  // Q3: Comfort
+  "personality.q3.o1": "Very comfortable talking about emotions",
+  "personality.q3.o2": "Somewhat comfortable",
+  "personality.q3.o3": "Not very comfortable (be patient and soft)",
+  "personality.q3.o4": "Finds it difficult to open up (be extremely gentle)",
+  // Q4: Coping
+  "personality.q4.o1": "Copes by talking to others",
+  "personality.q4.o2": "Copes by keeping to themselves",
+  "personality.q4.o3": "Copes by staying busy",
+  "personality.q4.o4": "Does not cope well (needs extra support)",
+  // Q5: Situation
+  "personality.q5.o1": "Currently feeling anxious",
+  "personality.q5.o2": "Currently feeling low or sad",
+  "personality.q5.o3": "Currently feeling stressed",
+  "personality.q5.o4": "Exploring the app (general check-in)",
+  // Q6: Support Tone
+  "personality.q6.o1": "Prefers Gentle and Empathetic support",
+  "personality.q6.o2": "Prefers Motivational and Energetic support",
+  "personality.q6.o3": "Prefers Calm and Practical support",
+  "personality.q6.o4": "No specific tone preference",
+};
 
 /** Build personality note to inject into system prompt */
 function buildPersonalityNote(personality) {
   if (!personality) return "";
+
+  const profile = {
+    desc: PERSONALITY_MAP[personality.personality] || "Unknown",
+    needs: PERSONALITY_MAP[personality.support] || "Unknown",
+    comfort: PERSONALITY_MAP[personality.comfort] || "Unknown",
+    coping: PERSONALITY_MAP[personality.coping] || "Unknown",
+    situation: PERSONALITY_MAP[personality.situation] || "Unknown",
+    tone: PERSONALITY_MAP[personality.tone] || "Unknown",
+  };
+
   return `
 
-USER PERSONALITY PROFILE (adjust all responses based on this):
-- Self-described personality: ${personality.personality}
-- What they need when struggling: ${personality.support}
-- Emotional comfort level: ${personality.comfort}
-- How they cope with stress: ${personality.coping}
-- Current situation: ${personality.situation}
-- Preferred support tone: ${personality.tone}
+USER PROFILE & ADAPTATION RULES:
+- **User Description**: ${profile.desc}
+- **Primary Need**: ${profile.needs}
+- **Emotional Comfort**: ${profile.comfort}
+- **Stress Response**: ${profile.coping}
+- **Current State**: ${profile.situation}
+- **Requested Tone**: ${profile.tone}
 
-Always adapt your communication style to match this profile. 
-If they prefer "just someone to listen", avoid jumping to advice.
-If they are introverted or emotionally uncomfortable, be extra gentle and don't push.
-If they prefer motivational tone, be more energetic and encouraging.
-If they are feeling anxious or low, acknowledge that first before anything else.`;
+INSTRUCTIONS FOR ADAPTATION:
+1. If the user needs "Just someone to listen", do not provide advice unless they explicitly ask. Just validate and mirror.
+2. If they prefer a "Gentle" or "Calm" tone, use softer words and avoid exclamation marks.
+3. If they are "Feeling anxious" or "Low", prioritize safety and immediate emotional validation.
+4. If they find it "difficult to open up", be the one to gently lead the conversation with non-intrusive questions.
+5. Always respect the "Requested Tone" above in every sentence you write.`;
 }
 
 /**
- * Send a message to Gemini with conversation history (fallback only)
- * @param {Array} history - [{role:'user'|'model', parts:[{text:string}]}]
- * @param {string} message - new user message
- * @param {Object|null} personality - personality profile from Firestore
+ * Send a message to Gemini with full conversation history.
+ * @param {Array} history - prior turns: [{ role: 'user' | 'model', parts: [{ text: string }] }]
+ * @param {string} message - the new user message
+ * @param {Object|null} personality - profile from Firestore
+ * @param {string} language - 'en' | 'hi' | 'mr' (matches LanguageContext)
+ * @param {string|null} userDisplayName - for personalization
  * @returns {Promise<string>} AI response text
  */
-export async function sendToGemini(history, message, personality = null) {
-  const model = genAI.getGenerativeModel({
-    model: "gemini-2.5-flash",
-    systemInstruction: SYSTEM_PROMPT + buildPersonalityNote(personality),
-    generationConfig: {
-      maxOutputTokens: 400,
-      temperature: 0.7,
-    },
-  });
+/**
+ * Only stop trying other models for clear auth / key problems.
+ * 404/429/5xx can differ per model; 429 often succeeds on another model with its own cap.
+ */
+function isNonRetriableChatError(err) {
+  const s = err?.status;
+  if (s === 401 || s === 403) return true;
+  const m = String(err?.message || err || "");
+  if (/MISSING_GEMINI|VITE_GEMINI_API_KEY_MISSING/.test(m)) return true;
+  if (
+    /API key not valid|API_KEY_INVALID|invalid API key|leaked|PERMISSION_DENIED|not enabled for the Generative Language API/i.test(
+      m
+    )
+  ) {
+    return true;
+  }
+  return false;
+}
 
-  const chat = model.startChat({ history });
-  const result = await chat.sendMessage(message);
-  return result.response.text();
+/**
+ * @param {Array} history
+ * @param {string} message
+ * @returns {import("@google/generative-ai").Content[]}
+ */
+function buildChatRequestContents(history, message) {
+  const text = String(message ?? "").trim();
+  if (!text) {
+    throw new Error("Empty user message");
+  }
+  const h = (history || []).map((t) => ({
+    role: t.role,
+    parts: t.parts,
+  }));
+  h.push({ role: "user", parts: [{ text }] });
+  while (h.length > 0 && h[0].role !== "user") {
+    h.shift();
+  }
+  if (h.length === 0) {
+    h.push({ role: "user", parts: [{ text }] });
+  }
+  return h;
+}
+
+export async function sendToGemini(
+  history,
+  message,
+  personality = null,
+  language = "en",
+  userDisplayName = null
+) {
+  const key = getTrimmedApiKey();
+  const gen = new GoogleGenerativeAI(key);
+
+  const nameForPrompt =
+    (userDisplayName && userDisplayName.split(" ")[0]) || userDisplayName;
+  const systemText =
+    BASE_SYSTEM_PROMPT +
+    buildUserNameBlock(nameForPrompt) +
+    buildLanguageLine(language) +
+    buildPersonalityNote(personality);
+
+  const contents = buildChatRequestContents(history, message);
+  let lastError;
+
+  for (let i = 0; i < CHAT_MODELS.length; i++) {
+    const modelName = CHAT_MODELS[i];
+    try {
+      const model = gen.getGenerativeModel({
+        model: modelName,
+        systemInstruction: systemText,
+        safetySettings: CHAT_SAFETY_SETTINGS,
+        generationConfig: {
+          maxOutputTokens: 700,
+          temperature: 0.7,
+        },
+      });
+      const result = await model.generateContent({ contents });
+      return getChatResponseText(result);
+    } catch (e) {
+      lastError = e;
+      if (isNonRetriableChatError(e)) {
+        throw e;
+      }
+      if (i < CHAT_MODELS.length - 1) {
+        console.warn(
+          `[MindfulSpace] Chat model "${modelName}" failed; trying next.`,
+          e?.message
+        );
+        continue;
+      }
+      throw e;
+    }
+  }
+  throw lastError;
 }
 
 /**

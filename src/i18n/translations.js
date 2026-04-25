@@ -160,6 +160,14 @@ const translations = {
     "chat.listening": "Listening",
     "chat.welcome": "Hi there 👋 I'm **MindfulSpace**, your personal wellness companion.\n\nI'm here to listen without judgment. How are you feeling today?",
     "chat.errorMsg": "I'm sorry, I had trouble responding. Please try again in a moment.",
+    "chat.errorConfig":
+      "The AI could not be reached. Ensure VITE_GEMINI_API_KEY is set in your .env file, restart the dev server, and rebuild for production. Get a key from Google AI Studio (aistudio.google.com/apikey).",
+    "chat.errorKeyInvalid":
+      "The Gemini API key was rejected. Create a new key at Google AI Studio, update VITE_GEMINI_API_KEY in .env, restrict the key to your site if needed, and restart the dev server.",
+    "chat.errorNetwork":
+      "Could not reach Google's servers. Check your internet connection, VPN, firewall, or try another browser. If this persists, the browser may be blocking the request.",
+    "chat.errorQuota":
+      "The AI service rate limit or quota was hit. Wait a few minutes, check billing on Google AI Studio, or create a new API key with quota remaining.",
     "chat.voiceUnsupported": "Voice input not supported in this browser. Try Chrome.",
     "chat.speechUnsupported": "Speech synthesis not supported in this browser.",
 
@@ -423,6 +431,14 @@ const translations = {
     "chat.listening": "सुन रहा है",
     "chat.welcome": "नमस्ते 👋 मैं **MindfulSpace** हूं, आपका व्यक्तिगत वेलनेस साथी।\n\nमैं बिना किसी निर्णय के सुनने के लिए यहां हूं। आज आप कैसा महसूस कर रहे हैं?",
     "chat.errorMsg": "मुझे खेद है, मुझे जवाब देने में कठिनाई हुई। कृपया एक पल में पुनः प्रयास करें।",
+    "chat.errorConfig":
+      "AI तक पहुंच नहीं बन पाई। सुनिश्चित करें कि .env में VITE_GEMINI_API_KEY सेट है, डेव सर्वर पुनः चलाएं, और प्रोडक्शन के लिए पुनः बिल्ड करें। कुंजी Google AI Studio (aistudio.google.com/apikey) से प्राप्त करें।",
+    "chat.errorKeyInvalid":
+      "Gemini API कुंजी अस्वीकृत। Google AI Studio पर नई कुंजी बनाएं, .env में VITE_GEMINI_API_KEY अपडेट करें, और डेव सर्वर पुनः चलाएं।",
+    "chat.errorNetwork":
+      "Google सर्वर तक पहुंच नहीं। इंटरनेट, VPN या फ़ायरवॉल जांचें।",
+    "chat.errorQuota":
+      "AI सेवा की सीमा पूरी हो गई। कुछ मिनट प्रतीक्षा करें या Google AI Studio पर कोटा जांचें।",
     "chat.voiceUnsupported": "इस ब्राउज़र में वॉइस इनपुट समर्थित नहीं है। Chrome आज़माएं।",
     "chat.speechUnsupported": "इस ब्राउज़र में स्पीच सिंथेसिस समर्थित नहीं है।",
 
@@ -691,6 +707,10 @@ kn: {
   "chat.listening": "ಕೆಳುತ್ತಿದೆ",
   "chat.welcome": "ನಮಸ್ಕಾರ 👋 ನಾನು **MindfulSpace**",
   "chat.errorMsg":"ಕ್ಷಮಿಸಿ, ಉತ್ತರಿಸಲು ನನಗೆ ಕಷ್ಟವಾಗಿದೆ. ದಯವಿಟ್ಟು ಒಂದು ಕ್ಷಣದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+  "chat.errorConfig": "AI ತಲುಪಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. .env ಫೈಲ್‌ನಲ್ಲಿ VITE_GEMINI_API_KEY ಹೊಂದಿಸಿ, dev ಸರ್ವರ್ ಮರುಪ್ರಾರಂಭಿಸಿ, ಮತ್ತು ಪ್ರೊಡಕ್ಶನ್‌ಗೆ ಮರುನಿರ್ಮಿಸಿ. aistudio.google.com/apikey ನಿಂದ ಕೀ ಪಡೆಯಿರಿ.",
+  "chat.errorKeyInvalid": "Gemini API ಕೀ ತಿರಸ್ಕೃತವಾಯಿತು. AI Studio ಯಲ್ಲ ಹೊಸ ಕೀ ರಚಿಸಿ, .env ನಲ್ಲಿ ನವೀಕರಿಸಿ.",
+  "chat.errorNetwork": "Google ಸೇವರಿಗೆ ಸಂಪರ್ಕ ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಅಂತರ್ಜಾಲ ಅಥವಾ VPN ಪರಿಶೀಲಿಸಿ.",
+  "chat.errorQuota": "AI ದರ ಮಿತಿ ಮೀರಲಾಗಿದೆ. ಕೆಲವು ನಿಮಿಷ ಕಾಯುವ ಅಥವಾ ಕೋಟಾ ಪರಿಶೀಲಿಸಿ.",
 
   // ─── Dashboard Page ─────────────────────────────────────────────────
   "dash.title": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
