@@ -2,6 +2,8 @@
 
 Welcome to the official MindfulSpace AI wiki. Everything you need to know about setting up, running, deploying, and maintaining the project.
 
+🌐 **Live Application:** [MindfulSpace AI](https://mindfulspace-app-two.vercel.app/)
+
 ---
 
 ## 📚 Table of Contents

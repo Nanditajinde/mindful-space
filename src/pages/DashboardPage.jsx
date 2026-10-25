@@ -100,58 +100,58 @@ export default function DashboardPage({ user }) {
   return (
     <div className="flex-1 w-full max-w-[1000px] mx-auto animate-fade-in relative pb-12">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-[var(--border)] mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-[var(--border-primary)] mb-8">
         <div>
-          <h1 className="text-3xl font-semibold text-[var(--text-main)] tracking-tight">{t("dash.title")}</h1>
-          <p className="text-sm mt-1.5 text-[var(--text-muted)]">{t("dash.sub")}</p>
+          <h1 className="text-3xl font-semibold text-[var(--text-primary)] tracking-tight">{t("dash.title")}</h1>
+          <p className="text-sm mt-1.5 text-[var(--text-secondary)]">{t("dash.sub")}</p>
         </div>
         <button
           onClick={fetchInsights}
-          className="group flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-[14px] font-medium text-white transition-all duration-300 bg-indigo-600 hover:bg-indigo-500 shadow-sm shadow-indigo-500/10 hover:shadow-md hover:shadow-indigo-500/20"
+          className="btn-primary group flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium shadow-sm"
         >
-          <Sparkles className="w-4 h-4 text-indigo-200 group-hover:text-white transition-colors" />
+          <Sparkles className="w-4 h-4 text-white/90 group-hover:scale-105 transition-transform" />
           <span>{t("dash.insights")}</span>
         </button>
       </div>
 
       {/* Stat Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 shadow-sm hover:border-slate-700/50 transition-colors group flex flex-col justify-between">
+        <div className="bg-[var(--surface-primary)] border border-[var(--border-primary)] rounded-xl p-6 shadow-sm hover:border-[#879BAD] transition-colors group flex flex-col justify-between">
           <div className="flex justify-between items-start mb-4">
-            <div className="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center mt-1">
-              <TrendingUp className="w-5 h-5 text-teal-400" />
+            <div className="w-10 h-10 rounded-xl bg-[#E4EAF0] flex items-center justify-center mt-1">
+              <TrendingUp className="w-5 h-5 text-[#536D85]" />
             </div>
-            <div className="text-[11px] font-medium text-slate-400 uppercase tracking-widest px-2 py-1">{t("dash.overall")}</div>
+            <div className="text-[11px] font-semibold text-[var(--text-secondary)] uppercase tracking-wider px-2 py-0.5 rounded bg-[#FBFAF7] border border-[var(--border-primary)]">{t("dash.overall")}</div>
           </div>
           <div>
-            <div className="text-3xl font-semibold text-[var(--text-main)] tracking-tight">{avgMood ?? "—"}<span className="text-base font-normal text-slate-500 ml-1">/10</span></div>
-            <div className="text-[13px] text-[var(--text-muted)] mt-1.5 font-medium">{t("dash.avgMood")}</div>
+            <div className="text-3xl font-semibold text-[var(--text-primary)] tracking-tight">{avgMood ?? "—"}<span className="text-base font-normal text-[var(--text-secondary)] ml-1">/10</span></div>
+            <div className="text-[13px] text-[var(--text-secondary)] mt-1.5 font-medium">{t("dash.avgMood")}</div>
           </div>
         </div>
 
-        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 shadow-sm hover:border-slate-700/50 transition-colors group flex flex-col justify-between">
+        <div className="bg-[var(--surface-primary)] border border-[var(--border-primary)] rounded-xl p-6 shadow-sm hover:border-[#879BAD] transition-colors group flex flex-col justify-between">
           <div className="flex justify-between items-start mb-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mt-1 text-xl">
+            <div className="w-10 h-10 rounded-xl bg-[#EAE5ED] flex items-center justify-center mt-1 text-xl">
               😔
             </div>
-            <div className="text-[11px] font-medium text-slate-400 uppercase tracking-widest px-2 py-1">{t("dash.depression")}</div>
+            <div className="text-[11px] font-semibold text-[var(--text-secondary)] uppercase tracking-wider px-2 py-0.5 rounded bg-[#FBFAF7] border border-[var(--border-primary)]">{t("dash.depression")}</div>
           </div>
           <div>
-            <div className="text-3xl font-semibold text-[var(--text-main)] tracking-tight">{phq9[0] ? String(phq9[0].totalScore) : "—"}<span className="text-base font-normal text-slate-500 ml-1">{phq9[0] ? "/27" : ""}</span></div>
-            <div className="text-[13px] text-[var(--text-muted)] mt-1.5 font-medium">{phq9[0]?.severity ? translateSeverity(phq9[0].severity) : t("dash.notTaken")}</div>
+            <div className="text-3xl font-semibold text-[var(--text-primary)] tracking-tight">{phq9[0] ? String(phq9[0].totalScore) : "—"}<span className="text-base font-normal text-[var(--text-secondary)] ml-1">{phq9[0] ? "/27" : ""}</span></div>
+            <div className="text-[13px] text-[var(--text-secondary)] mt-1.5 font-medium">{phq9[0]?.severity ? translateSeverity(phq9[0].severity) : t("dash.notTaken")}</div>
           </div>
         </div>
 
-        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 shadow-sm hover:border-slate-700/50 transition-colors group flex flex-col justify-between">
+        <div className="bg-[var(--surface-primary)] border border-[var(--border-primary)] rounded-xl p-6 shadow-sm hover:border-[#879BAD] transition-colors group flex flex-col justify-between">
           <div className="flex justify-between items-start mb-4">
-            <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center mt-1 text-xl">
+            <div className="w-10 h-10 rounded-xl bg-[#F0E5DC] flex items-center justify-center mt-1 text-xl">
               😰
             </div>
-            <div className="text-[11px] font-medium text-slate-400 uppercase tracking-widest px-2 py-1">{t("dash.anxiety")}</div>
+            <div className="text-[11px] font-semibold text-[var(--text-secondary)] uppercase tracking-wider px-2 py-0.5 rounded bg-[#FBFAF7] border border-[var(--border-primary)]">{t("dash.anxiety")}</div>
           </div>
           <div>
-            <div className="text-3xl font-semibold text-[var(--text-main)] tracking-tight">{gad7[0] ? String(gad7[0].totalScore) : "—"}<span className="text-base font-normal text-slate-500 ml-1">{gad7[0] ? "/21" : ""}</span></div>
-            <div className="text-[13px] text-[var(--text-muted)] mt-1.5 font-medium">{gad7[0]?.severity ? translateSeverity(gad7[0].severity) : t("dash.notTaken")}</div>
+            <div className="text-3xl font-semibold text-[var(--text-primary)] tracking-tight">{gad7[0] ? String(gad7[0].totalScore) : "—"}<span className="text-base font-normal text-[var(--text-secondary)] ml-1">{gad7[0] ? "/21" : ""}</span></div>
+            <div className="text-[13px] text-[var(--text-secondary)] mt-1.5 font-medium">{gad7[0]?.severity ? translateSeverity(gad7[0].severity) : t("dash.notTaken")}</div>
           </div>
         </div>
       </div>
@@ -159,33 +159,33 @@ export default function DashboardPage({ user }) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 
         {/* Mood Chart */}
-        <div className="lg:col-span-2 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-7 shadow-sm">
-          <h2 className="text-[16px] font-semibold text-[var(--text-main)] mb-1">{t("dash.moodTrend")}</h2>
-          <p className="text-[13px] text-[var(--text-muted)] mb-8">{t("dash.moodTrendSub")}</p>
+        <div className="lg:col-span-2 bg-[var(--surface-primary)] border border-[var(--border-primary)] rounded-xl p-6 sm:p-7 shadow-sm">
+          <h2 className="text-[16px] font-semibold text-[var(--text-primary)] mb-1">{t("dash.moodTrend")}</h2>
+          <p className="text-[13px] text-[var(--text-secondary)] mb-6">{t("dash.moodTrendSub")}</p>
           {moodLogs.length === 0 ? (
-            <div className="flex items-center justify-center h-48 border border-dashed border-slate-800 rounded-xl">
-              <p className="text-sm text-slate-500">{t("dash.noLogs")}</p>
+            <div className="flex items-center justify-center h-48 border border-dashed border-[var(--border-primary)] rounded-xl bg-[#FBFAF7]">
+              <p className="text-sm text-[var(--text-secondary)]">{t("dash.noLogs")}</p>
             </div>
           ) : (
             <ResponsiveContainer width="100%" height={260}>
               <LineChart data={moodLogs} margin={{ top: 5, right: 10, left: -25, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
-                <XAxis dataKey="date" tick={{ fill: "#64748B", fontSize: 11, fontWeight: 500 }} axisLine={false} tickLine={false} dy={15} />
-                <YAxis domain={[1, 10]} tick={{ fill: "#64748B", fontSize: 11, fontWeight: 500 }} axisLine={false} tickLine={false} dx={-10} />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(48, 61, 74, 0.08)" vertical={false} />
+                <XAxis dataKey="date" tick={{ fill: "#777B80", fontSize: 11, fontWeight: 500 }} axisLine={false} tickLine={false} dy={15} />
+                <YAxis domain={[1, 10]} tick={{ fill: "#777B80", fontSize: 11, fontWeight: 500 }} axisLine={false} tickLine={false} dx={-10} />
                 <Tooltip
-                  contentStyle={{ background: "#181A20", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", color: "#F1F5F9", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.4)" }}
-                  itemStyle={{ color: "#0d9488", fontWeight: 600 }}
-                  labelStyle={{ color: "#94A3B8", marginBottom: "4px", fontSize: "12px" }}
-                  cursor={{ stroke: 'rgba(255,255,255,0.1)', strokeWidth: 1, strokeDasharray: "4 4" }}
+                  contentStyle={{ background: "#FFFFFF", border: "1px solid #E4DFD7", borderRadius: "10px", color: "#303D4A", boxShadow: "0 2px 8px rgba(48, 61, 74, 0.06)" }}
+                  itemStyle={{ color: "#647F98", fontWeight: 600 }}
+                  labelStyle={{ color: "#777B80", marginBottom: "4px", fontSize: "12px" }}
+                  cursor={{ stroke: 'rgba(100, 127, 152, 0.2)', strokeWidth: 1, strokeDasharray: "4 4" }}
                 />
-                <ReferenceLine y={5} stroke="rgba(255,255,255,0.1)" strokeDasharray="4 4" />
+                <ReferenceLine y={5} stroke="rgba(48, 61, 74, 0.12)" strokeDasharray="4 4" />
                 <Line
                   type="monotone"
                   dataKey="score"
-                  stroke="#0d9488"
+                  stroke="#647F98"
                   strokeWidth={2.5}
-                  dot={{ fill: "#0d9488", r: 4, strokeWidth: 0 }}
-                  activeDot={{ r: 6, fill: "#14b8a6", stroke: "#0D0F14", strokeWidth: 2 }}
+                  dot={{ fill: "#647F98", r: 4, strokeWidth: 0 }}
+                  activeDot={{ r: 6, fill: "#536D85", stroke: "#FFFFFF", strokeWidth: 2 }}
                   isAnimationActive={false}
                 />
               </LineChart>
@@ -194,27 +194,69 @@ export default function DashboardPage({ user }) {
         </div>
 
         {/* Log Mood Sidebar Panel */}
-        <div className="lg:col-span-1 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-7 shadow-sm flex flex-col">
-          <div className="flex items-center gap-3 mb-1">
-            <NotebookPen className="w-4 h-4 text-[var(--teal)]" />
-            <h2 className="text-[16px] font-semibold text-[var(--text-main)]">{t("dash.logMood")}</h2>
+        <div className="lg:col-span-1 bg-[var(--surface-primary)] border border-[var(--border-primary)] rounded-xl p-6 sm:p-7 shadow-sm flex flex-col">
+          <div className="flex items-center gap-2.5 mb-1">
+            <NotebookPen className="w-4 h-4 text-[#647F98]" />
+            <h2 className="text-[16px] font-semibold text-[var(--text-primary)]">{t("dash.logMood")}</h2>
           </div>
-          <p className="text-[13px] text-[var(--text-muted)] mb-8 pl-7">{t("dash.logMoodSub")}</p>
+          <p className="text-[13px] text-[var(--text-secondary)] mb-5">{t("dash.logMoodSub")}</p>
 
-          <div className="mb-8 flex-1">
-            <div className="flex justify-between items-center text-xs mb-4 text-slate-400 font-medium">
-              <span className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">😞 <span>{t("dash.low")}</span></span>
-              <span className="font-semibold text-lg text-teal-400 bg-teal-500/10 px-4 py-1.5 rounded-lg border border-teal-500/20">{moodScore}/10</span>
-              <span className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity"><span>{t("dash.high")}</span> 😄</span>
+          <div className="mb-6 flex-1">
+            {/* Quick Mood Selection Buttons (Prompt Rule 5: gentle background colors) */}
+            <div className="grid grid-cols-3 gap-2 mb-5">
+              <button
+                type="button"
+                onClick={() => setMoodScore(3)}
+                className={`p-2.5 rounded-[10px] text-center transition-all duration-180 border ${
+                  moodScore <= 3
+                    ? "bg-[#EAE5ED] border-[#647F98] ring-2 ring-[#647F98]/20 shadow-sm"
+                    : "bg-[#EAE5ED]/70 border-transparent hover:bg-[#EAE5ED]"
+                }`}
+              >
+                <div className="text-xl mb-1">😞</div>
+                <div className="text-xs font-medium text-[#303D4A]">{t("dash.low")}</div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setMoodScore(5)}
+                className={`p-2.5 rounded-[10px] text-center transition-all duration-180 border ${
+                  moodScore >= 4 && moodScore <= 7
+                    ? "bg-[#F0E5DC] border-[#647F98] ring-2 ring-[#647F98]/20 shadow-sm"
+                    : "bg-[#F0E5DC]/70 border-transparent hover:bg-[#F0E5DC]"
+                }`}
+              >
+                <div className="text-xl mb-1">😐</div>
+                <div className="text-xs font-medium text-[#303D4A]">Neutral</div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setMoodScore(9)}
+                className={`p-2.5 rounded-[10px] text-center transition-all duration-180 border ${
+                  moodScore >= 8
+                    ? "bg-[#E4EAF0] border-[#647F98] ring-2 ring-[#647F98]/20 shadow-sm"
+                    : "bg-[#E4EAF0]/70 border-transparent hover:bg-[#E4EAF0]"
+                }`}
+              >
+                <div className="text-xl mb-1">😄</div>
+                <div className="text-xs font-medium text-[#303D4A]">{t("dash.high")}</div>
+              </button>
+            </div>
+
+            {/* Fine-tuning Score Slider */}
+            <div className="flex justify-between items-center text-xs mb-3 text-[var(--text-secondary)] font-medium">
+              <span>Score Level</span>
+              <span className="font-semibold text-sm text-[#536D85] bg-[#E4EAF0] px-3 py-1 rounded-lg border border-[#D5DEE6]">{moodScore} / 10</span>
             </div>
             <input
               type="range" min={1} max={10} value={moodScore}
               onChange={(e) => setMoodScore(Number(e.target.value))}
-              className="w-full cursor-pointer accent-teal-500 mb-8 h-1.5 bg-slate-800 rounded-lg appearance-none"
+              className="w-full cursor-pointer accent-[#647F98] mb-5 h-2 bg-[#E4DFD7] rounded-lg appearance-none"
             />
             <div className="relative">
               <textarea
-                className="w-full bg-[var(--bg-dark)] text-[var(--text-main)] placeholder-[var(--text-muted)] border border-[var(--border)] rounded-xl px-4 py-3 text-[14px] leading-relaxed resize-none focus:outline-none focus:border-[var(--teal)]/50 focus:ring-1 focus:ring-[var(--teal)]/20 transition-all"
+                className="w-full bg-[var(--input-bg)] text-[var(--text-primary)] placeholder-[var(--text-muted)] border border-[var(--input-border)] rounded-xl px-3.5 py-2.5 text-sm leading-relaxed resize-none focus:outline-none focus:border-[#647F98] focus:ring-2 focus:ring-[#647F98]/15 transition-all"
                 placeholder={t("dash.notePlaceholder")}
                 rows={3}
                 value={moodNote}
@@ -225,7 +267,7 @@ export default function DashboardPage({ user }) {
           <button
             onClick={logMood}
             disabled={logging}
-            className="w-full py-3 rounded-xl text-[14px] font-semibold text-white transition-all bg-[var(--teal)] hover:bg-[var(--teal-hover)] disabled:opacity-50 disabled:hover:bg-[var(--teal)] flex justify-center items-center gap-2 shadow-sm"
+            className="btn-primary w-full py-2.5 text-sm font-semibold flex justify-center items-center gap-2 shadow-sm"
           >
             {logging ? <Loader2 className="w-4 h-4 animate-spin" /> : t("dash.saveEntry")}
           </button>
@@ -269,18 +311,18 @@ export default function DashboardPage({ user }) {
 
 function HistoryRow({ a, max, t, translateSeverity }) {
   const pct = Math.round((a.totalScore / max) * 100);
-  const bar = pct <= 33 ? "#10b981" : pct <= 55 ? "#eab308" : pct <= 74 ? "#f97316" : "#ef4444";
+  const bar = pct <= 33 ? "#527A66" : pct <= 55 ? "#B88745" : pct <= 74 ? "#C49A82" : "#C64C4C";
   return (
     <div className="flex items-center gap-5 group">
-      <div className="text-[12px] font-medium w-16 flex-shrink-0 text-slate-500 group-hover:text-slate-400 transition-colors">{a.date}</div>
+      <div className="text-[12px] font-medium w-16 flex-shrink-0 text-[var(--text-secondary)]">{a.date}</div>
       <div className="flex-1">
-        <div className="flex justify-between text-[12px] mb-2 font-medium">
-          <span className="text-slate-300">{translateSeverity(a.severity)}</span>
-          <span className="text-slate-500">{a.totalScore}<span className="text-slate-600">/{max}</span></span>
+        <div className="flex justify-between text-[12px] mb-1.5 font-medium">
+          <span className="text-[var(--text-primary)]">{translateSeverity(a.severity)}</span>
+          <span className="text-[var(--text-secondary)]">{a.totalScore}<span className="text-[var(--text-muted)]">/{max}</span></span>
         </div>
-        <div className="w-full rounded-full h-1.5 bg-slate-800/80 overflow-hidden">
+        <div className="w-full rounded-full h-1.5 bg-[#E4DFD7] overflow-hidden">
           <div
-            className="h-full transition-all duration-700 ease-out rounded-full"
+            className="h-full transition-all duration-500 ease-out rounded-full"
             style={{ width: `${pct}%`, background: bar }}
           />
         </div>

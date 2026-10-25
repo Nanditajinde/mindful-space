@@ -8,7 +8,10 @@
 
 **Built for India · Powered by Custom ML · 100% Free**
 
-[![Live Demo](https://img.shields.io/badge/🧠_Live_Demo-Visit_App-0D9488?style=for-the-badge)](https://MindfulSpace-v2-18fa8.web.app/)
+🌐 **Live App:** [MindfulSpace AI](https://mindfulspace-app-two.vercel.app/)
+
+[![Live Demo](https://img.shields.io/badge/🧠_Live_Demo-Visit_App-0D9488?style=for-the-badge)](https://mindfulspace-app-two.vercel.app/)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://mindfulspace-app-two.vercel.app/)
 [![Custom ML Model](https://img.shields.io/badge/Custom_ML-In--House_Model-7C3AED?style=for-the-badge)](https://github.com/prats010/MindfulSpace-v2)
 [![Gemini Insights](https://img.shields.io/badge/Google_Gemini-Insights_&_Tests-4285F4?style=for-the-badge&logo=google)](https://aistudio.google.com)
 [![Firebase](https://img.shields.io/badge/Firebase-Powered-FF6F00?style=for-the-badge&logo=firebase)](https://firebase.google.com)
@@ -166,15 +169,25 @@ Open [http://localhost:5173](http://localhost:5173) 🎉
 
 ## 📦 Deployment
 
+The application is deployed on Vercel:
+
+🌐 **Production Link:** [MindfulSpace AI](https://mindfulspace-app-two.vercel.app/)
+
+### Deploying to Vercel
+
+```bash
+# Deploy with Vercel CLI
+vercel --prod
+```
+
+### Deploying to Firebase Hosting (Alternative)
+
 ```bash
 # Build the app
 npm run build
 
 # Deploy to Firebase Hosting
 firebase deploy --only hosting
-
-# Your live URL:
-# https://your-project-id.web.app
 ```
 
 ---

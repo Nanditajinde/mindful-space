@@ -179,6 +179,8 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
         await loadSessionChat(activeId);
       } catch (err) {
         console.error("Failed to load sessions:", err);
+        // FAIL-SAFE: Allow chat to work even if Firestore is blocking
+        setActiveSessionId("fallback-local-session");
       } finally {
         setSessionLoading(false);
       }
@@ -231,6 +233,9 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
       setGeminiHistory([]);
     } catch (e) {
       console.error(e);
+      setActiveSessionId(`fallback-local-session-${Date.now()}`);
+      setMessages([WELCOME]);
+      setGeminiHistory([]);
     } finally {
       setFetching(false);
     }
@@ -260,7 +265,10 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
       if (detectCrisis(text)) {
         onCrisis();
         // Silent background notification to trusted contact
-        sendSilentCrisisSMS(trustedContact, user?.displayName?.split(" ")[0]);
+        sendSilentCrisisSMS(trustedContact, user?.displayName?.split(" ")[0]).then(res => {
+          if (res && !res.success) alert("SMS Failed: " + res.error);
+          else if (res && res.success) alert("Crisis SMS sent successfully to your trusted contact!");
+        });
       }
 
       // Capture timing BEFORE async calls
@@ -280,7 +288,11 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
       try {
         if (isFirstMessage) {
           const preview = text.length > 35 ? text.substring(0, 35) + "..." : text;
-          await updateSessionPreview(user.uid, activeSessionId, preview, 2);
+          try {
+            await updateSessionPreview(user.uid, activeSessionId, preview, 2);
+          } catch (e) {
+            console.warn("Could not update session preview (Firestore):", e);
+          }
           setSessions((prev) =>
             prev.map((s) =>
               s.id === activeSessionId
@@ -301,7 +313,10 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
         if (aiText.includes("[CRISIS]")) {
           onCrisis();
           // Silent background notification if the AI detected it
-          sendSilentCrisisSMS(trustedContact, user?.displayName?.split(" ")[0]);
+          sendSilentCrisisSMS(trustedContact, user?.displayName?.split(" ")[0]).then(res => {
+            if (res && !res.success) alert("SMS Failed: " + res.error);
+            else if (res && res.success) alert("Crisis SMS sent successfully to your trusted contact!");
+          });
         }
         const cleanText = aiText.replace("[CRISIS]", "").trim();
 
@@ -321,8 +336,12 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
 
         if (voiceEnabled) speakText(cleanText);
 
-        await saveMessage(user.uid, activeSessionId, "user", text, score);
-        await saveMessage(user.uid, activeSessionId, "assistant", cleanText, 0);
+        try {
+          await saveMessage(user.uid, activeSessionId, "user", text, score);
+          await saveMessage(user.uid, activeSessionId, "assistant", cleanText, 0);
+        } catch (dbErr) {
+          console.warn("Firestore save failed, but chat continues:", dbErr);
+        }
       } catch (err) {
         console.error("AI error:", err);
         setMessages((prev) => [
@@ -407,24 +426,24 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
   const groupedSessions = groupSessions(sessions, sessionLabels);
 
   return (
-    <div className="flex flex-1 min-h-0 w-full relative overflow-hidden bg-[var(--bg-dark)]">
+    <div className="flex flex-1 min-h-0 w-full relative overflow-hidden bg-[var(--page-background)]">
 
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 md:hidden animate-fade-in"
+          className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-30 md:hidden animate-fade-in"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       <div
-        className={`absolute md:relative z-40 md:z-0 h-full w-[260px] shrink-0 bg-[#0D1117] border-r border-[#1A1F2E] flex flex-col transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`absolute md:relative z-40 md:z-0 h-full w-[260px] shrink-0 bg-[var(--surface-primary)] border-r border-[var(--border-primary)] flex flex-col transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         }`}
       >
-        <div className="p-4 border-b border-[#1A1F2E] shrink-0">
+        <div className="p-4 border-b border-[var(--border-primary)] shrink-0">
           <button
             onClick={startNewChat}
-            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-teal-500/30 bg-teal-500/5 hover:border-teal-500 hover:bg-teal-500/10 text-teal-400 text-[14px] font-medium transition-all shadow-sm transform hover:scale-[1.02]"
+            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-[#D5DEE6] bg-[#E4EAF0] hover:bg-[#D9E3EC] text-[#536D85] text-[14px] font-medium transition-all shadow-sm"
           >
             {t("chat.newChat")}
           </button>
@@ -433,14 +452,14 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
         <div className="flex-1 overflow-y-auto px-3 py-4 space-y-7 scroll-smooth">
           {sessionLoading ? (
             <div className="flex justify-center py-8">
-              <Loader2 className="w-5 h-5 animate-spin text-teal-500" />
+              <Loader2 className="w-5 h-5 animate-spin text-[#647F98]" />
             </div>
           ) : (
             Object.entries(groupedSessions).map(([label, groupItems]) => {
               if (groupItems.length === 0) return null;
               return (
                 <div key={label} className="animate-fade-in">
-                  <h3 className="text-[11px] font-semibold text-slate-500 tracking-wider uppercase mb-2 px-2">
+                  <h3 className="text-[11px] font-semibold text-[#777B80] tracking-wider uppercase mb-2 px-2">
                     {label}
                   </h3>
                   <div className="space-y-0.5">
@@ -452,18 +471,18 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
                           onClick={() => loadSessionChat(s.id)}
                           className={`w-full text-left px-3 py-2.5 rounded-lg flex flex-col gap-1 transition-all duration-150 relative group ${
                             isActive
-                              ? "bg-[#1A1F2E]/80 text-white"
-                              : "text-slate-300 hover:bg-[#1A1F2E] hover:text-white"
+                              ? "bg-[#E4EAF0] text-[#536D85] font-semibold shadow-sm"
+                              : "text-[#777B80] hover:bg-[#F6F3EE] hover:text-[#303D4A]"
                           }`}
                           style={{ animationDelay: `${idx * 50}ms` }}
                         >
                           {isActive && (
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-1 bg-teal-500 rounded-r-full shadow-[0_0_8px_rgba(13,148,136,0.6)]" />
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-1 bg-[#647F98] rounded-r-full shadow-sm" />
                           )}
                           <span className="text-[14px] font-medium leading-tight truncate px-1">
                             {s.firstMessage || "New Chat"}
                           </span>
-                          <span className="text-[11px] text-slate-500 font-medium px-1">
+                          <span className="text-[11px] text-[#777B80] font-medium px-1">
                             {formatSessionTime(s.createdAt)}
                           </span>
                         </button>
@@ -477,30 +496,43 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col h-full min-h-0 min-w-0 relative overflow-x-hidden z-0 md:bg-[var(--bg-dark)]">
-        <div className="flex-1 flex flex-col h-full min-h-0 w-full max-w-[800px] mx-auto px-4 sm:px-8 relative">
-
-          <div className="pt-6 pb-5 border-b border-[var(--border)] mb-4 shrink-0 flex items-center gap-3">
-            <button
-              className="md:hidden p-2 -ml-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors"
-              onClick={() => setSidebarOpen(true)}
-            >
-              <Menu className="w-5 h-5" />
-            </button>
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-semibold text-[var(--text-main)] tracking-tight flex items-center gap-2">
-                {t("chat.title")}
-                {fetching && (
-                  <Loader2 className="w-4 h-4 animate-spin text-teal-500 ml-2" />
-                )}
-              </h1>
-              <p className="text-[var(--text-muted)] mt-1 hidden sm:block">
-                {t("chat.subtitle")}
-              </p>
+      <div className="flex-1 flex flex-col h-full min-h-0 min-w-0 relative overflow-x-hidden z-0 bg-[var(--page-background)]">
+          {/* Header */}
+          <div className="px-6 sm:px-8 pt-6 pb-5 border-b border-[var(--border-primary)] mb-4 shrink-0 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <button
+                className="md:hidden p-2 -ml-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-lg hover:bg-[var(--surface-secondary)] transition-colors"
+                onClick={() => setSidebarOpen(true)}
+              >
+                <Menu className="w-5 h-5" />
+              </button>
+              <div className="min-w-0">
+                <h1 className="text-2xl sm:text-3xl font-semibold text-[var(--text-primary)] tracking-tight flex items-center gap-2 truncate">
+                  {t("chat.title")}
+                  {fetching && (
+                    <Loader2 className="w-4 h-4 animate-spin text-[#647F98] ml-2 shrink-0" />
+                  )}
+                </h1>
+                <p className="text-[var(--text-secondary)] text-sm mt-0.5 hidden sm:block truncate">
+                  {t("chat.subtitle")}
+                </p>
+              </div>
             </div>
+
+            {/* SOS button */}
+            <button
+              onClick={onCrisis}
+              className="btn-sos py-2 px-3 sm:px-4 text-xs sm:text-sm font-semibold flex items-center gap-1.5 shrink-0"
+              title="Immediate Crisis Helpline & SOS Support"
+            >
+              <span>🆘</span>
+              <span className="hidden sm:inline">{t("crisis.title") || "Crisis Support"}</span>
+              <span className="sm:hidden">SOS</span>
+            </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto overflow-x-hidden space-y-6 sm:space-y-8 mb-4 min-h-0 w-full min-w-0 pr-1 sm:pr-2 pb-4 scroll-smooth [scrollbar-gutter:stable]">
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 sm:px-8 space-y-6 sm:space-y-8 mb-4 min-h-0 w-full min-w-0 pb-4 scroll-smooth [scrollbar-gutter:stable]">
             {!fetching &&
               messages.map((msg, i) => (
                 <Bubble key={i} msg={msg} user={user} index={i} />
@@ -509,31 +541,32 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
             <div ref={bottomRef} className="h-4" />
           </div>
 
-          <div className="sticky bottom-0 bg-[var(--bg-dark)]/90 backdrop-blur-xl border-t border-[var(--border)] -mx-4 sm:-mx-8 px-4 sm:px-8 pt-4 pb-4 z-10 shrink-0">
+          {/* Input Bar */}
+          <div className="sticky bottom-0 bg-[var(--page-background)]/90 backdrop-blur-xl border-t border-[var(--border-primary)] px-6 sm:px-8 pt-4 pb-5 z-10 shrink-0">
             <div className="relative max-w-[800px] mx-auto">
 
               {toastMsg && (
                 <div className="absolute -top-12 left-0 right-0 flex justify-center animate-fade-in">
-                  <div className="text-xs text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded-full py-1.5 px-4 shadow-lg backdrop-blur-md">
+                  <div className="text-xs text-[#536D85] bg-[#E4EAF0] border border-[#D5DEE6] rounded-full py-1.5 px-4 shadow-sm">
                     ✓ {toastMsg}
                   </div>
                 </div>
               )}
 
               {voiceTooltip && (
-                <div className="absolute -top-12 left-0 right-0 text-center text-xs text-amber-500 bg-amber-500/10 border border-amber-500/20 rounded-lg py-2 px-3 mx-auto max-w-sm animate-fade-in shadow-xl backdrop-blur-md">
+                <div className="absolute -top-12 left-0 right-0 text-center text-xs text-[#B88745] bg-[#B88745]/10 border border-[#B88745]/20 rounded-lg py-2 px-3 mx-auto max-w-sm animate-fade-in shadow-sm">
                   {voiceTooltip}
                 </div>
               )}
 
-              <div className="flex items-end gap-2 bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-2 shadow-sm focus-within:border-[var(--teal)]/50 focus-within:ring-1 focus-within:ring-[var(--teal)]/20 transition-all duration-300">
+              <div className="flex items-end gap-2 bg-[var(--surface-primary)] border border-[var(--border-primary)] rounded-2xl p-2 shadow-sm focus-within:border-[#647F98] focus-within:ring-1 focus-within:ring-[#647F98]/20 transition-all duration-200">
                 <button
                   onClick={toggleVoiceOutput}
                   title={voiceEnabled ? "Mute AI voice" : "Enable AI voice"}
                   className={`p-2.5 rounded-xl transition-colors shrink-0 ${
                     voiceEnabled
-                      ? "text-teal-400 bg-teal-500/10 hover:bg-teal-500/20"
-                      : "text-slate-500 hover:text-slate-300 hover:bg-slate-800/60"
+                      ? "text-[#647F98] bg-[#E4EAF0] hover:bg-[#D9E3EC]"
+                      : "text-[#777B80] hover:text-[#303D4A] hover:bg-[#F6F3EE]"
                   }`}
                 >
                   {voiceEnabled ? (
@@ -544,7 +577,7 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
                 </button>
 
                 <textarea
-                  className="flex-1 text-[var(--text-main)] placeholder-[var(--text-muted)]/70 bg-transparent resize-none text-[15px] leading-relaxed px-2 py-3 focus:outline-none max-h-32"
+                  className="flex-1 text-[var(--text-primary)] placeholder-[var(--text-secondary)] bg-transparent resize-none text-[15px] leading-relaxed px-2 py-3 focus:outline-none max-h-32"
                   placeholder={t("chat.placeholder")}
                   value={input}
                   onChange={(e) => {
@@ -556,15 +589,15 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
                   disabled={loading || fetching}
                 />
 
-                <div className="flex items-center gap-1 shrink-0 bg-black/20 rounded-xl p-1">
+                <div className="flex items-center gap-1 shrink-0 bg-[#E4EAF0] rounded-xl p-1">
                   <button
                     onClick={toggleRecording}
                     disabled={fetching}
                     title={recording ? "Stop recording" : "Start voice input"}
                     className={`relative p-2 rounded-lg transition-colors ${
                       recording
-                        ? "text-rose-400 bg-rose-500/20"
-                        : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 disabled:opacity-50"
+                        ? "text-[#C64C4C] bg-[#C64C4C]/10"
+                        : "text-[#777B80] hover:text-[#303D4A] hover:bg-[#D9E3EC] disabled:opacity-50"
                     }`}
                   >
                     {recording ? (
@@ -573,7 +606,7 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
                       <Mic className="w-[18px] h-[18px]" />
                     )}
                     {recording && (
-                      <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                      <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-[#C64C4C] animate-pulse" />
                     )}
                   </button>
 
@@ -582,8 +615,8 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
                     disabled={loading || fetching || !input.trim()}
                     className={`p-2 rounded-lg transition-all flex items-center justify-center ${
                       input.trim() && !loading && !fetching
-                        ? "bg-[var(--teal)] hover:bg-[var(--teal-hover)] text-white shadow-sm"
-                        : "bg-transparent text-slate-600 cursor-not-allowed"
+                        ? "bg-[#647F98] hover:bg-[#536D85] text-white shadow-sm"
+                        : "bg-transparent text-[#777B80] cursor-not-allowed"
                     }`}
                   >
                     {loading ? (
@@ -596,14 +629,14 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
               </div>
 
               {recording && (
-                <div className="flex items-center justify-center gap-1.5 py-3 animate-fade-in absolute -top-14 left-1/2 -translate-x-1/2 bg-[var(--bg-card)] border border-[var(--border)] rounded-full px-6 shadow-xl w-max">
-                  <span className="text-rose-400 text-xs font-medium mr-1 tracking-wide">
+                <div className="flex items-center justify-center gap-1.5 py-3 animate-fade-in absolute -top-14 left-1/2 -translate-x-1/2 bg-[var(--surface-primary)] border border-[var(--border-primary)] rounded-full px-6 shadow-md w-max">
+                  <span className="text-[#C64C4C] text-xs font-medium mr-1 tracking-wide">
                     {t("chat.listening")}
                   </span>
                   {Array.from({ length: 5 }, (_, i) => (
                     <span
                       key={i}
-                      className="waveform-bar h-2.5 bg-rose-400"
+                      className="waveform-bar h-2.5 bg-[#C64C4C]"
                       style={{ animationDelay: `${i * 0.15}s` }}
                     />
                   ))}
@@ -613,7 +646,6 @@ export default function ChatPage({ user, onCrisis, personality, trustedContact }
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
@@ -624,7 +656,7 @@ function Bubble({ msg, user, index }) {
   const parts = msg.content.split("**");
   const formatted = parts.map((p, i) =>
     i % 2 === 1 ? (
-      <strong key={i} className="font-semibold text-white drop-shadow-sm">
+      <strong key={i} className={`font-semibold ${isUser ? 'text-white' : 'text-[#303D4A]'}`}>
         {p}
       </strong>
     ) : (
@@ -648,7 +680,7 @@ function Bubble({ msg, user, index }) {
             />
           ) : (
             <div
-              className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold text-white bg-[var(--teal)]/80 ring-1 ring-white/10 shadow-sm"
+              className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold text-white bg-[var(--primary)]/80 ring-1 ring-black/5 shadow-sm"
               aria-hidden
             >
               {(user?.displayName || user?.email || "U").charAt(0).toUpperCase()}
@@ -663,7 +695,7 @@ function Bubble({ msg, user, index }) {
       <div
         className={`min-w-0 max-w-[min(100%,_90%)] sm:max-w-[75%] px-4 sm:px-5 py-4 text-[15px] leading-relaxed whitespace-pre-wrap [overflow-wrap:anywhere] shadow-sm ${
           isUser
-            ? "bg-[var(--teal)] text-white rounded-2xl rounded-tr-sm"
+            ? "bg-[var(--primary)] text-white rounded-2xl rounded-tr-sm"
             : "bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-main)] rounded-2xl rounded-tl-sm prose-custom"
         }`}
       >

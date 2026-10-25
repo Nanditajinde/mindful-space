@@ -11,17 +11,12 @@ export default function Layout({ user, children }) {
 
     return (
         <div
-            className="min-h-screen flex text-[var(--text-main)] font-sans antialiased 
-            selection:bg-[var(--primary)]/30 selection:text-white 
-            transition-all duration-500"
-            style={{
-                background: `
-                    radial-gradient(circle at top, rgba(255,255,255,0.05), transparent),
-                    var(--bg-gradient)
-                `
-            }}
+            className={`flex text-[var(--text-primary)] font-sans antialiased
+            selection:bg-[#647F98]/20 selection:text-[#303D4A]
+            ${isChatRoute ? "h-screen overflow-hidden" : "min-h-screen"}`}
+            style={{ background: `var(--page-background)` }}
         >
-            {/* Sidebar */}
+            {/* Fixed Left Sidebar */}
             {user && (
                 <Sidebar
                     user={user}
@@ -30,41 +25,35 @@ export default function Layout({ user, children }) {
                 />
             )}
 
-            {/* Main Wrapper */}
+            {/* Main content area — shifts right on desktop to clear the fixed sidebar */}
             <div
-                className={`flex-1 flex flex-col min-w-0 min-h-0 transition-all duration-300 
-                ${user ? "md:pl-[260px]" : ""}
-                ${
-                    isChatRoute
-                        ? "h-dvh max-h-dvh overflow-hidden"
-                        : ""
-                }`}
+                className={`flex-1 flex flex-col min-w-0 ${
+                    user ? "lg:pl-[280px]" : ""
+                } ${isChatRoute ? "h-screen max-h-screen overflow-hidden" : ""}`}
             >
-                {/* Mobile Header */}
+                {/* Mobile Top Bar */}
                 {user && (
-                    <div className="md:hidden h-14 border-b border-white/10 flex items-center px-4 
-                    backdrop-blur-md sticky top-0 z-30 bg-white/5">
+                    <div className="lg:hidden h-14 border-b border-[var(--border-primary)] flex items-center px-4 bg-[var(--surface-primary)] shadow-sm sticky top-0 z-30 shrink-0">
                         <button
                             onClick={() => setMobileOpen(true)}
-                            className="p-2 -ml-2 text-gray-400 hover:text-white transition-colors"
+                            className="p-2 -ml-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors rounded-lg hover:bg-[var(--surface-secondary)]"
                         >
                             <Menu className="w-5 h-5" />
                         </button>
-
-                        <span className="ml-2 font-medium text-white flex items-center gap-2">
+                        <span className="ml-2 font-semibold text-base text-[var(--text-primary)] flex items-center gap-2">
                             <span className="text-lg">🧠</span>
                             MindfulSpace
                         </span>
                     </div>
                 )}
 
-                {/* Main Content */}
+                {/* Page Content */}
                 <main
-                    className={`flex-1 w-full flex flex-col ${
-                        user
-                            ? `max-w-[1000px] mx-auto px-4 sm:px-8 py-6 md:py-12 ${
-                                  isChatRoute ? "min-h-0 overflow-hidden" : ""
-                              }`
+                    className={`flex-1 flex flex-col min-h-0 w-full ${
+                        isChatRoute
+                            ? "overflow-hidden"
+                            : user
+                            ? "max-w-[1200px] mx-auto w-full px-5 sm:px-8 py-8 lg:py-10"
                             : "h-screen"
                     }`}
                 >

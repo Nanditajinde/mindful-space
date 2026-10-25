@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  signInAnonymously,
 } from "firebase/auth";
 import {
   getFirestore,
@@ -35,6 +36,7 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 export const signInWithGoogle = () => signInWithPopup(auth, provider);
+export const signInAnonymouslyUser = () => signInAnonymously(auth);
 export const logOut = () => signOut(auth);
 
 // ── Firestore ─────────────────────────────────────────────────────
@@ -220,4 +222,24 @@ export async function getPersonality(userId) {
   const snap = await getDoc(ref);
   if (!snap.exists()) return null;
   return snap.data().personality ?? null;
+}
+
+// ── Therapist Appointments ────────────────────────────────────────
+
+/** Save a booked therapist appointment */
+export async function saveAppointment(userId, therapistData) {
+  await addDoc(collection(db, "appointments", userId, "bookings"), {
+    ...therapistData,
+    timestamp: serverTimestamp(),
+  });
+}
+
+/** Load all upcoming appointments for a user */
+export async function loadAppointments(userId) {
+  const q = query(
+    collection(db, "appointments", userId, "bookings"),
+    orderBy("timestamp", "desc")
+  );
+  const snap = await getDocs(q);
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
 }

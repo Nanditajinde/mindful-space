@@ -23,23 +23,23 @@ export function MarketingNavbar() {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled ? 'bg-[#080C14]/80 backdrop-blur-md border-[#1A1F2E]' : 'bg-transparent border-transparent'} px-6 h-16 flex items-center justify-between`}>
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled ? 'bg-[var(--surface-primary)]/95 backdrop-blur-md border-[var(--border-primary)] shadow-sm' : 'bg-transparent border-transparent'} px-6 h-16 flex items-center justify-between`}>
             <div className="flex items-center gap-2">
                 <span className="text-xl">🧠</span>
-                <span className="font-semibold text-[#F0F6FC] tracking-tight">MindfulSpace</span>
+                <span className="font-semibold text-[var(--text-primary)] tracking-tight">MindfulSpace</span>
             </div>
 
-            <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#8B949E]">
-                <button onClick={() => scrollToSection('features')} className="hover:text-[#F0F6FC] transition-colors">{t("mkt.nav.features")}</button>
-                <button onClick={() => scrollToSection('how-it-works')} className="hover:text-[#F0F6FC] transition-colors">{t("mkt.nav.howItWorks")}</button>
-                <Link to="/docs" className="hover:text-[#F0F6FC] transition-colors">{t("mkt.nav.docs")}</Link>
+            <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[var(--text-secondary)]">
+                <button onClick={() => scrollToSection('features')} className="hover:text-[var(--text-primary)] transition-colors">{t("mkt.nav.features")}</button>
+                <button onClick={() => scrollToSection('how-it-works')} className="hover:text-[var(--text-primary)] transition-colors">{t("mkt.nav.howItWorks")}</button>
+                <Link to="/docs" className="hover:text-[var(--text-primary)] transition-colors">{t("mkt.nav.docs")}</Link>
             </div>
 
             <div className="flex items-center gap-3">
                 <LanguageSelector variant="navbar" />
                 <Link
                     to="/login"
-                    className="text-sm font-medium text-[#F0F6FC] bg-[#0D1117] border border-[#0D9488]/40 hover:border-[#0D9488] px-4 py-2 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(13,148,136,0.15)] hover:shadow-[0_0_20px_rgba(13,148,136,0.3)]"
+                    className="btn-primary py-2 px-5 text-sm font-medium shadow-sm"
                 >
                     {t("mkt.nav.tryFree")}
                 </Link>

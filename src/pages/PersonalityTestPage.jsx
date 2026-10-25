@@ -71,34 +71,30 @@ export default function PersonalityTestPage({ userId, onDone }) {
         .replace("{total}", QUESTION_KEYS.length);
 
     return (
-        <div className="min-h-screen bg-[#0A0C10] flex items-center justify-center p-4">
+        <div className="min-h-screen bg-[var(--page-background)] flex items-center justify-center p-4">
             <div className="w-full max-w-lg">
                 {/* Header */}
                 <div className="text-center mb-8 relative">
-                    {/* Language selector top-right */}
-                    <div className="absolute right-0 top-0">
-                        
-                    </div>
-                    <div className="text-2xl font-bold text-white mb-2">{t("personality.title")}</div>
-                    <p className="text-slate-400 text-sm">
+                    <div className="text-2xl font-bold text-[var(--text-primary)] mb-2">{t("personality.title")}</div>
+                    <p className="text-[var(--text-secondary)] text-sm">
                         {t("personality.sub")}
                     </p>
                 </div>
 
                 {/* Progress bar */}
-                <div className="w-full bg-slate-800 rounded-full h-1.5 mb-8">
+                <div className="w-full bg-[#E4DFD7] rounded-full h-2 mb-8 overflow-hidden">
                     <div
-                        className="bg-teal-500 h-1.5 rounded-full transition-all duration-500"
+                        className="bg-[#647F98] h-2 rounded-full transition-all duration-300"
                         style={{ width: `${progress}%` }}
                     />
                 </div>
 
                 {/* Question card */}
-                <div className="bg-[#111318] border border-slate-700/50 rounded-2xl p-8">
-                    <div className="text-xs text-teal-400 font-medium mb-3 tracking-wider uppercase">
+                <div className="bg-[var(--surface-primary)] border border-[var(--border-primary)] shadow-sm rounded-2xl p-8">
+                    <div className="text-xs text-[#647F98] font-semibold mb-3 tracking-wider uppercase">
                         {questionLabel}
                     </div>
-                    <h2 className="text-white text-xl font-semibold mb-6 leading-snug">
+                    <h2 className="text-[var(--text-primary)] text-xl font-semibold mb-6 leading-snug">
                         {t(question.qKey)}
                     </h2>
                     <div className="flex flex-col gap-3">
@@ -107,9 +103,9 @@ export default function PersonalityTestPage({ userId, onDone }) {
                                 key={optKey}
                                 onClick={() => handleAnswer(optKey)}
                                 disabled={saving}
-                                className="w-full text-left px-5 py-4 rounded-xl border border-slate-700 text-slate-300
-                           hover:border-teal-500 hover:text-white hover:bg-teal-500/10
-                           transition-all duration-200 text-sm font-medium"
+                                className="w-full text-left px-5 py-4 rounded-xl border border-[#D9D6CF] text-[#303D4A] bg-[#FBFAF7]
+                           hover:border-[#647F98] hover:text-[#536D85] hover:bg-[#E4EAF0]
+                           transition-all duration-150 text-sm font-medium shadow-sm"
                             >
                                 {t(optKey)}
                             </button>
@@ -121,7 +117,7 @@ export default function PersonalityTestPage({ userId, onDone }) {
                 <div className="text-center mt-6">
                     <button
                         onClick={() => onDone(null)}
-                        className="text-slate-500 text-xs hover:text-slate-400 transition-colors"
+                        className="text-[#777B80] text-xs hover:text-[#303D4A] transition-colors"
                     >
                         {t("personality.skip")}
                     </button>

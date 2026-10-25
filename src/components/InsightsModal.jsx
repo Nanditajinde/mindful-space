@@ -4,11 +4,11 @@ import { X, Sparkles, TrendingUp, Lightbulb, ListChecks, Star, Target, Save, Loa
 import { saveInsights } from "../firebase";
 
 const SECTIONS = [
-    { key: "PATTERN", label: "Pattern", icon: TrendingUp, color: "text-blue-400", bg: "bg-blue-900/20 border-blue-800" },
-    { key: "INSIGHTS", label: "Insights", icon: Lightbulb, color: "text-yellow-400", bg: "bg-yellow-900/20 border-yellow-800" },
-    { key: "ACTION PLAN", label: "Action Plan", icon: ListChecks, color: "text-teal-400", bg: "bg-teal-900/20 border-teal-800" },
-    { key: "PROGRESS", label: "Progress", icon: Star, color: "text-purple-400", bg: "bg-purple-900/20 border-purple-800" },
-    { key: "FOCUS THIS WEEK", label: "Focus This Week", icon: Target, color: "text-orange-400", bg: "bg-orange-900/20 border-orange-800" },
+    { key: "PATTERN", label: "Pattern", icon: TrendingUp, color: "text-[#647F98]", bg: "bg-[#E4EAF0]/60 border-[#D5DEE6]" },
+    { key: "INSIGHTS", label: "Insights", icon: Lightbulb, color: "text-[#879BAD]", bg: "bg-[#FBFAF7] border-[#E4DFD7]" },
+    { key: "ACTION PLAN", label: "Action Plan", icon: ListChecks, color: "text-[#536D85]", bg: "bg-[#E4EAF0] border-[#D5DEE6]" },
+    { key: "PROGRESS", label: "Progress", icon: Star, color: "text-[#A596B5]", bg: "bg-[#EAE5ED]/60 border-[#D8D0E0]" },
+    { key: "FOCUS THIS WEEK", label: "Focus This Week", icon: Target, color: "text-[#C49A82]", bg: "bg-[#F0E5DC]/60 border-[#DFD2C7]" },
 ];
 
 // Bulletproof parser: handles numbered sections, bold markdown, and keyword headers
@@ -80,21 +80,21 @@ export default function InsightsModal({ userId, text, loading, onClose }) {
 
     return (
         <div className="fixed inset-0 z-[9997] flex items-center justify-center p-4"
-            style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)" }}>
+            style={{ background: "rgba(48, 61, 74, 0.45)", backdropFilter: "blur(4px)" }}>
 
-            <div className="relative bg-[#0F172A] border border-[#1E293B] rounded-2xl w-full max-w-2xl max-h-[88vh] flex flex-col shadow-2xl animate-slide-up">
+            <div className="relative bg-[var(--surface-primary)] border border-[var(--border-primary)] rounded-2xl w-full max-w-2xl max-h-[88vh] flex flex-col shadow-xl animate-slide-up">
                 {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-[#1E293B] flex-shrink-0">
+                <div className="flex items-center justify-between p-6 border-b border-[var(--border-primary)] flex-shrink-0">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-teal-600 flex items-center justify-center">
-                            <Sparkles className="w-5 h-5 text-white" />
+                        <div className="w-10 h-10 rounded-xl bg-[#E4EAF0] border border-[#D5DEE6] flex items-center justify-center shadow-sm">
+                            <Sparkles className="w-5 h-5 text-[#536D85]" />
                         </div>
                         <div>
-                            <h2 className="text-white font-bold text-lg">My AI Insights</h2>
-                            <p className="text-slate-500 text-xs">Powered by Gemini AI</p>
+                            <h2 className="text-[var(--text-primary)] font-semibold text-lg">My AI Insights</h2>
+                            <p className="text-[var(--text-secondary)] text-xs">Personalized wellness summary</p>
                         </div>
                     </div>
-                    <button onClick={onClose} className="p-2 rounded-lg text-slate-500 hover:text-white hover:bg-slate-700 transition-all">
+                    <button onClick={onClose} className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-secondary)] transition-all">
                         <X className="w-4 h-4" />
                     </button>
                 </div>
@@ -106,19 +106,19 @@ export default function InsightsModal({ userId, text, loading, onClose }) {
                         <div className="space-y-4">
                             <div className="flex flex-col items-center justify-center py-12 gap-4">
                                 <div className="spinner-orbital" />
-                                <p className="text-teal-400 text-sm font-medium animate-pulse">
+                                <p className="text-[var(--primary)] text-sm font-medium animate-pulse">
                                     Gemini is analysing your journey…
                                 </p>
-                                <p className="text-slate-600 text-xs text-center max-w-xs">
+                                <p className="text-[var(--text-muted)] text-xs text-center max-w-xs">
                                     Reviewing mood patterns, assessment scores, and crafting personalised insights
                                 </p>
                             </div>
                             {[180, 120, 240, 100, 80].map((w, i) => (
-                                <div key={i} className="rounded-xl p-4 border border-[#1E293B] animate-pulse space-y-2">
-                                    <div className="h-3 bg-slate-700 rounded w-1/4" />
-                                    <div className="h-2 bg-slate-800 rounded" style={{ width: `${w}px` }} />
-                                    <div className="h-2 bg-slate-800 rounded w-full" />
-                                    <div className="h-2 bg-slate-800 rounded w-3/4" />
+                                <div key={i} className="rounded-xl p-4 border border-[var(--border)] animate-pulse space-y-2">
+                                    <div className="h-3 bg-slate-200 rounded w-1/4" />
+                                    <div className="h-2 bg-slate-100 rounded" style={{ width: `${w}px` }} />
+                                    <div className="h-2 bg-slate-100 rounded w-full" />
+                                    <div className="h-2 bg-slate-100 rounded w-3/4" />
                                 </div>
                             ))}
                         </div>
@@ -134,13 +134,13 @@ export default function InsightsModal({ userId, text, loading, onClose }) {
                                             <Icon className={`w-4 h-4 ${color}`} />
                                             <h3 className={`font-semibold text-sm ${color}`}>{label}</h3>
                                         </div>
-                                        <p className="text-slate-300 text-sm leading-relaxed whitespace-pre-wrap">{content}</p>
+                                        <p className="text-[var(--text-main)] text-sm leading-relaxed whitespace-pre-wrap">{content}</p>
                                     </div>
                                 );
                             })
                         ) : (
-                            <div className="border rounded-xl p-5 bg-slate-900/50 border-slate-700 animate-fade-in">
-                                <p className="text-slate-300 text-sm leading-relaxed whitespace-pre-wrap">{text}</p>
+                            <div className="border rounded-xl p-5 bg-slate-50 border-[var(--border)] animate-fade-in">
+                                <p className="text-[var(--text-main)] text-sm leading-relaxed whitespace-pre-wrap">{text}</p>
                             </div>
                         ))
                     ) : (
@@ -150,14 +150,14 @@ export default function InsightsModal({ userId, text, loading, onClose }) {
 
                 {/* Footer */}
                 {!loading && text && (
-                    <div className="p-6 border-t border-[#1E293B] flex-shrink-0">
+                    <div className="p-6 border-t border-[var(--border)] flex-shrink-0">
                         <button
                             onClick={handleSave}
                             disabled={saving || saved}
-                            className={`w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all
+                            className={`w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all shadow-sm
                          ${saved
-                                    ? "bg-[var(--bg-dark)]/40 border border-green-700 text-green-400"
-                                    : "bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-600 hover:to-teal-500 text-white shadow-lg"
+                                    ? "bg-green-50 border border-green-200 text-green-700 shadow-none"
+                                    : "bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white"
                                 }`}
                         >
                             {saving ? <><Loader2 className="w-4 h-4 animate-spin" /> Saving…</>

@@ -13,20 +13,20 @@ export default function CrisisModal({ onClose, contact, userName }) {
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-      style={{ background: "rgba(0,0,0,0.88)", backdropFilter: "blur(12px)" }}>
+      style={{ background: "rgba(48, 61, 74, 0.55)", backdropFilter: "blur(4px)" }}>
       <div
-        className="max-w-md w-full rounded-2xl p-8 text-center shadow-2xl animate-slide-up"
+        className="max-w-md w-full rounded-2xl p-7 text-center shadow-xl animate-slide-up"
         style={{
-          background: "#0F172A",
-          border: "2px solid #dc2626",
-          boxShadow: "0 0 40px rgba(220,38,38,0.2)",
+          background: "var(--surface-primary)",
+          border: "2px solid #C64C4C",
+          boxShadow: "0 10px 30px rgba(198, 76, 76, 0.16)",
         }}
       >
-        <div className="text-5xl mb-4 animate-float">🆘</div>
-        <h2 className="text-2xl font-bold mb-3" style={{ color: "#f87171" }}>{t("crisis.title")}</h2>
-        <p className="text-sm leading-relaxed mb-6" style={{ color: "#94a3b8" }}>
+        <div className="text-4xl mb-3">🆘</div>
+        <h2 className="text-2xl font-bold mb-2 text-[#C64C4C]">{t("crisis.title")}</h2>
+        <p className="text-sm leading-relaxed mb-6 text-[var(--text-secondary)]">
           {t("crisis.sub1")}
-          <strong style={{ color: "#e2e8f0" }}> {t("crisis.sub2")}</strong> {t("crisis.sub3")}
+          <strong className="text-[var(--text-primary)]"> {t("crisis.sub2")}</strong> {t("crisis.sub3")}
         </p>
 
         {whatsappUrl && (
@@ -34,7 +34,7 @@ export default function CrisisModal({ onClose, contact, userName }) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-white mb-6 transition-transform hover:scale-105"
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-white mb-5 transition-transform hover:scale-[1.02] shadow-sm"
             style={{ background: "#25D366" }} // Authentic WhatsApp green
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -44,31 +44,38 @@ export default function CrisisModal({ onClose, contact, userName }) {
           </a>
         )}
 
-        <div className="space-y-3 mb-6">
+        <div className="space-y-2.5 mb-6">
           {[
-            { name: "iCall (India)", number: "9152987821", gradFrom: "#7f1d1d", gradTo: "#991b1b", textColor: "#fca5a5" },
-            { name: "Vandrevala Foundation", number: "1860-2662-345", gradFrom: "#7c2d12", gradTo: "#9a3412", textColor: "#fdba74" },
-            { name: "NIMHANS Helpline", number: "080-46110007", gradFrom: "#713f12", gradTo: "#854d0e", textColor: "#fde047" },
+            { name: "iCall (India)", number: "9152987821", bg: "#7A2E2E" },
+            { name: "Vandrevala Foundation", number: "1860-2662-345", bg: "#7D3D24" },
+            { name: "NIMHANS Helpline", number: "080-46110007", bg: "#724A21" },
           ].map((h) => (
             <div
               key={h.name}
-              className="rounded-xl p-3 hover-float"
-              style={{ background: `linear-gradient(135deg, ${h.gradFrom}, ${h.gradTo})`, border: `1px solid ${h.textColor}44` }}
+              className="rounded-xl p-3 text-left flex items-center justify-between"
+              style={{ background: h.bg }}
             >
-              <div className="text-xs opacity-70 mb-0.5" style={{ color: h.textColor }}>{h.name}</div>
+              <div>
+                <div className="text-xs text-white/80">{h.name}</div>
+                <a
+                  href={`tel:${h.number}`}
+                  className="font-bold text-base text-white hover:underline"
+                >
+                  {h.number}
+                </a>
+              </div>
               <a
                 href={`tel:${h.number}`}
-                className="font-bold text-lg text-white hover:underline"
+                className="px-3 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-white text-xs font-semibold"
               >
-                {h.number}
+                Call
               </a>
             </div>
           ))}
         </div>
         <button
           onClick={onClose}
-          className="w-full py-3 rounded-xl text-sm transition-all hover:scale-[1.01]"
-          style={{ background: "#1E293B", color: "#94a3b8" }}
+          className="btn-secondary w-full py-2.5 text-sm font-medium"
         >
           {t("crisis.continue")}
         </button>

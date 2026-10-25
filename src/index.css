@@ -2,33 +2,328 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design System (GitBook-style Dark Theme) ─────────────────────────────────────── */
+/* ── Dusty Blue & Warm Ivory Design System ───────────────────────── */
 :root {
-  --bg-dark: #0D0F14;
-  /* Refined dark background */
-  --bg-sidebar: #13151A;
-  /* Very slightly lighter sidebar */
-  --bg-card: #181A20;
-  /* Elevated card background */
-  --border: rgba(255, 255, 255, 0.06);
-  /* Extremely subtle borders */
-  --primary: #22C55E;
-  --primary-hover: #16a34a;
-  --text-main: #F1F5F9;
-  /* Ultra-crisp primary text */
-  --text-muted: #94A3B8;
-  /* Muted text */
-  --bg-hover: rgba(255, 255, 255, 0.04);
+  /* Page & Surface Colors */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F6F3EE; /* Warm Ivory */
+  --bg-tertiary: #EFECE6;
+  --bg-accent: #E4EAF0;
+  --bg-gradient: #F6F3EE;
+  --bg-dark: #F6F3EE;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+
+  /* Surfaces */
+  --surface-primary: #FFFFFF;
+  --surface-secondary: #FBFAF7;
+  --surface-tertiary: #F6F3EE;
+
+  /* Typography / Text Colors */
+  --text-primary: #303D4A;   /* Charcoal Blue */
+  --text-main: #303D4A;
+  --text-secondary: #777B80; /* Warm Grey */
+  --text-tertiary: #879BAD;
+  --text-muted: #777B80;
+
+  /* Brand Palette */
+  --brand-primary: #647F98;        /* Dusty Blue */
+  --brand-primary-hover: #536D85;  /* Deeper Dusty Blue */
+  --primary: #647F98;
+  --primary-hover: #536D85;
+  --brand-secondary: #879BAD;      /* Slate Blue */
+  --brand-accent: #A596B5;         /* Muted Mauve */
+  --brand-warm: #C49A82;           /* Soft Terracotta */
+
+  /* Semantic Status Colors */
+  --success: #527A66;
+  --warning: #B88745;
+  --error: #C64C4C;
+  --sos: #C64C4C;
+  --info: #647F98;
+
+  /* Borders & Inputs */
+  --border-primary: #E4DFD7;       /* Soft Greige */
+  --border-secondary: #D5DEE6;
+  --border: #E4DFD7;
+  --input-bg: #FBFAF7;
+  --input-border: #D9D6CF;
+  --input-focus: #647F98;
+
+  /* Subtle Shadows & Hover */
+  --shadow-sm: 0 1px 3px rgba(48, 61, 74, 0.03);
+  --shadow-md: 0 2px 8px rgba(48, 61, 74, 0.04);
+  --shadow-lg: 0 4px 16px rgba(48, 61, 74, 0.06);
+  --shadow-card: 0 2px 8px rgba(48, 61, 74, 0.04);
+  --bg-hover: rgba(100, 127, 152, 0.08);
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Border Radius (8px to 14px) */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-full: 9999px;
+
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
 }
 
-
 body {
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  transition: background-color 0.4s ease, color 0.3s ease;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-secondary);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+}
+
+/* ── Typography Hierarchy ─────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+h1 { font-size: 2rem; }         /* 32px: page headings (28-36px) */
+h2 { font-size: 1.375rem; }      /* 22px: section headings (20-24px) */
+h3 { font-size: 1.0625rem; }     /* 17px: card headings (16-18px) */
+h4 { font-size: 1rem; }
+h5 { font-size: 0.875rem; }
+
+p {
+  margin-bottom: var(--space-4);
+  color: var(--text-secondary);
+  font-size: 0.9375rem;          /* 15px: body text (14-16px) */
+}
+
+a {
+  color: #536D85;
+  transition: color 180ms ease;
+}
+
+a:hover {
+  color: #3F586F;
+}
+
+/* ── Primary Buttons ─────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.65rem 1.25rem;
+  background-color: var(--brand-primary);
+  background: var(--brand-primary);
+  color: #FFFFFF;
+  border: 1px solid var(--brand-primary);
+  border-radius: 10px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(48, 61, 74, 0.05);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-primary-hover);
+  background: var(--brand-primary-hover);
+  border-color: var(--brand-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(48, 61, 74, 0.08);
+}
+
+/* ── Secondary Buttons ───────────────────────────────────────────── */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.65rem 1.25rem;
+  background-color: #E4EAF0;
+  background: #E4EAF0;
+  color: #536D85;
+  border: 1px solid #D5DEE6;
+  border-radius: 10px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 180ms ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #DCE3EA;
+  border-color: #C6D2DC;
+  color: #3F586F;
+}
+
+/* ── SOS / Emergency Button ──────────────────────────────────────── */
+.btn-sos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.65rem 1.25rem;
+  background-color: #C64C4C;
+  background: #C64C4C;
+  color: #FFFFFF;
+  border: 1px solid #C64C4C;
+  border-radius: 10px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(198, 76, 76, 0.2);
+  transition: all 180ms ease;
+}
+
+.btn-sos:hover {
+  background-color: #B53F3F;
+  border-color: #B53F3F;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(198, 76, 76, 0.25);
+}
+
+/* ── Cards and Panels ────────────────────────────────────────────── */
+.card {
+  background-color: var(--surface-primary);
+  background: var(--surface-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(48, 61, 74, 0.04);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.card:hover {
+  border-color: #D5DEE6;
+  box-shadow: 0 4px 12px rgba(48, 61, 74, 0.06);
+}
+
+.section-panel {
+  background-color: var(--surface-primary);
+  background: var(--surface-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(48, 61, 74, 0.04);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.section-panel:hover {
+  border-color: #D5DEE6;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Badges & Pills ──────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: #E4EAF0;
+  color: #536D85;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-primary);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.text-brand {
+  color: var(--brand-primary);
+}
+
+/* ── Mood Tracker Components ─────────────────────────────────────── */
+.mood-option {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-primary);
+  transition: all 180ms ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.mood-option-positive {
+  background-color: #E4EAF0;
+  color: #303D4A;
+}
+
+.mood-option-neutral {
+  background-color: #F0E5DC;
+  color: #303D4A;
+}
+
+.mood-option-low {
+  background-color: #EAE5ED;
+  color: #303D4A;
+}
+
+.mood-option.selected {
+  border: 2px solid #647F98;
+  box-shadow: 0 0 0 2px rgba(100, 127, 152, 0.2);
+}
+
+/* ── Input Fields ────────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  background-color: var(--input-bg);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #647F98;
+  box-shadow: 0 0 0 3px rgba(100, 127, 152, 0.15);
+}
+
+.input::placeholder {
+  color: #9DA3A8;
 }
 
 /* ── Scrollbar ─────────────────────────────────────────── */
@@ -42,12 +337,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 /* ── Typography & Markdown-like styling ────────────────── */
@@ -90,7 +385,7 @@ button:focus {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.1);
   border-top-color: var(--primary);
   animation: spin-cw 0.8s linear infinite;
 }
@@ -143,7 +438,7 @@ button:focus {
   display: inline-block;
   width: 3px;
   border-radius: 2px;
-  background: #ef4444;
+  background: #C64C4C;
   animation: wave-bar 1s ease-in-out infinite;
 }
 
@@ -251,5 +546,5 @@ html {
 }
 
 * {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }     

@@ -63,7 +63,7 @@ export function DocsLayout({ children }) {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#111827] text-slate-200 font-sans selection:bg-teal-500/30 selection:text-teal-100 flex flex-col">
+        <div className="min-h-screen bg-[var(--page-background)] text-[var(--text-primary)] font-sans selection:bg-[#647F98]/20 selection:text-[#303D4A] flex flex-col">
             <DocsNavbar setMobileOpen={setMobileOpen} openSearch={() => setSearchOpen(true)} />
             <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 

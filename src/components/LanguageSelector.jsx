@@ -16,10 +16,10 @@ export default function LanguageSelector({ variant = "sidebar" }) {
   // 🔹 SIDEBAR VERSION
   if (variant === "sidebar") {
     return (
-      <div className="flex items-center gap-2 px-3 py-2">
-        <span className="text-sm text-slate-500">🌐</span>
+      <div className="flex items-center gap-2 px-1 py-1">
+        <span className="text-sm text-[var(--text-secondary)]">🌐</span>
 
-        <div className="flex items-center gap-1.5 bg-slate-800/60 border border-slate-700 rounded-full px-1 py-1">
+        <div className="flex items-center gap-1 bg-[var(--surface-secondary)] border border-[var(--border-primary)] rounded-full px-1 py-0.5">
           {LANGS.map((l) => (
             <button
               key={l.code}
@@ -27,8 +27,8 @@ export default function LanguageSelector({ variant = "sidebar" }) {
               title={l.full}
               className={`${baseBtn} ${
                 lang === l.code
-                  ? "bg-teal-500 text-white shadow-sm"
-                  : "text-slate-400 hover:text-white hover:bg-slate-700/60"
+                  ? "bg-[#647F98] text-white shadow-sm font-semibold"
+                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-primary)]"
               }`}
             >
               {l.label}
@@ -41,10 +41,10 @@ export default function LanguageSelector({ variant = "sidebar" }) {
 
   // 🔹 NAVBAR VERSION
   return (
-    <div className="flex items-center gap-2 bg-[#0D1117] border border-[#1A1F2E] rounded-full px-2 py-1.5 shadow-sm">
-      <span className="text-sm text-[#8B949E]">🌐</span>
+    <div className="flex items-center gap-2 bg-[var(--surface-primary)] border border-[var(--border-primary)] rounded-full px-2 py-1 shadow-sm">
+      <span className="text-sm text-[var(--text-secondary)]">🌐</span>
 
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1">
         {LANGS.map((l) => (
           <button
             key={l.code}
@@ -52,8 +52,8 @@ export default function LanguageSelector({ variant = "sidebar" }) {
             title={l.full}
             className={`${baseBtn} ${
               lang === l.code
-                ? "bg-gradient-to-r from-[#0D9488] to-[#7C3AED] text-white shadow-md"
-                : "text-[#8B949E] hover:text-white hover:bg-white/10"
+                ? "bg-[#647F98] text-white shadow-sm font-semibold"
+                : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-secondary)]"
             }`}
           >
             {l.label}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth, saveUserProfile, getTrustedContact, getPersonality } from "./firebase";
+import { auth, saveUserProfile, getTrustedContact, getPersonality, signInAnonymouslyUser } from "./firebase";
 import { ThemeProvider } from "./context/ThemeContext";
 
 
@@ -14,6 +14,8 @@ import LoginPage from "./pages/LoginPage";
 import ChatPage from "./pages/ChatPage";
 import AssessmentPage from "./pages/AssessmentPage";
 import DashboardPage from "./pages/DashboardPage";
+import TherapistsPage from "./pages/TherapistsPage";
+import SettingsPage from "./pages/SettingsPage";
 
 // Docs Layout & Pages
 import { DocsLayout } from "./components/docs/layout/DocsLayout";
@@ -38,9 +40,7 @@ import TechStack from "./pages/docs/TechStack";
 // Marketing
 import MarketingPage from "./pages/MarketingPage";
 
-<ThemeProvider>
-  <App />
-</ThemeProvider>
+
 
 /** Rejects after ms milliseconds — prevents Firestore from hanging */
 const withTimeout = (promise, ms = 5000) =>
@@ -52,6 +52,50 @@ const withTimeout = (promise, ms = 5000) =>
   ]);
 
   
+
+function OnboardingModals({
+  user,
+  personalityDone,
+  setPersonalityDone,
+  setPersonality,
+  trustedContactSaved,
+  setTrustedContactSaved,
+  setTrustedContactData,
+}) {
+  const location = useLocation();
+  if (location.pathname === "/" || location.pathname.startsWith("/docs")) {
+    return null;
+  }
+
+  return (
+    <>
+      {/* Step 1 — Personality test */}
+      {!personalityDone && (
+        <div style={{ position: "fixed", inset: 0, zIndex: 50 }}>
+          <PersonalityTestPage
+            userId={user.uid}
+            onDone={(data) => {
+              setPersonality(data);
+              setPersonalityDone(true);
+            }}
+          />
+        </div>
+      )}
+
+      {/* Step 2 — Trusted contact onboarding */}
+      {personalityDone && !trustedContactSaved && (
+        <TrustedContactModal
+          userId={user.uid}
+          editMode={false}
+          onSaved={(data) => {
+            setTrustedContactSaved(true);
+            setTrustedContactData(data);
+          }}
+        />
+      )}
+    </>
+  );
+}
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -129,7 +173,7 @@ export default function App() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0A0C10]">
+      <div className="min-h-screen flex items-center justify-center bg-[var(--bg-dark)]">
         <div className="flex flex-col items-center gap-4">
           <div className="spinner-orbital" />
           <p className="text-slate-400 font-medium text-sm tracking-wide">
@@ -173,28 +217,15 @@ export default function App() {
         />
       )}
 
-      {/* Step 1 — Personality test (right after login) */}
-      {user && !personalityDone && (
-        <div style={{ position: "fixed", inset: 0, zIndex: 50 }}>
-          <PersonalityTestPage
-            userId={user.uid}
-            onDone={(data) => {
-              setPersonality(data);
-              setPersonalityDone(true);
-            }}
-          />
-        </div>
-      )}
-
-      {/* Step 2 — Trusted contact onboarding (only after personality test is done) */}
-      {user && personalityDone && !trustedContactSaved && (
-        <TrustedContactModal
-          userId={user.uid}
-          editMode={false}
-          onSaved={(data) => {
-            setTrustedContactSaved(true);
-            setTrustedContactData(data);
-          }}
+      {user && (
+        <OnboardingModals
+          user={user}
+          personalityDone={personalityDone}
+          setPersonalityDone={setPersonalityDone}
+          setPersonality={setPersonality}
+          trustedContactSaved={trustedContactSaved}
+          setTrustedContactSaved={setTrustedContactSaved}
+          setTrustedContactData={setTrustedContactData}
         />
       )}
 
@@ -227,7 +258,7 @@ export default function App() {
           element={
             user ? (
               <Layout user={user}>
-                <AssessmentPage user={user} />
+                <AssessmentPage user={user} trustedContact={trustedContactData} />
               </Layout>
             ) : (
               <Navigate to="/login" />
@@ -240,6 +271,30 @@ export default function App() {
             user ? (
               <Layout user={user}>
                 <DashboardPage user={user} />
+              </Layout>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/therapists"
+          element={
+            user ? (
+              <Layout user={user}>
+                <TherapistsPage user={user} />
+              </Layout>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            user ? (
+              <Layout user={user}>
+                <SettingsPage user={user} />
               </Layout>
             ) : (
               <Navigate to="/login" />
